@@ -1,0 +1,130 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var ContactForm $block */
+/** @var UserDataProvider $viewModel */
+
+use Magento\Cms\Block\Block;
+use Gone\Contact\Block\ContactForm;
+use Magento\Contact\ViewModel\UserDataProvider;
+
+$viewModel = $block->getViewModel();
+$prefilledMessage = $block->getPrefilledData();
+if (empty($prefilledMessage)) {
+    $prefilledMessage = $block->escapeHtml($viewModel->getUserComment()); // normal magento prefilled
+}
+?>
+
+<div class="contact-form">
+    <p class="legend-title"><?= __('Write Us') ?></p>
+    <form class="form contact"
+          action="<?= $block->escapeUrl($block->getFormAction()) ?>"
+          id="contact-form"
+          method="post"
+          data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
+          data-mage-init='{"validation":{}}'>
+        <fieldset class="fieldset">
+            <div class="field note no-label">
+                <?= $block->escapeHtml(__('Jot us a note and we’ll get back to you as quickly as possible.')) ?>
+            </div>
+            <div class="field name required">
+                <label class="label" for="name"><span><?= $block->escapeHtml(__('Name')) ?></span></label>
+                <div class="control">
+                    <input name="name"
+                           id="name"
+                           title="<?= $block->escapeHtmlAttr(__('Name')) ?>"
+                           value="<?= $block->escapeHtmlAttr($viewModel->getUserName()) ?>"
+                           class="input-text"
+                           type="text"
+                           data-validate="{required:true}"/>
+                </div>
+            </div>
+            <div class="field email required">
+                <label class="label" for="email"><span><?= $block->escapeHtml(__('Email')) ?></span></label>
+                <div class="control">
+                    <input name="email"
+                           id="email"
+                           title="<?= $block->escapeHtmlAttr(__('Email')) ?>"
+                           value="<?= $block->escapeHtmlAttr($viewModel->getUserEmail()) ?>"
+                           class="input-text"
+                           type="email"
+                           data-validate="{required:true, 'validate-email':true}"/>
+                </div>
+            </div>
+            <div class="field company">
+                <label class="label" for="company"><span><?= $block->escapeHtml(__('Company')) ?></span></label>
+                <div class="control">
+                    <input name="company"
+                           id="company"
+                           title="<?= $block->escapeHtmlAttr(__('Company')) ?>"
+                           value=""
+                           class="input-text"
+                           type="text" />
+                </div>
+            </div>
+            <div class="field telephone">
+                <label class="label" for="telephone"><span><?= $block->escapeHtml(__('Phone Number')) ?></span></label>
+                <div class="control">
+                    <input name="telephone"
+                           id="telephone"
+                           title="<?= $block->escapeHtmlAttr(__('Phone Number')) ?>"
+                           value="<?= $block->escapeHtmlAttr($viewModel->getUserTelephone()) ?>"
+                           class="input-text"
+                           type="tel" />
+                </div>
+            </div>
+            <div class="field comment required">
+                <label class="label" for="comment">
+                    <span><?= $block->escapeHtml(__('What is your request ?')) ?></span>
+                </label>
+                <div class="control">
+                <!-- 410 override begin -->
+                <textarea name="comment"
+                          id="comment"
+                          title="<?= $block->escapeHtmlAttr(__('What’s on your mind?')) ?>"
+                          class="input-text"
+                          cols="5"
+                          rows="3"
+                          data-validate="{required:true}"
+                ><?= $prefilledMessage ?></textarea>
+                <!-- 410 override end -->
+                </div>
+            </div>
+            <div class="field newsletter">
+                <div class="control">
+                    <input type="checkbox" value="newletter" name="subscribe">
+                </div>
+                <label class="label" for="newsletter">
+                    <span><?= $block->escapeHtml(__('Subscribe our newsletter')) ?></span>
+                </label>
+            </div>
+            <?= $block->getChildHtml('form.additional.info') ?>
+            <?= $block->getChildHtml('contact_form_captcha') ?>
+        </fieldset>
+        <div class="actions-toolbar">
+            <div class="primary">
+                <input type="hidden" name="hideit" id="hideit" value="" />
+                <button type="submit" title="<?= $block->escapeHtmlAttr(__('Submit')) ?>" class="action submit primary">
+                    <span><?= $block->escapeHtml(__('Submit')) ?></span>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="contact-information">
+    <p class="legend-title"><?= __('Write Us') ?></p>
+    <?= $this->getLayout()->createBlock(Block::class)->setBlockId('contact-information')->toHtml(); ?>
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Customer/js/block-submit-on-send": {
+                "formId": "contact-form"
+            }
+        }
+    }
+</script>

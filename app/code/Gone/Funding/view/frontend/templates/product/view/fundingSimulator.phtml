@@ -1,0 +1,51 @@
+<?php
+/**
+ * @var $block FundingSimulator
+ */
+
+use Gone\Funding\Block\Product\View\FundingSimulator;
+
+$hasFunding = $block->isFundingAuthorized();
+$price = $block->getProductPriceHt();
+
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$customerSession = $objectManager->create('Magento\Customer\Model\Session');
+$customerGroupId = $customerSession->isLoggedIn() ? $customerSession->getCustomer()->getGroupId() : 0;
+
+?>
+<?php if ($hasFunding):?>
+    <hr>
+    <div id="funding-container">
+        <?= __('This product can be funded *') ?>
+
+        <div id="funding-details">
+            <?= __("Your simulation") ?>:
+            <span>
+                <span id="monthly_value" class="bold"></span>
+                <span><?= ($customerGroupId == 32 || $customerGroupId == 34) ? 'HT par mois' : 'TTC par mois' ?> / <span id="months_value" class='bold'></span><?= __('month') ?> *</span>
+            </span>
+        </div>
+        <input type="text" id="fundingslider" data-group="<?= $customerGroupId; ?>" data-price="<?= $price; ?>" data-mapping='<?= $hasFunding; ?>' />
+        <div id="funding-mentions">
+            <?= __("Total cost") ?> : <span id="total_cost"></span> <?= ($customerGroupId == 32 || $customerGroupId == 34) ? 'HT' : 'TTC' ?>
+            <p>* <?= __("Reserved to professionals only") ?>,
+                <span data-atc="<?= base64_encode($block->getUrl($block::CONDITIONS_PAGE))?>" class="quatrecentdix">
+                    <?= __('Informations & conditions') ?>
+                </span>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        require([
+            'jquery',
+            'fundingslider',
+            'domReady!'
+        ], function ($) {
+            'use strict';
+            $(function () {
+                $('#fundingslider').fundingslider();
+            });
+        });
+    </script>
+<?php endif; ?>

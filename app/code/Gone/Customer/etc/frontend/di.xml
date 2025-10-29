@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright © 410 Gone (contact@410-gone.fr). All rights reserved.
+  ~ See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Aheadworks\Affiliate\Controller\Customer\Index">
+        <plugin name="restrict_affiliate_access" type="Gone\Customer\Plugin\RedirectAffiliateAccess" disabled="false"/>
+    </type>
+    <type name="Magento\Customer\Model\CustomerExtractor">
+        <plugin name="addTva_Customer_Extractor" type="Gone\Customer\Plugin\AddTvaCustomerExtractor" disabled="false"/>
+    </type>
+</config>

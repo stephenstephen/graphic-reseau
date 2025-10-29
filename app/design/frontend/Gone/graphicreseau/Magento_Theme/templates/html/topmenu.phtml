@@ -1,0 +1,186 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ * Top menu for store
+ *
+ * @var $block \Magento\Theme\Block\Html\Topmenu
+ */
+
+use Gone\Base\Helper\Utils;
+use Gone\Cloaking\Helper\Replace;
+
+/** @var \Gone\Base\Helper\Utils $_utils */
+$_utils = $this->helper(Utils::class);
+$isHomePage = $_utils->isHomePage();
+
+?>
+<?php $columnsLimit = $block->getColumnsLimit() ?: 0; ?>
+<?php $_menu = $block->getHtml('level-top', 'submenu', $columnsLimit) ?>
+
+<nav class="navigation" data-action="navigation">
+    <ul id="header-menu-all-product" class="collapse">
+        <?= /* @escapeNotVerified */
+        $_menu ?>
+        <?= /* @escapeNotVerified */
+        $block->getChildHtml() ?>
+    </ul>
+    <ul class="header-menu-general-links">
+        <li class="all-product-link-wrapper"><span
+                class="all-product-link collapsed"><?= __("Tous nos produits") ?></span></li>
+        <?php if ($isHomePage): ?>
+            <li><a class=""
+                   href="<?= $block->getBaseUrl() . 'promo-bonnes-affaires.html' ?>"><?= __("Les promotions") ?></a>
+            </li>
+            <li><a class=""
+                   href="<?= $block->getBaseUrl() . 'nouveaux-produits.html' ?>"><?= __("Les nouveautés") ?></a></li>
+            <li><a href="<?= $block->getBaseUrl() . 'occasion.html' ?>"><?= __("Occasions") ?></a></li>
+            <li><a href="<?= $block->getBaseUrl() . 'amasty_quote/cart' ?>"><?= __("Demande de devis") ?></a></li>
+        <?php else: ?>
+            <li><span class=" <?= Replace::LINK_TO_CLOAK_CLASS ?>"
+                      data-atc="<?= base64_encode($block->getBaseUrl() . 'promo-bonnes-affaires.html') ?>"><?= __("Les promotions") ?></span>
+            </li>
+            <li><span class=" <?= Replace::LINK_TO_CLOAK_CLASS ?>"
+                      data-atc="<?= base64_encode($block->getBaseUrl() . 'nouveaux-produits.html') ?>"><?= __("Les nouveautés") ?></span>
+            </li>
+            <li><span class="<?= Replace::LINK_TO_CLOAK_CLASS ?>"
+                      data-atc="<?= base64_encode($block->getBaseUrl() . 'occasion.html') ?>"><?= __("Occasions") ?></span>
+            </li>
+            <li><span class="<?= Replace::LINK_TO_CLOAK_CLASS ?>"
+                      data-atc="<?= base64_encode($block->getBaseUrl() . 'amasty_quote/cart') ?>"><?= __("Demande de devis") ?></span>
+            </li>
+        <?php endif; ?>
+    </ul>
+</nav>
+<script>
+    require([
+        'jquery',
+        "menu",
+        'jquery/ui',
+        'jquery/jquery.mobile.custom',
+        'domReady!'
+    ], function ($, menu) {
+
+        let previousWidth = "";
+        const menuLinkWrapper = $(".all-product-link-wrapper");
+        const menuLink = $(".all-product-link");
+        const menuContent = $("#header-menu-all-product");
+
+        // Detecter le scroll sur la page
+        $(document).scroll(function () {
+            let scrollValue = $(this).scrollTop();
+            if (scrollValue > 1) {
+                $("body").addClass("scrolled");
+            } else {
+                $("body").removeClass("scrolled");
+            }
+        });
+
+        if (window.matchMedia("(min-width: 768px)").matches) {
+
+            // afficher le menu au survol de "Tous nos produits"
+            $(menuLinkWrapper).mouseenter(function () {
+                menuContent.addClass("show");
+                menuLink.removeClass("collapsed");
+            });
+
+            //cacher le menu au leave du block menu
+            $("#header-menu-all-product").mouseleave(function () {
+                    menuContent.toggleClass('show');
+                    menuLink.toggleClass("collapsed");
+            });
+
+            // ouvrir/fermer le menu au click de "Tous nos produits"
+            $(menuLinkWrapper).click(function () {
+                menuContent.toggleClass("show");
+                menuLink.toggleClass("collapsed");
+            })
+
+            $(".level-top.nav-1 .submenu").css("display", "block");
+            $("li.level-top:first-of-type").addClass("_active");
+            $('a.level-top, .clk-link.level-top').hover(function (e) {
+                $("._active").removeClass("_active");
+                $(this).parent().addClass("_active");
+                var allSubmenu = $('.level0.submenu');
+                allSubmenu.css("display", "none");
+                var submenu = $(this).parent('.level0.level-top').children('.level0.submenu');
+                submenu.css("display", "block");
+            });
+            previousWidth = "big";
+
+        } else {
+            $(function () { // to ensure that code evaluates on page load
+                const leveltopLink = $("#header-menu-all-product .level0>a, #header-menu-all-product .level0>.quatrecentdix");
+                const leveltopSubmenu = $("#header-menu-all-product .level0 > .submenu");
+                const leveldownLink = $("#header-menu-all-product .level1.parent> a, #header-menu-all-product .level1.parent>.quatrecentdix");
+                const leveldownSubmenu = $("#header-menu-all-product .level1.parent > .submenu");
+
+                $(".nav-toggle").click(function () {
+                    $(".nav-sections").toggleClass("responsive-show");
+                });
+
+                $("#header-menu-all-product .submenu").hide();
+
+                leveltopLink.click(function () {
+                    if ($(this).hasClass("_active")) {
+                        $(this).parent().find("> .submenu").slideUp();
+                        $(this).removeClass("_active");
+                    } else {
+                        leveltopSubmenu.slideUp(); // close submenu
+                        leveldownSubmenu.slideUp(); // close submenu
+                        leveltopLink.removeClass("_active");
+                        leveldownLink.removeClass("_active");
+                        $(this).parent().find("> .submenu").slideDown();
+                        $(this).addClass("_active");
+                    }
+                    return false;
+                });
+
+                leveldownLink.click(function () {
+                    if ($(this).hasClass("_active")) {
+                        $(this).parent().find("> .submenu").slideUp();
+                        $(this).removeClass("_active");
+                    } else {
+                        leveldownSubmenu.slideUp(); // close submenu
+                        leveldownLink.removeClass("_active");
+                        $(this).parent().find("> .submenu").slideDown();
+                        $(this).addClass("_active");
+                    }
+                    return false;
+                });
+            });
+            previousWidth = "small";
+
+        }
+        $(window).on('resize', function () {
+            if (window.matchMedia("(min-width: 768px)").matches) { //desktop
+                if (previousWidth === "small") {
+                    let test = $("#header-menu-all-product").menu("option", "disabled", true);
+                    console.log(test)
+
+                    var subSubMenu = $(".level1.submenu");
+                    subSubMenu.css("display", "block");
+                }
+                previousWidth = "big";
+            } else {
+                if (previousWidth === "big") {
+                    $('#header-menu-all-product')
+                        .menu({
+                            "disabled": false,
+                            "responsive": true,
+                            "expanded": false,
+                            "position": {"my": "left top", "at": "left bottom"}
+                        });
+                }
+                previousWidth = "small";
+            }
+        });
+
+    });
+
+</script>

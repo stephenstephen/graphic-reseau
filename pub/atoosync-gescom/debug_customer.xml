@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<customers>
+  <customer>
+    <atoosync_key>9999999</atoosync_key>
+    <customer_group_key>Prix Public</customer_group_key>
+    <company>CREATIONS ROBERT VERNET</company>
+    <siret>38445559800023</siret>
+    <ape></ape>
+    <firstname>M. Stéphane VERNET</firstname>
+    <lastname>M. Stéphane VERNET</lastname>
+    <email>a.blanchard@atoo-next.net</email>
+    <website>www.vernet.net</website>
+    <outstanding_allow_amount>500.00000</outstanding_allow_amount>
+    <max_payment_days>0</max_payment_days>
+    <note></note>
+    <sales_representative>Philippe Schlafmunter</sales_representative>
+    <settlement_mode></settlement_mode>
+    <addresses>
+      <address>
+        <address_type>invoicing</address_type>
+        <atoosync_key>999999999</atoosync_key>
+        <atoosync_odbc_key>9999999 - 999999999</atoosync_odbc_key>
+        <name>CREATIONS ROBERT VERNET</name>
+        <company>CREATIONS ROBERT VERNET</company>
+        <lastname>M. Stéphane VERNET</lastname>
+        <firstname>M. Stéphane VERNET</firstname>
+        <address1>17 Rue Jean Bourgey</address1>
+        <address2></address2>
+        <address3></address3>
+        <postcode>69100</postcode>
+        <city>VILLEURBANNE</city>
+        <other></other>
+        <phone>04 72 77 86 86 / 76</phone>
+        <phone_mobile></phone_mobile>
+        <vat_number></vat_number>
+        <dni></dni>
+        <state>Rhône Alpes</state>
+        <country>France</country>
+      </address>
+      <address>
+        <address_type>delivery</address_type>
+        <atoosync_key>999999998</atoosync_key>
+        <atoosync_odbc_key>9999999 - 999999998</atoosync_odbc_key>
+        <name>CREATION ROBERT VERNET/////////////</name>
+        <company>CREATIONS ROBERT VERNET</company>
+        <lastname>M. Stéphane VERNET</lastname>
+        <firstname>M. Stéphane VERNET</firstname>
+        <address1>15, Quai Jean MOULIN</address1>
+        <address2></address2>
+        <address3></address3>
+        <postcode>69002</postcode>
+        <city>LYON</city>
+        <other></other>
+        <phone>04 72 77 86 68</phone>
+        <phone_mobile></phone_mobile>
+        <vat_number>7410Z</vat_number>
+        <dni></dni>
+        <state>Rhône Alpes</state>
+        <country>France</country>
+      </address>
+      <address>
+        <address_type>delivery</address_type>
+        <atoosync_key>999999997</atoosync_key>
+        <atoosync_odbc_key>9999999 - 999999997</atoosync_odbc_key>
+        <name>CREATIONS ROBERT VERNET</name>
+        <company>CREATIONS ROBERT VERNET</company>
+        <lastname>M. Stéphane VERNET</lastname>
+        <firstname>M. Stéphane VERNET</firstname>
+        <address1>17 Rue Jean Bourgey</address1>
+        <address2></address2>
+        <address3></address3>
+        <postcode>69100</postcode>
+        <city>VILLEURBANNE</city>
+        <other></other>
+        <phone>04 72 77 86 86</phone>
+        <phone_mobile></phone_mobile>
+        <vat_number>7410Z</vat_number>
+        <dni></dni>
+        <state></state>
+        <country>FRANCE</country>
+      </address>
+      <address>
+        <address_type>delivery</address_type>
+        <atoosync_key>999999996</atoosync_key>
+        <atoosync_odbc_key>9999999 - 999999996</atoosync_odbc_key>
+        <name>CREATIONS ROBERT VERNET////////////</name>
+        <company>CREATIONS ROBERT VERNET</company>
+        <lastname>M. Stéphane VERNET</lastname>
+        <firstname>M. Stéphane VERNET</firstname>
+        <address1>14-16, rue de la Quarantaine</address1>
+        <address2></address2>
+        <address3></address3>
+        <postcode>69005</postcode>
+        <city>LYON</city>
+        <other></other>
+        <phone>04 72 77 86 68</phone>
+        <phone_mobile></phone_mobile>
+        <vat_number>7410Z</vat_number>
+        <dni></dni>
+        <state></state>
+        <country>FRANCE</country>
+      </address>
+    </addresses>
+    <contacts></contacts>
+    <custom_fields>
+      <custom_field>
+        <name>Mode_reglt_Ciel</name>
+        <value></value>
+      </custom_field>
+      <custom_field>
+        <name>Bloque</name>
+        <value></value>
+      </custom_field>
+      <custom_field>
+        <name>Risque</name>
+        <value></value>
+      </custom_field>
+      <custom_field>
+        <name>Observation_1</name>
+        <value>NDS RESILIé LE 26/12/16</value>
+      </custom_field>
+      <custom_field>
+        <name>Observation_2</name>
+        <value>INFOS INSUFFISANTES</value>
+      </custom_field>
+      <custom_field>
+        <name>Observation_3</name>
+        <value></value>
+      </custom_field>
+      <custom_field>
+        <name>Observation_4</name>
+        <value></value>
+      </custom_field>
+      <custom_field>
+        <name>Observation_5</name>
+        <value></value>
+      </custom_field>
+      <custom_field>
+        <name>ENTREPRISE</name>
+        <value></value>
+      </custom_field>
+      <custom_field>
+        <name>FILIALE</name>
+        <value></value>
+      </custom_field>
+      <custom_field>
+        <name>Particularites</name>
+        <value>ENVOYER FACTURE PAR MAIL eb@vernet.net</value>
+      </custom_field>
+      <custom_field>
+        <name>Alerte_Compta</name>
+        <value>ESCOMPTE 1,5% pour toutes cdes comptant CB Amex</value>
+      </custom_field>
+      <custom_field>
+        <name>Code_GR_tiers</name>
+        <value></value>
+      </custom_field>
+    </custom_fields>
+  </customer>
+</customers>

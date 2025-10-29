@@ -1,0 +1,32 @@
+.colissimo-configuration{background:#fff5e1;border:1px solid #ccc;padding:0 10px 0 10px;margin-top:20px}
+.section-config .admin__collapsible-block tr:last-child>td>.colissimo-configuration{border-bottom:1px solid #ccc}
+.colissimo-configuration.active .entry-edit-head a{color:#ED6A07}
+#carriers_colissimo_pickup,
+#carriers_colissimo_homecl,
+#carriers_colissimo_homesi,
+#carriers_colissimo_international,
+#carriers_colissimo_domtomcl,
+#carriers_colissimo_domtomsi,
+#carriers_colissimo_domtomeco{padding-bottom:2.6rem}
+#carriers_colissimo-head{padding-left:35px;background:url(../images/icons/colissimo.png) no-repeat left center}
+.colissimo-price-uploader{width:600px;border:1px solid #ccc;padding:10px;background:#f8f8f8}
+.import-file{border:1px solid #ccc;width:135px;float:left;margin:0 0.5rem 0.5rem 0;text-align:center;cursor:pointer;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;padding:5px;height:135px;font-size:1.1rem;background:#fff url(../images/file.png) no-repeat center 30px;}
+.image.image-placeholder{margin:0 0.5rem 0.5rem 0;border:1px solid #ccc;background:#fff url(../images/file-select.png) no-repeat center 10px;height:135px;width:135px}
+.image .image-placeholder-text{margin-bottom:5%}
+.image.image-placeholder input[type='file'] {border:none}
+.colissimo-price-files{margin-bottom:20px}
+.colissimo-price-files .import-file:hover,
+.colissimo-price-files .active{background:#eb5202 url(../images/file-hover.png) no-repeat center 30px;color:#fff}
+.colissimo-price-files-files,
+.colissimo-price-files-import{margin-bottom:30px}
+.colissimo-price-step{clear:both;margin-bottom:37px;width:580px}
+.step-last{margin-bottom:0;height:33px}
+.colissimo-price-step .primary{float: right}
+.colissimo-price-result{margin-top:20px;border-collapse:collapse;width:600px;border:1px solid #ccc;padding:10px;background:#fff}
+.colissimo-price-result.waiting{background:#D9EDF7}
+.colissimo-price-result.processing{background:#FCF8E3}
+.colissimo-price-result.error{background:#F2DEDE}
+.colissimo-price-result.success{background:#D5EFC2}
+.colissimo-price-options select{margin-left:10px}
+.colissimo-pickup-selector{clear:both;margin-top:15px}
+.colissimo-pickup-selector .admin__page-section-title > span:after{color:#e22626;content:'*';font-weight:400;margin-left:3px}

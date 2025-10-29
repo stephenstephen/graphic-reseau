@@ -1,0 +1,59 @@
+<?php
+
+use Gone\Glossary\Block\Index;
+
+/** @var Index $block */
+
+$definitionCollection = $block->getDefinitionCollection();
+$alphabet = $block->getAlphabet();
+$displayNumbers = false;
+
+$definitionsByLetterArr = [];
+foreach ($definitionCollection as $definition) {
+    $firstLetter = $block->getFirstLetter($definition->getText());
+    $definitionsByLetterArr[strtoupper($firstLetter)][] = $definition;
+}
+?>
+
+<?php if (!empty($definitionCollection)): ?>
+
+    <div class="glossary-summary">
+        <?php foreach ($alphabet as $letter):
+            $letter = strtoupper($letter);
+            ?>
+            <?php if (array_key_exists($letter, $definitionsByLetterArr)): ?>
+                <span data-filter="<?= $letter ?>">
+                    <a href="#<?= $letter ?>"><?= $letter ?></a>
+                </span>
+            <?php else: ?>
+                <span class="disabled">
+                     <?= $letter ?>
+                </span>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </div>
+    <p class='definition-info'><?= __('%1 expressions found', $block->definitionCollectionCount) ?></p>
+
+    <div class="glossary-content">
+        <?php foreach ($definitionsByLetterArr as $firstLetter => $definitionsArr): ?>
+
+            <div class='glossary-letter' id="<?= $firstLetter ?>"><?= strtoupper($firstLetter) ?></div>
+
+            <?php foreach ($definitionsArr as $definition): ?>
+
+                <div class="definition-container">
+                    <?php if (!$definition->getCaseSensible()): ?>
+                        <a href="<?= $block->getBaseUrl() . 'glossaire/' . $definition->getText(); ?>">
+                            <span class='definition-title'><?= $definition->getText() ?></span>
+                        </a>
+                    <?php endif; ?>
+                </div>
+            <?php endforeach; ?>
+
+        <?php endforeach; ?>
+
+    </div>
+
+<?php else: ?>
+    <?= __('There are no definition available yet'); ?>
+<?php endif; ?>

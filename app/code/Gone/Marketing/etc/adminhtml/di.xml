@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\Cms\Controller\Adminhtml\Block\Save"
+                type="Gone\Marketing\Plugin\Controller\Adminhtml\Block\Save"/>
+    <type name="Magento\Cms\Model\Block\DataProvider">
+        <plugin name="DataProvider_Load" type="Gone\Marketing\Plugin\Model\Block\DataProvider" sortOrder="1"/>
+    </type>
+</config>

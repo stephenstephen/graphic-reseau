@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+	<table name="gone_glossary_definition" resource="default" engine="innodb" comment="gone_glossary_definition Table">
+		<column xsi:type="smallint" name="definition_id" padding="6" unsigned="true" nullable="false" identity="true"/>
+		<constraint xsi:type="primary" referenceId="PRIMARY">
+			<column name="definition_id"/>
+		</constraint>
+		<column name="status" nullable="false" xsi:type="boolean"/>
+		<column name="text" nullable="false" xsi:type="varchar"/>
+		<column name="case_sensible" nullable="false" xsi:type="boolean"/>
+		<column name="description" nullable="false" xsi:type="text"/>
+	</table>
+</schema>

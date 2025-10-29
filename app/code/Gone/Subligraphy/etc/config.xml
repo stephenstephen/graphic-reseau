@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <subligraphy>
+            <general>
+                <enable>1</enable>
+                <max_copy_count>30</max_copy_count>
+            </general>
+        </subligraphy>
+            <recaptcha_frontend>
+                <type_for>
+                    <certificate_check_form>1</certificate_check_form>
+                </type_for>
+            </recaptcha_frontend>
+    </default>
+</config>

@@ -1,0 +1,157 @@
+<?php
+/**
+ * Mageplaza
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Mageplaza.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.mageplaza.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Mageplaza
+ * @package     Mageplaza_ProductAttachments
+ * @copyright   Copyright (c) Mageplaza (https://www.mageplaza.com/)
+ * @license     https://www.mageplaza.com/LICENSE.txt
+ */
+
+/** @var \Mageplaza\ProductAttachments\Block\Product\Attachments $block */
+$fileRuleList = $block->getFileRuleList();
+$configView = \Mageplaza\ProductAttachments\Model\Config\Source\FileAction::VIEWONLINE;
+?>
+<div class="mp-attachment-tab">
+    <?php if ($fileRuleList || ($block->getFileList() && $block->getFileList()->getSize())): ?>
+        <?php
+        $mustLoginMsg = __(' - Login required');
+        $mustBuyMsg   = __(' - Purchase required');
+        ?>
+        <ul>
+            <?php if ($block->getFileList() && $block->getFileList()->getSize()): ?>
+                <?php foreach ($block->getFileList() as $item): ?>
+                    <?php $allowedCustomerGroups = explode(',', $item->getCustomerGroup()); ?>
+                    <?php if (in_array((string)$block->getCustomerGroup(), $allowedCustomerGroups, true)): ?>
+                        <li class="mp-attachment-tab__item">
+                            <?php
+                            $href        = '';
+                            $label       = $item->getLabel() . ' '
+                                . '(' . $block->helperData->fileSizeFormat($item->getSize()) . ')';
+                            $imgSrc      = $item->getFileIconPath()
+                                ? $block->helperData->getImageUrl($item->getFileIconPath())
+                                : $block->helperData->getDefaultIconUrl();
+                            $isPurchased = $block->isPurchased($item->getIsBuyer());
+                            $mustLogin   = $block->isLoggedDownload($item->getCustomerLogin());
+
+                            if ($mustLogin) {
+                                $href  = '#!';
+                                $label .= $mustLoginMsg;
+                            } elseif (!$isPurchased) {
+                                $href  = '#!';
+                                $label .= $mustBuyMsg;
+                            } elseif ($item->getFileAction() === $configView) {
+                                $href = $block->getUrl(
+                                    'mpattachments/file/viewonline',
+                                    ['id' => $item->getId(), 'product_id' => $block->getProduct()->getId()]
+                                );
+                            } else {
+                                $href = $block->getUrl(
+                                    'mpattachments/file/download',
+                                    ['id' => $item->getId(), 'product_id' => $block->getProduct()->getId()]
+                                );
+                            }
+                            ?>
+                            <a href="<?= /* @noEscape */ $href ?>" title="<?= /* @noEscape */ $item->getLabel() ?>">
+                                <img src="<?= /* @noEscape */ $imgSrc ?>"
+                                     alt="<?= /* @noEscape */ $item->getLabel() ?>"/>
+                                <span class="mp-attachment-tab__item__name">
+                                    <?= $block->escapeHtml($label) ?>
+                                </span>
+                            </a>
+                        </li>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            <?php if ($fileRuleList): ?>
+                <?php foreach ($fileRuleList as $itemRule): ?>
+                    <?php $allowedCustomerGroups = explode(',', $itemRule['customer_group']); ?>
+                    <?php if (in_array((string)$block->getCustomerGroup(), $allowedCustomerGroups, true)): ?>
+                        <li class="mp-attachment-tab__item">
+                            <?php
+                            $href        = '';
+                            $label       = $itemRule['label'] . ' '
+                                . '(' . $block->helperData->fileSizeFormat($itemRule['size']) . ')';
+                            $imgSrc      = $itemRule['file_icon_path']
+                                ? $block->helperData->getImageUrl($itemRule['file_icon_path'])
+                                : $block->helperData->getDefaultIconUrl();
+                            $isPurchased = $block->isPurchased($itemRule['is_buyer']);
+                            $mustLogin   = $block->isLoggedDownload($itemRule['customer_login']);
+
+                            if ($mustLogin) {
+                                $href  = '#!';
+                                $label .= $mustLoginMsg;
+                            } elseif (!$isPurchased) {
+                                $href  = '#!';
+                                $label .= $mustBuyMsg;
+                            } elseif ($itemRule['file_action'] === $configView) {
+                                $href = $block->getUrl(
+                                    'mpattachments/file/viewonline',
+                                    ['id' => $itemRule['file_id'], 'product_id' => $block->getProduct()->getId()]
+                                );
+                            } else {
+                                $href = $block->getUrl(
+                                    'mpattachments/file/download',
+                                    ['id' => $itemRule['file_id'], 'product_id' => $block->getProduct()->getId()]
+                                );
+                            }
+                            ?>
+                            <a href="<?= /* @noEscape */ $href ?>" title="<?= /* @noEscape */ $itemRule['label'] ?>">
+                                <img src="<?= /* @noEscape */ $imgSrc ?>"
+                                     alt="<?= /* @noEscape */ $itemRule['label'] ?>"/>
+                                <span class="mp-attachment-tab__item__name">
+                                    <?= /* @noEscape */ $label ?>
+                                </span>
+                            </a>
+                        </li>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </ul>
+    <?php else: ?>
+        <?= /* @noEscape */ __('There are no file attachments for this product.') ?>
+    <?php endif; ?>
+</div>
+<style>
+    .mp-attachment-tab {
+        margin-bottom: 25px;
+    }
+
+    .mp-attachment-tab ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .mp-attachment-tab__item {
+        position: relative;
+        margin-bottom: 1.5rem;
+        margin-left: 10px;
+    }
+
+    .mp-attachment-tab__item img {
+        width: 25px;
+    }
+
+    .data.item.content .mp-attachment-tab__item__name {
+        position: absolute;
+        top: 14%;
+        font-size: 13px;
+        padding-left: 10px;
+    }
+
+    #mp-attachments-sidebar .block-content {
+        overflow: hidden;
+    }
+</style>

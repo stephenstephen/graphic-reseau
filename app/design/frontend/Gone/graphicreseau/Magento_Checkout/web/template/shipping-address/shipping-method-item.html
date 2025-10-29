@@ -1,0 +1,59 @@
+<!--
+  ~ Copyright © 410 Gone (contact@410-gone.fr). All rights reserved.
+  ~ See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+  -->
+<tr class="row"
+    click="element.selectShippingMethod">
+    <td class="col col-method">
+        <input type="radio"
+               class="radio"
+               ifnot="method.error_message"
+               ko-checked="element.isSelected"
+               ko-value="method.carrier_code + '_' + method.method_code"
+               attr="'aria-labelledby': 'label_method_' + method.method_code + '_' + method.carrier_code + ' ' + 'label_carrier_' + method.method_code + '_' + method.carrier_code,
+                    'checked': element.rates().length == 1 || element.isSelected"/>
+    </td>
+
+    <!-- ko ifnot: (method.error_message) -->
+    <td class="col col-price">
+        <each args="element.getRegion('price')" render=""/>
+    </td>
+    <!-- /ko -->
+    <td class="col col-method title"
+        attr="'id': 'label_method_' + method.method_code + '_' + method.carrier_code"
+        text="method.method_title"/>
+
+    <!-- begin 410 override -->
+    <td class="col col-delay"
+        attr="'id': 'label_carrier_' + method.method_code + '_' + method.carrier_code">
+        <!-- ko if:(method.extension_attributes) -->
+        <!-- ko if:(method.extension_attributes.shipping_delay) -->
+        <span data-bind="i18n: 'form :'"></span>
+        <span data-bind="i18n: method.extension_attributes.shipping_delay"></span>
+        <!-- /ko -->
+        <!-- /ko -->
+    </td>
+
+</tr>
+<!-- ko if:(method.extension_attributes) -->
+<!-- ko if:(method.extension_attributes.description) -->
+<tr class="row">
+    <td class="col col-description" colspan="4" style="width: 100%">
+        <span html="method.extension_attributes.description"></span>
+    </td>
+</tr>
+<!-- /ko -->
+<!-- /ko -->
+<!-- end 410 override -->
+<tr class="row row-error"
+    if="method.error_message">
+    <td class="col col-error" colspan="4">
+        <div role="alert" class="message error">
+            <div text="method.error_message"></div>
+        </div>
+        <span class="no-display">
+            <input type="radio"
+                   attr="'value' : method.method_code, 'id': 's_method_' + method.method_code"/>
+        </span>
+    </td>
+</tr>

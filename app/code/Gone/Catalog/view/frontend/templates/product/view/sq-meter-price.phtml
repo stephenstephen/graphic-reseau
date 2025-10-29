@@ -1,0 +1,15 @@
+<?php
+/**
+ * @var $block SquareMeterPrice
+ */
+
+use Gone\Catalog\Block\Product\View\SquareMeterPrice;
+
+$priceSqMeter = $block->getPricePerSqm();
+?>
+<?php if ($priceSqMeter): ?>
+    <div class="price-per-sqmeter">
+        <span><?= '( ' . $priceSqMeter . ' / m² )' ?></span>
+    </div>
+<?php endif; ?>
+

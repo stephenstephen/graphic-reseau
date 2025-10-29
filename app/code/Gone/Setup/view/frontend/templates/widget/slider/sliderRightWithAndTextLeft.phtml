@@ -1,0 +1,85 @@
+<?php
+
+/** @var BannerSlider $block */
+
+use PHPCuong\BannerSlider\Block\Widget\BannerSlider;
+
+$banners = $block->getBanners();
+$uniqueId = uniqid();
+?>
+
+<div class="slider-right-container">
+
+    <?php if ($block->getTitle2()): ?>
+        <div class="preco-title-2"><?= $block->getTitle2() ?></div>
+    <?php endif; ?>
+
+    <div class="content">
+        <?php if ($block->getText()): ?>
+            <div class="content-text"><?= html_entity_decode($block->getText()) ?></div>
+        <?php endif; ?>
+
+        <?php if ($banners->getSize()): ?>
+
+            <div class="glider-contain">
+                <div class="glider-right" id="<?= $uniqueId ?>">
+
+                    <?php foreach ($banners as $banner): ?>
+
+                        <div class="glider-item">
+
+                            <?php if ($banner->getUrl()): ?>
+                                <a href="<?= $banner->getUrl(); ?>" title="<?= $banner->getName(); ?>" target="_blank">
+                            <?php endif; ?>
+                            <div class="shadow-box"></div>
+                            <img src="<?= $banner->getImageUrl(); ?>" alt="<?= $banner->getName(); ?>"/>
+
+                            <?php if ($banner->getUrl()): ?>
+                                </a>
+                            <?php endif; ?>
+                        </div>
+
+                    <?php endforeach; ?>
+
+                </div>
+
+                <button aria-label="Previous" class="glider-prev glider-right-prev<?= $uniqueId ?>"></button>
+                <button aria-label="Next" class="glider-next glider-right-next<?= $uniqueId ?>"></button>
+            </div>
+
+        <?php endif; ?>
+
+    </div>
+
+
+</div>
+
+
+
+<script>
+    require(['domReady!'],
+            function () {
+            'use strict';
+
+            new Glider(document.getElementById('<?= $uniqueId ?>'), {
+                slidesToShow: 1.1,
+                draggable: true,
+                arrows: {
+                    prev: '.glider-right-prev<?= $uniqueId ?>',
+                    next: '.glider-right-next<?= $uniqueId ?>'
+                },
+                scrollLock: false,
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 1.5,
+                        }
+
+                    }
+                ]
+            });
+        });
+</script>
+
+

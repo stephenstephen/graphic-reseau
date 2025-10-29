@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="troiscentsoixante" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>360 Viewer</label>
+            <tab>gone_tab</tab>
+            <resource>Gone_Troiscentsoixante::Config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="x_frame_number" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Number of images on X</label>
+                </field>
+                <field id="y_frame_number" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Number of images on Y</label>
+                </field>
+                <field id="frame_width" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Frame width</label>
+                </field>
+                <field id="frame_height" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Frame height</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

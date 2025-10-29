@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright © 410 Gone (contact@410-gone.fr). All rights reserved.
+  ~ See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <!-- override module preference on same class than in Gone_Seo -->
+    <preference for="MGS\Fbuilder\Model\Category" type="Gone\SeoCustom\Model\Category" />
+    <!-- <preference for="Gone\Seo\Model\Category" type="Gone\SeoCustom\Model\Category" />-->
+</config>

@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<!--
+  ~ *
+  ~ @copyright Copyright © 2020 410-Gone. All rights reserved.
+  ~ @author    contact@410-gone.fr
+  ~
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+	<module name="Gone_Cloaking" setup_version="1.0.0">
+		<sequence>
+			<module name="Magento_Cms"/>
+            <module name="Gone_Base"/>
+		</sequence>
+	</module>
+</config>

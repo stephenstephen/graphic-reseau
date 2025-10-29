@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Deploy Magento" default="deploy-magento">
+    <property environment="env" />
+
+    <tstamp>
+        <format property="DATE" pattern="%Y-%m-%d-%H-%M" />
+    </tstamp>
+    <property name="local.SCM_SRC" value="${env.WORKSPACE}/src" />
+    <property name="local.APP_PATH_NEW_RELEASE" value="${env.APP_PATH_RELEASES}/${DATE}" />
+    <property name="local.APP_PATH_BIN" value="${local.APP_PATH_NEW_RELEASE}/bin" />
+    <property name="local.APP_PATH_RELEASE_ARCHIVE" value="release_${DATE}.tar.gz" />
+
+    <property name="local.SHARED_FOLDERS" value="pub/media,pub/mtc,pub/sitemap,var/log,var/report,var/import,var/export,var/subligraphy,var/invoices" />
+
+    <target name="deploy-magento" depends="">
+        <phingcall target="generate-release-dir" />
+        <phingcall target="deploy-config" />
+        <phingcall target="copy-sources" />
+        <phingcall target="enable-maintenance" />
+        <phingcall target="set-symlinks" />
+        <phingcall target="call-opcache-reset" />
+        <phingcall target="call-magento-setup" />
+        <phingcall target="call-magento-compile" />
+        <phingcall target="call-magento-static-content-deploy" />
+        <phingcall target="set-permissions" />
+        <phingcall target="call-magento-reindex" />
+        <phingcall target="clear-magento-cache" />
+        <phingcall target="disable-maintenance" />
+        <phingcall target="clean-old-releases" />
+    </target>
+
+    <target name="generate-release-dir" description="Generate release dir">
+        <echo message="Generate release dir ${local.APP_PATH_NEW_RELEASE}" />
+        <!--        <exec command="mkdir -p ${local.APP_PATH_NEW_RELEASE}" logoutput="true" />-->
+        <ssh username="${env.APP_SSH_USER}" host="${env.APP_SSH_HOST}" port="${env.APP_SSH_PORT}" pubkeyfile="${env.APP_SSH_PUBKEY}" privkeyfile="${env.APP_SSH_PRIVKEY}"
+             command="mkdir -p ${local.APP_PATH_NEW_RELEASE}" />
+    </target>
+
+    <target name="copy-sources" description="Copy sources">
+        <echo message="Compress sources"/>
+        <exec command="tar czf ${env.WORKSPACE}/${local.APP_PATH_RELEASE_ARCHIVE} -C ${local.SCM_SRC} ./" logoutput="true" />
+        <echo message="Copy archive to ${local.APP_PATH_NEW_RELEASE}" />
+        <scp username="${env.APP_SSH_USER}" host="${env.APP_SSH_HOST}" port="${env.APP_SSH_PORT}" pubkeyfile="${env.APP_SSH_PUBKEY}" privkeyfile="${env.APP_SSH_PRIVKEY}"
+             todir="${local.APP_PATH_NEW_RELEASE}" file="${env.WORKSPACE}/${local.APP_PATH_RELEASE_ARCHIVE}" />
+        <echo message="Uncompress archive" />
+        <ssh username="${env.APP_SSH_USER}" host="${env.APP_SSH_HOST}" port="${env.APP_SSH_PORT}" pubkeyfile="${env.APP_SSH_PUBKEY}" privkeyfile="${env.APP_SSH_PRIVKEY}"
+             command="cd ${local.APP_PATH_NEW_RELEASE};tar xf ${local.APP_PATH_NEW_RELEASE}/${local.APP_PATH_RELEASE_ARCHIVE}" />
+        <echo message="Remove archive" />
+        <ssh username="${env.APP_SSH_USER}" host="${env.APP_SSH_HOST}" port="${env.APP_SSH_PORT}" pubkeyfile="${env.APP_SSH_PUBKEY}" privkeyfile="${env.APP_SSH_PRIVKEY}"
+             command="cd ${local.APP_PATH_NEW_RELEASE};rm ${local.APP_PATH_NEW_RELEASE}/${local.APP_PATH_RELEASE_ARCHIVE}" />
+        <exec command="rm ${env.WORKSPACE}/${local.APP_PATH_RELEASE_ARCHIVE}" logoutput="true" />
+    </target>
+
+    <target name="deploy-config" description="Deploying spec conf">
+        <echo message="Deploying ${env.APP_SPEC_EXTENSION} conf" />
+        <foreach param="filename" absparam="absfilename" target="rename-conf">
+            <fileset dir="${local.SCM_SRC}">
+                <include name="**/*.${env.APP_SPEC_EXTENSION}" />
+                <include name="*.${env.APP_SPEC_EXTENSION}" />
+            </fileset>
+        </foreach>
+    </target>
+
+    <target name="rename-conf" description="">
+        <php expression="preg_replace('/\.[^.\s]{3,7}$/', '', '${filename}')" returnProperty="new_filename" />
+        <echo message="- Renaming ${filename} to ${new_filename}" />
+        <move file="${local.SCM_SRC}/${filename}" tofile="${local.SCM_SRC}/${new_filename}" overwrite="true" />
+    </target>
+
+    <target name="set-symlinks">
+        <echo message="Set sym link current to release" />
+        <ssh username="${env.APP_SSH_USER}" host="${env.APP_SSH_HOST}" port="${env.APP_SSH_PORT}" pubkeyfile="${env.APP_SSH_PUBKEY}" privkeyfile="${env.APP_SSH_PRIVKEY}"
+             command="rm ${env.APP_PATH_CURRENT};ln -sf ${local.APP_PATH_NEW_RELEASE} ${env.APP_PATH_CURRENT}" />
+        <echo message="Linking shared folders and files" />
+        <foreach list="${local.SHARED_FOLDERS}" param="shared.folder" target="shared-folder" />
+    </target>
+
+    <target name="shared-folder" description="">
+        <echo message="Sharing ${shared.folder}" />
+        <ssh username="${env.APP_SSH_USER}" host="${env.APP_SSH_HOST}" port="${env.APP_SSH_PORT}" pubkeyfile="${env.APP_SSH_PUBKEY}" privkeyfile="${env.APP_SSH_PRIVKEY}"
+             command='if [ ! -d "${env.APP_PATH_SHARED}/${shared.folder}" ];
+                        then mkdir -p ${env.APP_PATH_SHARED}/${shared.folder};
+                     fi;' />
+
+        <ssh username="${env.APP_SSH_USER}" host="${env.APP_SSH_HOST}" port="${env.APP_SSH_PORT}" pubkeyfile="${env.APP_SSH_PUBKEY}" privkeyfile="${env.APP_SSH_PRIVKEY}"
+             command='if [ -d "${local.APP_PATH_NEW_RELEASE}/${shared.folder}" ];
+                        then cp -Rn ${local.APP_PATH_NEW_RELEASE}/${shared.folder} ${env.APP_PATH_SHARED};
+                        rm -rf ${local.APP_PATH_NEW_RELEASE}/${shared.folder};
+                        fi;' />
+
+        <ssh username="${env.APP_SSH_USER}" host="${env.APP_SSH_HOST}" port="${env.APP_SSH_PORT}" pubkeyfile="${env.APP_SSH_PUBKEY}" privkeyfile="${env.APP_SSH_PRIVKEY}"
+             command="ln -sf ${env.APP_PATH_SHARED}/${shared.folder} ${local.APP_PATH_NEW_RELEASE}/${shared.folder}" />
+    </target>
+
+    <target name="set-permissions">
+        <echo message="Set 775 rights for ${local.APP_PATH_NEW_RELEASE}" />
+        <ssh username="${env.APP_SSH_USER}" host="${env.APP_SSH_HOST}" port="${env.APP_SSH_PORT}" pubkeyfile="${env.APP_SSH_PUBKEY}" privkeyfile="${env.APP_SSH_PRIVKEY}"
+             command="chmod -R 0775 ${local.APP_PATH_NEW_RELEASE}" />
+        <ssh username="${env.APP_SSH_USER}" host="${env.APP_SSH_HOST}" port="${env.APP_SSH_PORT}" pubkeyfile="${env.APP_SSH_PUBKEY}" privkeyfile="${env.APP_SSH_PRIVKEY}"
+             command="chmod -R 0775 ${env.APP_PATH_SHARED}" />
+    </target>
+
+    <target name="clean-old-releases">
+        <echo message="Delete old releases (keep only 2 most recent releases)" />
+        <ssh username="${env.APP_SSH_USER}" host="${env.APP_SSH_HOST}" port="${env.APP_SSH_PORT}" pubkeyfile="${env.APP_SSH_PUBKEY}" privkeyfile="${env.APP_SSH_PRIVKEY}"
+             command="cd ${env.APP_PATH_RELEASES};ls -rF | tail -n +3 | xargs rm -Rf" />
+    </target>
+
+    <target name="call-magento-setup" depends="">
+        <echo message="Runing Magento setup scripts" />
+        <ssh username="${env.APP_SSH_USER}" host="${env.APP_SSH_HOST}" port="${env.APP_SSH_PORT}" pubkeyfile="${env.APP_SSH_PUBKEY}" privkeyfile="${env.APP_SSH_PRIVKEY}"
+             command="cd ${local.APP_PATH_BIN};php magento setup:upgrade" />
+    </target>
+
+    <target name="call-magento-static-content-deploy" depends="">
+        <echo message="Runing Magento deploy static" />
+        <ssh username="${env.APP_SSH_USER}" host="${env.APP_SSH_HOST}" port="${env.APP_SSH_PORT}" pubkeyfile="${env.APP_SSH_PUBKEY}" privkeyfile="${env.APP_SSH_PRIVKEY}"
+             command="cd ${local.APP_PATH_BIN};php magento setup:static-content:deploy en_US fr_FR -j 4" />
+    </target>
+
+    <target name="call-magento-compile" depends="">
+        <echo message="Compiling Magento files" />
+        <ssh username="${env.APP_SSH_USER}" host="${env.APP_SSH_HOST}" port="${env.APP_SSH_PORT}" pubkeyfile="${env.APP_SSH_PUBKEY}" privkeyfile="${env.APP_SSH_PRIVKEY}"
+             command="cd ${local.APP_PATH_BIN};php magento setup:di:compile" />
+    </target>
+
+    <target name="clear-magento-cache" depends="">
+        <echo message="Purge Magento cache" />
+        <ssh username="${env.APP_SSH_USER}" host="${env.APP_SSH_HOST}" port="${env.APP_SSH_PORT}" pubkeyfile="${env.APP_SSH_PUBKEY}" privkeyfile="${env.APP_SSH_PRIVKEY}"
+             command="cd ${local.APP_PATH_BIN};php magento cache:flush" />
+    </target>
+
+    <target name="call-opcache-reset" depends="">
+        <echo message="Reset Opcache" />
+        <ssh username="${env.APP_SSH_USER}" host="${env.APP_SSH_HOST}" port="${env.APP_SSH_PORT}" pubkeyfile="${env.APP_SSH_PUBKEY}" privkeyfile="${env.APP_SSH_PRIVKEY}"
+             command="cd ${local.APP_PATH_NEW_RELEASE}/utils;php cachetool.phar opcache:reset -vvv --cli --fcgi=/var/run/php-fpm/graphic-r-0e150c.socket" />
+    </target>
+
+    <target name="call-magento-reindex" depends="">
+        <echo message="Calling Magento to rebuild indexes" />
+        <ssh username="${env.APP_SSH_USER}" host="${env.APP_SSH_HOST}" port="${env.APP_SSH_PORT}" pubkeyfile="${env.APP_SSH_PUBKEY}" privkeyfile="${env.APP_SSH_PRIVKEY}"
+             command="cd ${local.APP_PATH_BIN};php magento indexer:reindex" />
+    </target>
+
+    <target name="disable-maintenance" depends="">
+        <echo message="Removing ${env.APP_PATH_CURRENT}/maintenance.flag" />
+        <ssh username="${env.APP_SSH_USER}" host="${env.APP_SSH_HOST}" port="${env.APP_SSH_PORT}" pubkeyfile="${env.APP_SSH_PUBKEY}" privkeyfile="${env.APP_SSH_PRIVKEY}"
+             command="cd ${local.APP_PATH_BIN};php magento maintenance:disable" />
+    </target>
+
+    <target name="enable-maintenance" depends="">
+        <echo message="Adding ${local.APP_PATH_NEW_RELEASE}/maintenance.flag" />
+        <ssh username="${env.APP_SSH_USER}" host="${env.APP_SSH_HOST}" port="${env.APP_SSH_PORT}" pubkeyfile="${env.APP_SSH_PUBKEY}" privkeyfile="${env.APP_SSH_PRIVKEY}"
+             command="cd ${local.APP_PATH_BIN};php magento maintenance:enable --ip=77.199.85.82 --ip=212.51.189.252 --ip=176.141.243.133 --ip=82.65.175.101" />
+    </target>
+
+
+    <target name="call-magento-home">
+        <echo message="Call Magento Home" />
+        <exec command="wget -O /dev/null ${env.APP_HOME_URL}" logoutput="true" />
+    </target>
+
+</project>

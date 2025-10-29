@@ -1,0 +1,20 @@
+<style>
+.action.primary{
+        width: 50%;
+        line-height: 2.2rem;
+        padding: 14px 17px;
+        font-size: 1.8rem;
+    }
+</style>
+<?php
+    $product = $block->getProduct();
+    $id = $product->getId();
+    $sku = $product->getSku();
+    $storeId = $product->getStoreId();
+    $categoryId = $block->getCurrentCategoryId();
+    $isAllowed = $block->getIsAllowed();
+    $isEnable = $block->getIsEnable();
+?>
+<?php if ($isAllowed && $isEnable == 1): ?>
+<button type="button" class="action primary" onclick="window.open('<?= /* @noEscape */ $block->getUrl('md_productpdf/index/generate', ['product'=>$id,'store'=>$storeId,'category'=>$categoryId]) ?>','_blank');" title="<?= /* @noEscape */ __('Print Product') ?>"><span><?= /* @noEscape */ __('Print Product') ?></span></button>
+<?php endif; ?>

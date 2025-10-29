@@ -1,0 +1,135 @@
+<?php
+
+/**
+ * @var $block \Gone\Subligraphy\Block\CheckCertificate
+ * @var $escaper \Magento\Framework\Escaper
+ */
+$data = $block->getData('certificate');
+$certificatesCount = $data ? $data->getTotalCount() : 0;
+$certificates = $data ? $data->getItems() : [];
+
+?>
+<div class="row">
+    <?php if($certificatesCount > 0) : ?>
+        <div class="result-wrapper">
+            <?php foreach($certificates as $certificate) : ?>
+                <img src="<?= $block->getImage($certificate->getImage()) ?>"/>
+                <p><?= $escaper->escapeHtml(__('Certificate no')) ?> : <span><?= $escaper->escapeHtml($certificate->getNumber()) ?></span></p>
+                <p><?= $escaper->escapeHtml(__('Title')) ?> : <span><?= $escaper->escapeHtml($certificate->getTitle()) ?></span></p>
+                <p><?= $escaper->escapeHtml(__('Author')) ?> : <span><?= $escaper->escapeHtml($certificate->getAuthor()) ?></span></p>
+                <p><?= $escaper->escapeHtml(__('Size')) ?> : <span><?= $escaper->escapeHtml($certificate->getWidth()) ?> x <?= $escaper->escapeHtml($certificate->getHeight()) ?> cm</span></p>
+                <p><?= $escaper->escapeHtml(__('Registration date')) ?> : <span><?= $escaper->escapeHtml($certificate->getCreatedAt()) ?></span></p>
+                <p><?= __('Printing of this artwork is limited to %1 copies. It has been recorded with id %2, on %3.',
+                        $escaper->escapeHtml($certificate->getCount()),
+                        $escaper->escapeHtml($certificate->getNumber()),
+                        $escaper->escapeHtml($certificate->getCreatedAt())
+                    ) ?>
+                </p>
+                <p><?= __('It has been made by %1 on aluminum plate ChromaLuxe&reg; and published by %2.',
+                        $escaper->escapeHtml($certificate->getManufacturer()) ,
+                        $escaper->escapeHtml($certificate->getPublisher())
+                    ) ?>
+                </p>
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
+
+    <div class="form-wrapper">
+        <p>
+            <?= __('This page allows to control the validity of a Subligraphy &reg; certificate reference.') ?>
+            <br/><?= __('Please, enter the certificate number if not detected automatically') ?>
+        </p>
+        <form class="form"
+              action="<?= $block->escapeUrl($block->getFormActionUrl()) ?>"
+              enctype="multipart/form-data"
+              id="check-certificate-form"
+              method="post"
+              data-mage-init='{"validation":{}}'>
+            <fieldset class="fieldset" data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>">
+                <?= $this->getBlockHtml('formkey')?>
+                <div class="fields-col">
+                    <legend><?= __('Certificate number').'*' ?></legend>
+                    <div class="fields-row">
+
+                        <div class="field certif_1 required">
+                            <div class="control">
+                                <input name="certif_1"
+                                       id="certif_1"
+                                       value=""
+                                       class="input-text"
+                                       type="text"
+                                       data-validate="{required:true}"/>
+                            </div>
+                        </div>
+                        <legend>-</legend>
+                        <div class="field certif_2 required">
+                            <div class="control">
+                                <input name="certif_2"
+                                       id="certif_2"
+                                       value=""
+                                       class="input-text"
+                                       type="text"
+                                       data-validate="{required:true}"/>
+                            </div>
+                        </div>
+                        <legend>-</legend>
+                        <div class="field certif_3 required">
+                            <div class="control">
+                                <input name="certif_3"
+                                       id="certif_3"
+                                       value=""
+                                       class="input-text"
+                                       type="text"
+                                       data-validate="{required:true}"/>
+                            </div>
+                        </div>
+                        <legend>-</legend>
+                        <div class="field certif_4 required">
+                            <div class="control">
+                                <input name="certif_4"
+                                       id="certif_4"
+                                       value=""
+                                       class="input-text"
+                                       type="text"
+                                       data-validate="{required:true}"/>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" id="n" name="n" value="">
+                </div>
+                <?= $block->getChildHtml('certificate.check.form.recaptcha') ?>
+            </fieldset>
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <input type="hidden" name="hideit" id="hideit" value="" />
+                    <button type="submit" title="<?= $block->escapeHtmlAttr(__('Submit')) ?>" class="action submit primary">
+                        <span><?= $block->escapeHtml(__('Submit')) ?></span>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script type="text/x-magento-init">
+          {
+              "#check-certificate-form": {
+                  "validation": {}
+              }
+          }
+</script>
+<script>
+    require(['jquery', 'domReady!'],
+        function ($) {
+            'use strict';
+            $(".input-text").change((e) => {
+                if(e.target.value.length > 4) {
+                    e.target.value = e.target.value.substring(0, 4)
+                }
+                const ref = $("#certif_1").val()+'-'+$("#certif_2").val()+'-'+$("#certif_3").val()+'-'+$("#certif_4").val()
+                $("input#n").attr("value", btoa(unescape(encodeURIComponent(ref))));
+            });
+        });
+
+</script>
+

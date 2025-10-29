@@ -1,0 +1,352 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="atoosync_gescom_config" translate="label" sortOrder="999999999">
+            <label>Atoo-Sync GesCom</label>
+        </tab>
+        <section id="atoosync_access" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Access</label>
+            <tab>atoosync_gescom_config</tab>
+            <resource>AtooSync_Gescom::config</resource>
+            <group id="general" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Access</label>
+                <comment>Please specify on this page the password of the Atoo-Sync module. You can also specify hosts or IP addresses that are allowed to connect to the Atoo-Sync module.</comment>
+                <field id="password" translate="label" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Password</label>
+                    <comment>Enter a password to protect access.</comment>
+                </field>
+                <field id="ipaddress" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>IP addresses</label>
+                    <comment>IP addresses can access the script Atoo-Sync. Use a comma (,) to separate (eg 42.24.4.2,127.0.0.1,99.98.97.96). Leave blank if you do not want to enable this option.</comment>
+                </field>
+                <field id="hostname" translate="label" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Hostname</label>
+                    <comment>Leave blank if you do not want to enable this option.</comment>
+                </field>
+            </group>
+        </section>
+        <section id="atoosync_categories" translate="label" sortOrder="101" showInDefault="1" showInWebsite="0" showInStore="0">
+            <class>separator-top</class>
+            <label>Categories</label>
+            <tab>atoosync_gescom_config</tab>
+            <resource>AtooSync_Gescom::config</resource>
+            <group id="create" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Create Categories</label>
+                <comment></comment>
+                <field id="stores" translate="label" type="multiselect"  sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>StoreID</label>
+                    <source_model>AtooSync\GesCom\Model\Config\Backend\StoresList</source_model>
+                    <comment>Choose the stores you want category were activate</comment>
+                </field>
+            </group>
+        </section>
+        <section id="atoosync_products" translate="label" sortOrder="102" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Products</label>
+            <tab>atoosync_gescom_config</tab>
+            <resource>AtooSync_Gescom::config</resource>
+            <group id="create" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Create product</label>
+                <comment>Configure how Atoosync will create your product</comment>
+                <field id="websites" translate="label" type="multiselect" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>websites</label>
+                    <comment>Choose the websites to create new product</comment>
+                    <source_model>AtooSync\GesCom\Model\Config\Backend\WebsitesList</source_model>
+                </field>
+<!--                <field id="attributesetbyfamily" translate="label" type="select" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Attribute Set</label>
+                    <comment>Create an attribute set for new product. Choosing the yes option, results in the creation by default of an attribute set by category, each product in the category will be affiliated to it </comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+-->
+                <field id="attributeset" translate="label" type="select" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Attribute Set by family</label>
+                    <comment>Choose the attribute set for new product</comment>
+                    <source_model>AtooSync\GesCom\Model\Config\Backend\AttributeSetList</source_model>
+                </field>
+                
+                <field id="state" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Product state</label>
+                    <comment>Enable or disable new products.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="category" translate="label" type="select" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Select Category</label>
+                    <source_model>AtooSync\GesCom\Model\Config\Backend\Categorylist</source_model>
+                    <comment>Create all new product in specific category. Leave blank for create in ERP categories</comment>
+                </field>
+
+                <field id="category_parent" translate="label" type="select" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Create in parent categories</label>
+                    <comment>Create product in all parent categories (except home) during the update.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="update" translate="label" sortOrder="11" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Update product</label>
+                <comment>Configure how Atoosync will update your product, the default values of the product will be modified.</comment>
+                <field id="name" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Product name</label>
+                    <comment>Replace the name of the product during the update.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="desc_short" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Product short description</label>
+                    <comment>Replace the short description of the product during the update.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="description" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Product description</label>
+                    <comment>Replace the description of the product during the update.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="seo" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Product SEO</label>
+                    <comment>Replace the SEO information (meta-title, meta-description, meta-keyword, link-rewrite) of the product during the update.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="price" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Product price</label>
+                    <comment>Replace the name of the product during the update.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="multiprices" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Specific prices</label>
+                    <comment>Replace the specific prices of the product during the update.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="quantity" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Product quantity</label>
+                    <comment>Replace the quantity of the product during the update.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="weight" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Product weight</label>
+                    <comment>Replace the weight of the product during the update.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="shipInfo" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Product shipping information</label>
+                    <comment>Replace the shipping information (height, width, depth) of the product during the update.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="ean_upc" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Product EAN/UPC</label>
+                    <comment>Replace the EAN/UPC of the product during the update. Need you configure the EAN/UPC attribute</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="manufacturer" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Product manufacturer</label>
+                    <comment>Replace the manufacturer of the product during the update. Need you configure the EAN/UPC attribute</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="supplier" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Product supplier</label>
+                    <comment>Replace the supplier of the product during the update. Need you configure the EAN/UPC attribute</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="image" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Replace images</label>
+                    <comment>Replace the images of the product during the update.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="features" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Replace features</label>
+                    <comment>Replace the features of the product during the update.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="category" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Update Category</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Update Product Categories</comment>
+                </field>
+            </group>
+            <group id="groupingproduct" translate="label" sortOrder="11" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>grouping of products</label>
+                <comment>Configure how Atoosync will update combination product </comment>
+                <field id="updatemasterproduct" translate="label" type="select" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Update master Product</label>
+                    <comment>Update the master product with combination</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+        <section id="atoosync_customers" translate="label" sortOrder="103" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Customers</label>
+            <tab>atoosync_gescom_config</tab>
+            <resource>AtooSync_Gescom::config</resource>
+            <group id="creation" translate="label" sortOrder="10" type="radio" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Create customer</label>
+                 <field id="website" translate="label" type="select"  showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Associate to Website</label>
+                    <comment>Choose the website where AtooSync create the customer</comment>
+                    <source_model>AtooSync\GesCom\Model\Config\Backend\CustomerWebsiteList</source_model>
+                </field>
+                <field id="mailfrom" translate="label" type="select"  showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Send Welcome Email From</label>
+                    <comment>Choose the the mail template</comment>
+                    <source_model>AtooSync\GesCom\Model\Config\Backend\CustomerMailFromList</source_model>
+                </field>
+                <field id="newsletter" translate="label" type="select" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Newsletter</label>
+                    <comment>Customers will receive your newsletter via email.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="sendmail" translate="label" type="select" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Email notification</label>
+                    <comment>Send an Email to the customer when creating his account.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="update" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Update customer</label>
+                <field id="email" translate="label" type="select"  sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Email</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Replace the email of the customer during the update.</comment>
+                </field>
+                <field id="name" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>First name and Last name</label>
+                    <comment>Replace the first name and the last name of the customer during the update.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="defaultgroup" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Default customer group</label>
+                    <comment>check the client also in the default client group.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="address" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Addresses</label>
+                    <comment>Replace the addresses of the customer during the update.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+        <section id="atoosync_orders" translate="label" sortOrder="104" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Orders</label>
+            <tab>atoosync_gescom_config</tab>
+            <resource>AtooSync_Gescom::config</resource>
+            <group id="create" translate="label" sortOrder="10" type="radio" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Orders</label>
+                <field id="http_header" translate="label" type="select" sortOrder="9" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>HTTP header</label>
+                    <comment>Select the HTTP header that will be used for the orders.</comment>
+                    <source_model>AtooSync\GesCom\Model\Config\Backend\HttpHeader</source_model>
+                </field>
+                <field id="messages" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Order message</label>
+                    <comment>import the message with the order</comment>
+                    <source_model>AtooSync\GesCom\Model\Config\Backend\OrderMessage</source_model>
+                </field>
+                <field id="round" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Rounding of prices</label>
+                    <comment>Configure the rounded price of the order.</comment>
+                    <source_model>AtooSync\GesCom\Model\Config\Backend\RoundingPrecisionType</source_model>
+                </field>
+                <field id="payement" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Orders payments</label>
+                    <comment>Select the payment methods to use in Atoo-Sync.</comment>
+                    <source_model>AtooSync\GesCom\Model\Config\Backend\OrderPayment</source_model>
+                </field>
+                <field id="account" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Guest Customer Account</label>
+                    <comment>Enter here the account number for guest customer. Leave blank if you do not want to enable this option.</comment>
+                </field>
+            </group>
+            <group id="update" translate="label" sortOrder="10" type="radio" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>References</label>
+                <field id="reference" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Replace reference</label>
+                    <comment>Replace the reference number of the order by the document number during the update.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+        <section id="atoosync_attributes" translate="label" sortOrder="106" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Attributes</label>
+            <tab>atoosync_gescom_config</tab>
+            <resource>AtooSync_Gescom::config</resource>
+            <group id="product" translate="label" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Product</label>
+                <comment>Configure the attributes used for the product.</comment>
+                <field id="ean_upc" translate="label" type="select" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>EAN/UPC attribute</label>
+                    <comment>Select the EAN/UPC attribute.</comment>
+                    <source_model>AtooSync\GesCom\Model\Config\Backend\AttributeList</source_model>
+                </field>
+                <field id="width" translate="label" type="select" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Width attribute</label>
+                    <comment>Select the Width attribute.</comment>
+                    <source_model>AtooSync\GesCom\Model\Config\Backend\AttributeList</source_model>
+                </field>
+                 <field id="height" translate="label" type="select" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Height attribute</label>
+                    <comment>Select the Height attribute.</comment>
+                    <source_model>AtooSync\GesCom\Model\Config\Backend\AttributeList</source_model>
+                </field>
+                 <field id="depth" translate="label" type="select" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Depth attribute</label>
+                    <comment>Select the Depth attribute.</comment>
+                    <source_model>AtooSync\GesCom\Model\Config\Backend\AttributeList</source_model>
+                </field>
+            </group>
+            <group id="ecotax" translate="label" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Ecotax</label>
+                <comment>Choose the attribute for the Ecotax.</comment>
+                <field id="ecotax" translate="label" type="select" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Ecotax attribute</label>
+                    <comment>Select the Ecotax attribute.</comment>
+                    <source_model>AtooSync\GesCom\Model\Config\Backend\EcoTaxAttributeList</source_model>
+                </field>
+            </group>
+            <group id="manufacturer" translate="label" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Manufacturer</label>
+                <comment>Configure the attribute for the Manufacturer, Attribut must be Text field only.</comment>
+                <field id="manufacturer" translate="label" type="select"  sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Manufacturer attribute</label>
+                    <comment>Select the manufacturer attribute.</comment>
+                    <source_model>AtooSync\GesCom\Model\Config\Backend\AttributeList</source_model>
+                </field>
+            </group>
+        </section>
+        <section id="atoosync_others_settings" translate="label" sortOrder="107" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Other settings</label>
+            <tab>atoosync_gescom_config</tab>
+            <resource>AtooSync_Gescom::config</resource>
+            <group id="special_chars" translate="label" sortOrder="9" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Clean fields</label>
+                <comment>clean specific chars</comment>
+                <field id="valid_product_field" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>clean product special chars</label>
+                    <comment>Used for clean all specific chars in products.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="valid_customer_field" translate="label" type="select" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>clean customer special chars</label>
+                    <comment>Used for clean all specific chars in customers.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="valid_address_field" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>clean address special chars</label>
+                    <comment>Used for clean all specific chars in addresses.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="debug_mode" translate="label" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Debug mode</label>
+                <comment>Enable debug mode</comment>
+                <field id="debug_mode" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Debug mode</label>
+                    <comment>Used for enable the debug mode.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+
+        </section>
+    </system>
+</config>

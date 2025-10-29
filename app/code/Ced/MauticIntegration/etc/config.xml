@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * CedCommerce
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the End User License Agreement(EULA)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://cedcommerce.com/license-agreement.txt
+ *
+ * @category  Ced
+ * @package   Ced_MauticIntegration
+ * @author    CedCommerce Core Team <connect@cedcommerce.com>
+ * @copyright Copyright CEDCOMMERCE(http://cedcommerce.com/)
+ * @license   http://cedcommerce.com/license-agreement.txt
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <mautic_integration>
+            <mauticapi_integration>
+                <enable>1</enable>
+                <oauth_type>Oauth2</oauth_type>
+                <abandoned_cart_time>10</abandoned_cart_time>
+            </mauticapi_integration>
+            <mautic_rfm_settings>
+                <rfm_fields>
+                    {"rfm_at_5":{"recency":"30","frequency":"20","monetary":"1000"},"from_rfm_4":{"recency":"31","frequency":"10","monetary":"750"},"to_rfm_4":{"recency":"90","frequency":"20","monetary":"1000"},"from_rfm_3":{"recency":"91","frequency":"5","monetary":"500"},"to_rfm_3":{"recency":"180","frequency":"10","monetary":"750"},"from_rfm_2":{"recency":"181","frequency":"2","monetary":"250"},"to_rfm_2":{"recency":"365","frequency":"5","monetary":"500"},"rfm_at_1":{"recency":"365","frequency":"2","monetary":"250"}}
+                </rfm_fields>
+            </mautic_rfm_settings>
+            <mautic_property_groups>
+                <customer_group>1</customer_group>
+                <feedback>1</feedback>
+                <shopping_cart_fields>1</shopping_cart_fields>
+                <abandoned_cart>1</abandoned_cart>
+            </mautic_property_groups>
+            <mautic_abandoned_cart>
+                <abandoned_cart_time>30</abandoned_cart_time>
+            </mautic_abandoned_cart>
+            <mautic_cron_configuration>
+                <delete_error_log>30</delete_error_log>
+            </mautic_cron_configuration>
+        </mautic_integration>
+    </default>
+</config>

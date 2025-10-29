@@ -1,0 +1,75 @@
+<?php
+use Gone\OurReview\Block\OurReviewTab;
+
+/** @var OurReviewTab $block */
+$product = $block->getProduct();
+$review = $block->getTextReviewHtml();
+$ratingCollection = $block->getRatingAttributes();
+?>
+
+<div class="review-content">
+    <?php if ($ratingCollection->getSize() > 0):?>
+        <table class="review-stars">
+        <?php foreach ($ratingCollection as $rating):?>
+            <tr>
+                <th><?= $rating->getFrontendLabel() ?></th>
+                <td>
+                    <span class="<?= $block->formatClass(
+                        $product->getData($rating->getAttributeCode())
+                    ) ?>"
+                    >
+                    </span>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+        </table>
+    <?php endif; ?>
+
+    <?php if (!empty($review)):?>
+        <div class="review-text-content">
+            <p><?= /* @noEscape */ $review ?></p>
+        </div>
+    <?php endif; ?>
+
+
+    <?php if ($this->isGraphEnable()):?>
+        <div id="gr-graph-data"><?= $block->getAdvancedGraphData($product)?></div>
+        <canvas id="advanced-stat" width="400" height="400"></canvas>
+        <script>
+            require(['chartjs', 'domReady!'],
+                function () {
+                    'use strict';
+                    let jsonData = document.getElementById('gr-graph-data').innerHTML;
+                    let graphData = JSON.parse(jsonData);
+                    let ctx = document.getElementById('advanced-stat').getContext('2d');
+                    new Chart(ctx, {
+                        type: 'radar',
+                        data: {
+                            labels: graphData["label"],
+                            datasets: [{
+                                label: '<?= __('Grade') ?>',
+                                data: graphData["value"],
+                                borderColor: '#005ea8',
+                                backgroundColor : 'rgba(0, 138, 246, 0.5)',
+                                borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            legend: {
+                                display: false,
+                            },
+                            scale: {
+                                ticks: {
+                                    beginAtZero: true,
+                                    stepSize: 1,
+                                    suggestedMax: 5,
+                                },
+                            }
+                        }
+                    });
+                }
+            );
+        </script>
+    <?php endif;?>
+</div>

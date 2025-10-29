@@ -1,0 +1,96 @@
+/*
+ * Copyright © 410 Gone (contact@410-gone.fr). All rights reserved.
+ * See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+ */
+
+.glossaire-index-index {
+    .page-main {
+        .column.main {
+            display: flex;
+            flex-direction: column;
+
+            .glossary-summary {
+                order: 1;
+                margin-bottom: 20px;
+                font-size: @font-size__xl;
+
+                span {
+                    text-transform: uppercase;
+                    color: @darkBlue;
+                    margin: 0 5px;
+                    display: inline-block;
+
+                    &.disabled {
+                        color: @gray;
+                    }
+
+                    &:not(.disabled) {
+                        font-weight: bold;
+
+                        &:hover {
+                            cursor: pointer;
+                        }
+                    }
+
+                    &._active {
+                        border-bottom: 2px solid @darkBlue;
+                        padding-bottom: 3px;
+
+                        &:hover {
+                            cursor: initial;
+                        }
+                    }
+                }
+            }
+
+            .glossary-content {
+
+                order: 3;
+
+                > a {
+                    margin-top: 20px;
+                    display: block;
+                }
+
+                .glossary-letter {
+                    padding: 20px 0 0 0;
+                    font-size: @font-size__xl;
+                    font-weight: @font-weight__bold;
+                }
+
+                .definition-title {
+                    color: @darkBlue;
+                    font-weight: @font-weight__semibold;
+                    margin-bottom: 15px;
+                    font-size: @font-size__l;
+                }
+
+                .definition-content {
+                    color: @gray;
+                }
+            }
+
+            .definition-info {
+                order: 2;
+                font-size: @font-size__base;
+                border-bottom: 1px solid @darkGray;
+            }
+
+        }
+    }
+}
+
+.glossaire-index-definition {
+
+    .glossary-content {
+
+        .quatrecentdix {
+            display: block;
+            margin-top: 20px;
+            color: @clearBlue;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

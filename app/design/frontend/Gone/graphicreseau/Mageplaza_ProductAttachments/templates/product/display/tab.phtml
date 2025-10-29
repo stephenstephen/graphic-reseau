@@ -1,0 +1,26 @@
+<?php
+/*
+ * Copyright © 410 Gone (contact@410-gone.fr). All rights reserved.
+ * See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+ */
+
+/** @var \Mageplaza\ProductAttachments\Block\Product\Attachments $block */
+$displayType  = $block->getDisplayTypes();
+$canShowInTab = in_array(Mageplaza\ProductAttachments\Model\Config\Source\System\ShowOn::TAB, $displayType, true);
+?>
+
+<?php if ($canShowInTab): ?>
+    <div class="mp-attachment-container">
+        <h2><?= /* @noEscape */ $block->getTitle() ?></h2>
+        <!-- begin 410 override -->
+        <?php if($block->getChildHtml("product_pdf")): ?>
+            <?= $block->getChildHtml("product_pdf") ?>
+        <?php endif; ?>
+        <!-- end 410 override -->
+    </div>
+    <script type="text/javascript">
+        require(['jquery'], function ($) {
+            $('#tab .mp-attachment-container').append(<?= $block->getFileContentHtml() ?>);
+        });
+    </script>
+<?php endif; ?>

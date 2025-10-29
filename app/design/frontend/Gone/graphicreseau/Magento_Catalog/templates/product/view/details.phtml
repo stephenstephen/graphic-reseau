@@ -1,0 +1,81 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Gone\Catalog\Block\Product\View\Details $block */
+?>
+<?php if ($detailedInfoGroup = $block->getGroupSortedChildNames('detailed_info', 'getChildHtml')) : ?>
+    <?php
+    //410-OverLoad-beg
+    $newOrderTabbing = [
+        'our_review_tab',
+        'product.info.description',
+        'product.attributes',
+        'verified.reviews.tab',
+        'mpattachments.tab',
+        'amasty_faq_product_tab'
+    ];
+    //410-OverLoad-end
+    ?>
+
+    <div class="product info detailed">
+        <?php $layout = $block->getLayout(); ?>
+        <div class="product data items" data-mage-init='{"tabs":{"openedState":"active"}}'>
+            <?php foreach ($newOrderTabbing as $name) : ?>
+                <?php
+                $html = $layout->renderElement($name);
+                if (!trim($html)) {
+                    continue;
+                } else {//410-OverLoad-beg
+                $alias = $layout->getElementAlias($name);
+                $label = $block->getChildData($alias, 'title');
+                ?>
+                <div class="data item title"
+                     data-role="collapsible" id="tab-label-<?= $block->escapeHtmlAttr($alias) ?>">
+                    <a class="data switch"
+                       tabindex="-1"
+                       data-toggle="trigger"
+                       href="#<?= $block->escapeUrl($alias) ?>"
+                       id="tab-label-<?= $block->escapeHtmlAttr($alias) ?>-title">
+                        <?= /* @noEscape */
+                        $label ?>
+                    </a>
+                </div>
+                <div class="data item content"
+                     aria-labelledby="tab-label-<?= $block->escapeHtmlAttr($alias) ?>-title"
+                     id="<?= $block->escapeHtmlAttr($alias) ?>" data-role="content">
+                    <?= /* @noEscape */
+                    $html ?>
+                </div>
+                <?php } //410-OverLoad-end?>
+
+            <?php endforeach; ?>
+            <?php
+            //410-OverLoad-beg
+            $customTabsArr = $block->getCustomTabsContent();
+            ?>
+            <?php if (!empty($customTabsArr)): ?>
+                <?php foreach ($customTabsArr as $customTab) : ?>
+                    <div class='data item title'
+                         data-role='collapsible' id="tab-label-<?= $customTab->getIdentifier() ?>">
+                        <a class='data switch'
+                           tabindex='-1'
+                           data-toggle='trigger'
+                           href="#<?= $customTab->getIdentifier() ?>"
+                           id="tab-label-<?= $customTab->getIdentifier() ?>-title">
+                            <?= $customTab->getTitle() ?>
+                        </a>
+                    </div>
+                    <div class="data item content"
+                         aria-labelledby="tab-label-<?= $customTab->getIdentifier() ?>-title"
+                         id="<?= $customTab->getIdentifier() ?>" data-role="content">
+                        <?= $block->getInterpretedContent($customTab->getContent()) ?>
+                    </div>
+                    <!--  410-OverLoad-end-->
+                <?php endforeach; ?>
+            <?php endif; ?>
+        </div>
+    </div>
+<?php endif; ?>

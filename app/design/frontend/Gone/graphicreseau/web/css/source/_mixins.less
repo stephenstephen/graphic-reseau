@@ -1,0 +1,162 @@
+//globals
+.shadow-box(@color : darken(@lightGray,5%)) {
+    padding: 25px;
+    border: @color 1px solid;
+    box-shadow: 9px 10px 9px -3px rgba(0, 0, 0, 0.67);
+    -webkit-box-shadow: 9px 10px 9px -3px rgba(0, 0, 0, 0.67);
+    -moz-box-shadow: 9px 10px 9px -3px rgba(0, 0, 0, 0.67);
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+
+//forms
+.fields-row {
+    display: flex !important;
+    flex-wrap: nowrap;
+    box-sizing: border-box;
+    align-items: center;
+    width: 100%;
+
+    legend {
+        display: block;
+    }
+
+    .field {
+        width: 50%;
+    }
+}
+
+//alerts
+.green-text {
+    color: @message-success__color;
+}
+
+.amber-text {
+    color: @message-warning__color;
+}
+
+.red-text {
+    color: @message-error__color;
+}
+
+.green-back {
+    background-color: @message-success__background;
+}
+
+.amber-back {
+    background-color: @message-warning__background;
+}
+
+.red-back {
+    background-color: @message-error__background;
+}
+
+.green-icon-before {
+    &:before {
+        content: @message-success-icon;
+    }
+}
+
+.amber-icon-before {
+    &:before {
+        content: @message-warning-icon;
+    }
+}
+
+.red-icon-before {
+    .lib-icon-font(
+        @icon-warning,
+        @_icon-font-size: 20px,
+        @_icon-font-text-hide: true,
+        @_icon-font-position: before,
+        @_icon-font-display: block
+    );
+}
+
+.stock-point-light(@color) {
+    position: absolute;
+    content: "";
+    top: 3px;
+    left: -30px;
+    width: 20px;
+    height: 20px;
+    background-color: @color;
+    border-radius: 50%;
+}
+
+//prices
+.old-price {
+    .price-container {
+        display: flex;
+        align-items: center;
+        background-color: @product-old-price-highlight-color;
+        width: max-content;
+        margin-top: 5px;
+
+        span {
+            color: @gray;
+            padding: 3px;
+
+            &:last-of-type {
+                text-decoration: line-through;
+
+            }
+        }
+    }
+}
+
+.product-list-separator() {
+    border-top: 1px solid darken(@lightGray, 10%);
+}
+
+.price-container {
+    color: @product-info-price;
+
+    span {
+        font-size: @font-size__l;
+    }
+}
+
+//end prices
+
+//stock status
+.stock {
+    position: relative;
+    margin-left: 30px;
+    padding: 3px !important;
+    text-transform: uppercase;
+    font-weight: bold;
+
+    span {
+        display: inline-block;
+    }
+
+    &.available {
+        color: lighten(@message-success__color, 5%);
+
+        &:before {
+            .stock-point-light(lighten(@message-success__color, 5%));
+        }
+    }
+
+    &.unavailable {
+        color: lighten(@message-error__color, 5%);
+
+        &:before {
+            .stock-point-light(lighten(@message-error__color, 5%));
+        }
+    }
+
+    &.supplying {
+        color: lighten(@message-warning__color, 5%);
+
+        &:before {
+            .stock-point-light(lighten(@message-warning__color, 5%));
+        }
+    }
+}

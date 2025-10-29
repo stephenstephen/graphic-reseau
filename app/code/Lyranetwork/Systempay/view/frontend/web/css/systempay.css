@@ -1,0 +1,103 @@
+#systempay_iframe {
+    position: relative;
+    width: 100%;
+    min-height: 530px;
+    border: 0 none;
+    margin-bottom: -5px !important;
+}
+
+.systempay-standard-cc-block {
+    display: none;
+}
+
+.systempay-sepa-cc-block {
+    display: none;
+}
+
+ul.systempay-identifier {
+    list-style-type: none;
+    display: initial;
+}
+
+a.systempay-payment-link {
+    color: #39C;
+    text-decoration: none;
+    font-family: Georgia,Times,"Times New Roman",serif;
+    font-size: 16px;
+}
+
+.systempay-multi fieldset div.field {
+    float: left;
+    width: 50%;
+}
+
+.systempay-choozeo fieldset div.field {
+    float: left;
+    width: 50%;
+}
+.systempay-payment-option ul {
+    padding: 5px 5px;
+}
+
+
+.systempay-other fieldset div.field {
+    float: left;
+    width: 50%;
+}
+
+.systempay_review .small {
+    font-size: 10px;
+}
+
+.systempay_review {
+    margin-top: 10px;
+    margin-left: 20px;
+    border: 1px solid black;
+    font-size: 13px !important;
+    width: 50%;
+}
+
+.systempay_review thead tr {
+    border-bottom: 1px solid black;
+}
+
+.systempay_review .systempay_bold {
+    font-weight: bold;
+}
+
+.systempay_review td, .systempay_review th {
+    padding: 5px 5px;
+}
+
+button.kr-popin-button {
+    display: none !important;
+    width: 0;
+    height: 0;
+}
+
+.systempay-card {
+    display: inline !important;
+}
+
+.systempay-card img, .systempay-card span {
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.systempay-card img {
+    max-width: 90px;
+    max-height: 30px;
+}
+
+.systempay-card span {
+    height: 30px;
+}
+
+.systempay-confirm-delete {
+    max-width: 750px;
+    margin: auto;
+}
+
+.systempay-confirm-delete .modal-footer {
+    text-align: right;
+}

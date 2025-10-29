@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<saledeliveries>
+  <order_key><![CDATA[3000119259]]></order_key>
+  <deliveries>
+    <delivery>
+      <delivery_number><![CDATA[BL00014]]></delivery_number>
+      <delivery_date><![CDATA[2021-07-28 00:00:00]]></delivery_date>
+      <delivery_method><![CDATA[Chronoposte]]></delivery_method>
+      <tracking_number><![CDATA[]]></tracking_number>
+      <carrier_key><![CDATA[[dhl] Easy shop]]></carrier_key>
+      <products>
+        <product>
+          <reference><![CDATA[ENC/E/T47A200]]></reference>
+          <quantity><![CDATA[1.00000]]></quantity>
+          <delivery_date><![CDATA[2021-07-28 00:00:00]]></delivery_date>
+          <tracking_number><![CDATA[aertyu1]]></tracking_number>
+          <variation_key></variation_key>
+        </product>
+      </products>
+    </delivery>
+  </deliveries>
+</saledeliveries>

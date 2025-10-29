@@ -1,0 +1,47 @@
+<?php
+/**
+ * CedCommerce
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the End User License Agreement (EULA)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://cedcommerce.com/license-agreement.txt
+ *
+ * @category    Ced
+ * @package     Ced_MauticIntegration
+ * @author      CedCommerce Core Team <connect@cedcommerce.com>
+ * @copyright   Copyright CedCommerce (http://cedcommerce.com/)
+ * @license     http://cedcommerce.com/license-agreement.txt
+ */
+?>
+<?php
+$status = $block->getConnectionStatus();
+?>
+<div class="control">
+    <?php if ($status) { ?>
+    <div class="col-m-6">
+        <div class="connection-status connected">
+            <div class="icon"><i class="fa fa-check"></i></div>
+            <span class="item-title"><?php echo __('Connection Status'); ?></span>
+            <span class="item-description"><?php echo __('Connected'); ?></span>
+        </div>
+    </div>
+    <div class="col-m-6 text-right">
+        <div class="export-btn">
+            <a class="btn btn-info" href="<?php echo $block->getUrl('mauticintegration/setting/exportBulkCustomers'); ?>">
+                <span class="item-description"><?php echo __('Export Customers'); ?></span>
+            </a>
+        </div>
+    </div>
+    <?php } else { ?>
+        <div class="col-m-6">
+            <div class="connection-status disconnected">
+                <div class="icon"><i class="fa fa-close"></i></div>
+                <span class="item-title"><?php echo __('Connection Status'); ?></span>
+                <span class="item-description"><?php echo __('Not Connected'); ?></span>
+            </div>
+        </div>
+    <?php } ?>
+</div>

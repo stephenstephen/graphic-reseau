@@ -1,0 +1,23 @@
+<?php /** @var $block Colissimo\Shipping\Block\Adminhtml\Order\Create\Pickup\Load */ ?>
+<?php if ($block->canShow()): ?>
+    <?php $collection = $block->getList() ?>
+    <div class="admin__page-section-title">
+        <span class="title"><?php echo __('Pick-Up location') ?></span>
+    </div>
+    <?php if ($collection->getSize()): ?>
+        <ul class="admin__order-shipment-methods-options-list">
+            <?php /** @var \Colissimo\Shipping\Model\Pickup $pickup */ ?>
+            <?php foreach ($collection as $pickup): ?>
+            <li class="admin__field-option">
+                <input type="radio" name="colissimo[pickup]" id="sc-pickup-<?php echo $pickup->getIdentifiant(); ?>" <?php if($pickup->getIdentifiant() == $block->getCurrent()): ?>checked<?php endif; ?> class="admin__control-radio required-entry" value="<?php echo $pickup->getIdentifiant(); ?>-<?php echo $pickup->getReseau() ?>" onclick="order.setColissimoPickup(this.value)">
+                <label for="sc-pickup-<?php echo $pickup->getIdentifiant(); ?>" class="admin__field-label">
+                    <strong><?php echo $pickup->getNom() ?></strong>
+                    <?php echo $pickup->getData('adresse1') ?> - <?php echo $pickup->getCodePostal() ?> <?php echo $pickup->getLocalite() ?>
+                </label>
+            </li>
+            <?php endforeach; ?>
+        </ul>
+    <?php else: ?>
+        <p><?php echo __('Enter a valid shipping address to find pickup locations') ?></p>
+    <?php endif; ?>
+<?php endif; ?>

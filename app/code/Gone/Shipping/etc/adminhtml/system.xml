@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+  ~ *
+  ~ @copyright Copyright © 2020 410-Gone. All rights reserved.
+  ~ @author    contact@410-gone.fr
+  ~
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="gr_config" translate="label" type="text" sortOrder="400" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Graphic Reseau Config</label>
+            <tab>gone_tab</tab>
+            <resource>Gone_Shipping::all</resource>
+            <group id="shipping" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Shipping</label>
+                <field id="max_hour" translate="label" sortOrder="10" type="text" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Ship before</label>
+                    <comment>only int between 0 and 23 are allowed</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

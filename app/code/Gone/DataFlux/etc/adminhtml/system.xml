@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="dataflux" translate="label" type="text" sortOrder="400" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Flux de données</label>
+            <tab>gone_tab</tab>
+            <resource>Gone_Base::all</resource>
+            <group id="commerce_connector" translate="label" type="text" sortOrder="0" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>commerce-connector.com</label>
+                <field id="merchant_id" translate="label comment" type="text" sortOrder="0" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>ID Marchand</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

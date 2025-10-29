@@ -1,0 +1,24 @@
+<?php /** @var $block \Colissimo\Shipping\Block\Adminhtml\Order\View\Shipping */ ?>
+<section class="admin__page-section">
+    <div class="admin__page-section-title">
+        <span class="title"><?php echo __('Colissimo Information') ?></span>
+    </div>
+    <div class="admin__page-section-content">
+        <div class="admin__page-section-item">
+            <div class="admin__page-section-item-title">
+                <span class="title"><?php echo __('Shipping Data') ?></span>
+            </div>
+            <div class="admin__page-section-item-content">
+                <?php if ($block->getProductCode()): ?>
+                    <p><?php echo __('Product code: %1', $block->getProductCode()) ?></p>
+                <?php endif; ?>
+                <?php if ($block->getPickupId()): ?>
+                    <p><?php echo __('Pickup code: %1', $block->getPickupId()) ?></p>
+                <?php endif; ?>
+                <?php if ($block->getNetworkCode()): ?>
+                    <p><?php echo __('Network: %1', $block->getNetworkCode()) ?></p>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+</section>

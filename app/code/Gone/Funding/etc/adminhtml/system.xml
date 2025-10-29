@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="funding" translate="label" type="text" sortOrder="400" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Simulateur Financement</label>
+            <tab>gone_tab</tab>
+            <resource>Gone_Base::all</resource>
+            <group id="duration" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Durée en mois</label>
+                <field id="months" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Durées proposées</label>
+                    <frontend_model>Gone\Funding\Block\Adminhtml\Config\Form\Field\DurationsMapping</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                    <comment>Saisir les durées de financement possibles en mois</comment>
+                </field>
+            </group>
+            <group id="ratios" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Ratios</label>
+                <field id="mapping" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Mapping de financement</label>
+                    <frontend_model>Gone\Funding\Block\Adminhtml\Config\Form\Field\FundingMapping</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                    <comment>Saisir les ratios de financement</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

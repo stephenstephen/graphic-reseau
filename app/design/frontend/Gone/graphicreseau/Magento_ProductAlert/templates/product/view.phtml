@@ -1,0 +1,15 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php /* @var $block \Magento\ProductAlert\Block\Product\View */ ?>
+<div class="product alert <?= $block->getHtmlClass() ?>">
+    <!--    410-beg-obfc -->
+    <span data-atc="<?= base64_encode($block->escapeUrl($block->getSignupUrl())) ?>"
+       title="<?= $block->escapeHtml(__($block->getSignupLabel())) ?>" class="action alert quatrecentdix">
+        <?= $block->escapeHtml(__($block->getSignupLabel())) ?>
+    </span>
+    <!--    410-end-obfc -->
+</div>

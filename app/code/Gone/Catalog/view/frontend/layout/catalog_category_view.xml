@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <referenceBlock name="category.products.list">
+        <block class="Gone\Catalog\Block\Product\View\SquareMeterPrice" name="sqmeterprice_product"
+               template="Gone_Catalog::product/view/sq-meter-price.phtml" after="-"/>
+        <block class="Gone\Catalog\Block\Product\View\PaypalAdv" name="paypal_adv"
+               template="Gone_Catalog::product/view/paypaladv.phtml" before="-"/>
+    </referenceBlock>
+
+</page>

@@ -1,0 +1,31 @@
+<?php
+/* @var $block \Magento\Catalog\Block\Product\View\AbstractView */
+
+$_product = $block->getProduct();
+$_productHelper = $this->helper(\Gone\Catalog\Helper\Product::class);
+$availability = $_productHelper->getAvailablityStatus($_product);
+?>
+<?php if ($block->displayProductStockStatus()) : ?>
+    <!--  410-Overload-beg -->
+    <div class="stock <?= $escaper->escapeHtml($availability['className']) ?>">
+        <span>
+            <?= $escaper->escapeHtml($availability['label']) ?>
+        </span>
+        <?php if ($availability['className'] === "available") : ?>
+            <span class="gr-fast-shipping" data-mage-init='{
+                    "Gone_Shipping/js/productShippingDelay": {
+                        "ajaxUrl": "<?php echo $block->getUrl('shipping/product/delay'); ?>",
+                        "productId": "<?= $_product->getId() ?>"
+                    }
+                }'
+            >
+                <img class="image-stock-loader" src="<?= $block->getViewFileUrl('images/loader-2.gif') ?>" alt="loader">
+            </span>
+        <?php endif; ?>
+
+    </div>
+    <!--  410-Overload-end -->
+
+<?php endif; ?>
+<?= $block->getChildHtml('product.info.simple.extra.catalog_inventory_stockqty_default') ?>
+<hr>

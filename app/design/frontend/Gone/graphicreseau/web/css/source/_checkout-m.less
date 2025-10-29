@@ -1,0 +1,131 @@
+/*
+ * Copyright © 410 Gone (contact@410-gone.fr). All rights reserved.
+ * See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+ */
+
+// cart
+.cart.item {
+    .stock {
+        .stock;
+    }
+}
+
+.minicart-items-wrapper {
+    .stock {
+        font-size: 1rem;
+        margin-left: 12px;
+
+        &:before {
+            left: -12px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+        }
+    }
+}
+
+.checkout-cart-index {
+    .student-info {
+        background-color: @lightBlue;
+        margin-bottom: 20px;
+        padding: 20px;
+
+        .icon-info {
+            font-size: 2.5rem;
+        }
+
+        span:not(.icon-info) {
+            margin-left: 10px;
+        }
+    }
+
+    .page-main {
+        .cart-container {
+            .cart.item {
+                .product-item-details {
+                    .custom-options {
+                        margin-top: 20px;
+                        background-color: @lightBlue;
+                        padding: 10px;
+
+                        .option-title {
+                            font-weight: bold;
+                            margin-bottom: 20px;
+                        }
+
+                        .options-values {
+                            > div {
+                                margin: 10px 0;
+
+                                &:last-child {
+                                    margin-bottom: 0;
+                                }
+
+                                .price-notice {
+                                    .price-including-tax,
+                                    .price-excluding-tax {
+                                        display: inline-block;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.dangerous-disclaimer {
+    margin-top: 5px;
+    padding: 10px;
+    border: solid 2px @darkBlue;
+
+    span:first-of-type {
+        font-weight: @font-weight__bold;
+    }
+}
+
+.checkout-index-index {
+    .page-main {
+        .form.methods-shipping {
+            padding-top: 10px;
+        }
+
+        .table-checkout-shipping-method {
+            tbody {
+                .row {
+                    border-bottom: 1px solid #ccc;
+                    justify-content: center;
+                    padding-bottom: 10px;
+                }
+
+                td {
+                    border-top: none;
+
+                    &.col-method:not(.title) { // radio button
+                        max-width: 10px;
+                    }
+
+                    &.col-delay {
+                        width: 100%;
+                        text-align: center;
+                        padding-top: 2px;
+                        padding-bottom: 2px;
+                        min-width: 200px;
+                    }
+
+                    &.col-price,
+                    &.col-method.title {
+                        text-align: center;
+                    }
+
+                    &.col-price > .price > .price { // so free price have same style thant including price
+                        font-size: 18px;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
+    }
+}

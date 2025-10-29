@@ -1,0 +1,13 @@
+"-- Please select --","-- Please select --"
+None,None
+"Admin Payment Method","Admin Payment Method"
+"Title","Titre"
+"New Order Status","Statut de nouvelle commande"
+Enable,Activer
+"Payment from Applicable Countries","Paiement par pays"
+"Payment from Specific Countries","Paiement pour pays spécifiques"
+"Sort Order","Ordre d'affichage"
+"Auto Create Invoice","Création facture automatique"
+"Will auto create invoice when choose Yes with Admin Payment Method","Création automatique de la facture lors de la sélection de cette méthode de paiement"
+"Auto Create Shipment","Création d'envoi automatique"
+"Will auto create shipment when choose Yes with Admin Payment Method","Création automatique de l'envoi lors de la sélection de cette méthode de paiement"

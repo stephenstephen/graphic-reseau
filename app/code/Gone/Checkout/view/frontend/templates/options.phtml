@@ -1,0 +1,81 @@
+<?php
+
+use Gone\Checkout\Block\ProductOptions;
+use Magento\Catalog\Model\Product\Option;
+
+/** @var ProductOptions $block */
+$options = $block->getProductOptions();
+$selectedOptions = $block->getSelectedOptions();
+/** @var Option $option */
+?>
+
+<?php if (!empty($options) && $options->count() > 0):?>
+    <div class="custom-options">
+        <?php foreach ($options as $option):?>
+            <span class="option-title"><?= $option->getTitle()?></span>
+            <div class="options-values">
+                <?php
+                    $optionType = $option->getType();
+                    $count = 1;
+                    $checkedOption = array_key_exists($option->getId(), $selectedOptions) ? $selectedOptions[$option->getId()] : false;
+                ?>
+                <?php if ($optionType === Option::OPTION_TYPE_RADIO && !$option->getIsRequire()):?>
+                    <div>
+                        <input type="radio"
+                               id="options_<?= $block->escapeHtmlAttr($option->getId()) ?>"
+                               class="radio admin__control-radio product-custom-option"
+                               name="cart[<?= $block->orderItem->getId() ?>][product_custom_option][<?= $block->escapeHtmlAttr($option->getId()) ?>]"
+                               value=""
+                               <?= empty($checkedOption) ? 'checked' : '' ?>
+                        />
+                        <label class="label admin__field-label" for="options_<?= $block->escapeHtmlAttr($option->getId()) ?>">
+                            <span>
+                                <?= __('None') ?>
+                            </span>
+                        </label>
+                    </div>
+                <?php endif; ?>
+                <?php foreach ($option->getValues() as $optionValue): $count++;?>
+                    <div>
+                        <input type="<?= $block->escapeHtmlAttr($optionType) ?>"
+                               class="<?= $optionType === Option::OPTION_TYPE_RADIO
+                                   ? 'radio admin__control-radio'
+                                   : 'checkbox admin__control-checkbox' ?>
+                                   <?= $option->getIsRequire() ? 'required': '' ?>
+                               product-custom-option"
+                               name="cart[<?= $block->orderItem->getId() ?>][product_custom_option][<?= $block->escapeHtmlAttr($option->getId()) ?>]"
+                               id="options_<?= $block->escapeHtmlAttr($option->getId() . '_' . $count) ?>"
+                               value="<?= $block->escapeHtmlAttr($optionValue->getOptionTypeId()) ?>"
+                                <?= !empty($checkedOption) && $checkedOption == $block->escapeHtml($optionValue->getTitle()) ? 'checked' : '' ?>
+                        />
+                        <label class="label admin__field-label"
+                               for="options_<?= $block->escapeHtmlAttr($option->getId() . '_' . $count) ?>">
+                        <span>
+                            <?= /* @noEscape */ $optionValue->getTitle() ?>
+                        </span>
+                            <?= /* @noEscape */ $block->formatPrice($optionValue) ?>
+                        </label>
+                    </div>
+                <?php endforeach ?>
+            </div>
+        <?php endforeach ?>
+    </div>
+<?php endif; ?>
+
+<script>
+    require(
+        [
+            'jquery',
+            'domReady!'
+        ], function ($) {
+            $('.custom-options .options-values input.product-custom-option:not(:checked)').click(function() {
+                reloadData();
+            });
+
+            var reloadData = function(){
+                $('body').trigger('processStart');
+                $('#form-validate').submit();
+            };
+        }
+    );
+</script>

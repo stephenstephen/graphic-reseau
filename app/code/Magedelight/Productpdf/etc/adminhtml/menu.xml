@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+
+    	<add id="Magedelight_Productpdf::productpdf_root"
+            title="Product Pdf"
+            module="Magedelight_Productpdf"
+            sortOrder="40"
+            resource="Magedelight_Productpdf::root"
+            toolTip="magedelight_base" />
+
+
+        <add id="Magedelight_Productpdf::productpdf_root_commonlyvisible"
+            title="Product Pdf"
+            module="Magedelight_Productpdf"
+            sortOrder="40"
+            parent="Magedelight_Base::md_modules"
+            resource="Magedelight_Productpdf::root" />
+
+
+        <add id="Magedelight_Productpdf::productpdf" 
+          	title="PDF Catalog Booklet" sortOrder="601" 
+        	module="Magedelight_Productpdf" 
+        	parent="Magedelight_Productpdf::productpdf_root" 
+        	action="md_productpdf/booklet" 
+            resource="Magedelight_Productpdf::productpdf"/>
+
+        <add id="Magedelight_Productpdf::config_productpdf"
+             title="Product Pdf Configuration"
+             module="Magedelight_Productpdf"
+             sortOrder="600"
+             action="adminhtml/system_config/edit/section/md_productpdf"
+             parent="Magedelight_Productpdf::productpdf_root"
+             resource="Magedelight_Productpdf::config_root" />
+
+        <add id="Magedelight_Productpdf::useful_links"
+            title="Useful Links"
+            module="Magedelight_Productpdf"
+            sortOrder="999"
+            parent="Magedelight_Productpdf::productpdf_root"
+            resource="Magedelight_Productpdf::productpdf_root" />
+
+        <add id="Magedelight_Productpdf::documentation"
+            title="Documentation"
+            module="Magedelight_Productpdf"
+            sortOrder="10"
+            target="_blank"
+            parent="Magedelight_Productpdf::useful_links"
+            resource="Magedelight_Productpdf::productpdf_root" />
+
+    </menu>
+</config>

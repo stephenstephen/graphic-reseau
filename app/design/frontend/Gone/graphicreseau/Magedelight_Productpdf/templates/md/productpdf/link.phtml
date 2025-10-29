@@ -1,0 +1,19 @@
+<?php
+$product = $block->getProduct();
+$id = $product->getId();
+$sku = $product->getSku();
+$storeId = $product->getStoreId();
+$categoryId = $block->getCurrentCategoryId();
+$isAllowed = $block->getIsAllowed();
+$isEnable = $block->getIsEnable();
+?>
+<?php if ($isAllowed && $isEnable == 1): ?>
+    <!--  begin 410 overload icon instead of button  -->
+    <span
+        class="print-product-link"
+        onclick="window.open('<?= /* @noEscape */ $block->getUrl('md_productpdf/index/generate',
+            ['product'=>$id,'store'=>$storeId,'category'=>$categoryId])
+        ?>','_blank');" title="<?= /* @noEscape */ __('Print Product') ?>"
+    ><?= /* @noEscape */ __('Print Product') ?></span>
+    <!--  end 410 overload icon instead of button  -->
+<?php endif; ?>

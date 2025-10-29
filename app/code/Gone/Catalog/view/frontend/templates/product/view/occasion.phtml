@@ -1,0 +1,73 @@
+<?php
+/**
+ * @var $block Occasion
+ * @var $escaper Escaper
+ */
+
+use Gone\Catalog\Block\Product\View\Occasion;
+use Magento\Framework\Escaper;
+
+$usedProductsInfos = $block->getUsedProductsInfos();
+$usedProductsCount = $usedProductsInfos['count'] ;
+$usedProducts = $usedProductsInfos['products'];
+?>
+<?php if ($usedProductsCount > 0): ?>
+    <hr/>
+    <div class="used-products">
+    <span class="used-products-title">
+        <span class='used-products-count'>
+            <?= $usedProductsCount ?></span>
+        <?= __('discounted used product(s) available') ?>
+    </span>
+        <div class="table-wrapper">
+            <table class="table used-products-table">
+                <tbody>
+                <?php foreach ($usedProducts as $product): ?>
+                    <tr>
+                        <td><?= $block->getProductPrice($product) ?></td>
+                        <td><?= $escaper->escapeHtml($product->getUsedProductDescState() ?? __('No description available')) ?></td>
+                        <td class="tocart-cell">
+                            <form data-role='tocart-form'
+                                  data-product-sku="<?= $block->escapeHtmlAttr($product->getSku()) ?>"
+                                  action="<?= $block->escapeUrl($block->getAddToCartUrl($product)) ?>"
+                                  method='post'>
+                                <input type='hidden' name='product'
+                                       value="<?= /* @noEscape */
+                                        (int)$product->getEntityId() ?>">
+                                <?= $block->getBlockHtml('formkey') ?>
+<!-- TODO: setup back-url to current product if not-visible product cannot be added into cart > intercepter le message d'erreur et renvoyer sur le produit "neuf" -->
+                                <button type="submit"
+                                        title="<?= $block->escapeHtmlAttr(__('Add to Cart')) ?>"
+                                        data-product-type="not-visible"
+                                        class="action tocart primary">
+                                    <span><?= $block->escapeHtml(__('Add to Cart')) ?></span>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script type="text/x-magento-init">
+    {
+        "[data-role=tocart-form]": {
+            "catalogAddToCart": {}
+        }
+    }
+</script>
+    <script>
+        require([
+            'jquery',
+            'domReady!'
+        ], function ($) {
+            $(document).on('ajax:addToCart', function (event, data) {
+                if (data.response.backUrl) {
+                    data.response.backUrl = "<?= $block->getUrl('*/*/*', ['_current' => true, '_use_rewrite' => true]) ?>";
+                }
+            });
+        });
+    </script>
+<?php endif ?>
+

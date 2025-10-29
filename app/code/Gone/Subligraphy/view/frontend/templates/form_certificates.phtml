@@ -1,0 +1,172 @@
+<?php
+
+/**
+ * @var $block FormCertificates
+ */
+
+use Gone\Subligraphy\Block\FormCertificates;
+
+$year=$block->getCurrentYear();
+?>
+
+<form class="form"
+      action="<?= $block->escapeUrl($block->getFormActionUrl()) ?>"
+      enctype="multipart/form-data"
+      id="new-certificate-form"
+      method="post"
+      data-mage-init='{"validation":{}}'>
+    <fieldset class="fieldset" data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>">
+        <?= $this->getBlockHtml('formkey')?>
+        <div class="fields-col">
+            <div class="field title required">
+                <label class="label" for="title"><span><?= __('Title') ?></span></label>
+                <div class="control">
+                    <input name="title"
+                           id="title"
+                           value=""
+                           class="input-text"
+                           type="text"
+                           data-validate="{required:true}"/>
+                </div>
+            </div>
+            <div class="field author required">
+                <label class="label" for="author"><span><?= __('Author') ?></span></label>
+                <div class="control">
+                    <input name="author"
+                           id="author"
+                           value=""
+                           class="input-text"
+                           type="text"
+                           data-validate="{required:true}"/>
+                </div>
+            </div>
+
+            <div class="field file required">
+                <label class="label" for="file"><span><?= $block->escapeHtml(__('Attach a file')) ?></span></label>
+                <div class="control">
+                    <input class="btn btn-primary" type="file" name="file" id="file" accept=".jpg,.jpeg" data-validate="{required:true}"/>
+                    <input type="hidden" name="b64_file" id="b64_file"/>
+                    <p><?= __('Accepted formats .jpg .jpeg max %1MB', $block->getFileMaxSize()) ?></p>
+                </div>
+            </div>
+
+        </div>
+        <div class="fields-col">
+            <div class="field manufacturer required">
+                <label class="label" for="manufacturer"><span><?= __('Manufacturer') ?></span></label>
+                <div class="control">
+                    <input name="manufacturer"
+                           id="manufacturer"
+                           value=""
+                           class="input-text"
+                           type="text"
+                           data-validate="{required:true}"/>
+                </div>
+            </div>
+            <div class="field publisher">
+                <label class="label" for="publisher"><span><?= __('Publisher') ?></span></label>
+                <div class="control">
+                    <input name="publisher"
+                           id="publisher"
+                           value=""
+                           class="input-text"
+                           type="text"
+                           />
+                </div>
+            </div>
+            <div class="fields-row">
+
+                <div class="field width required">
+                    <label class="label" for="width"><span><?= __('Printing width (cm)') ?></span></label>
+                    <div class="control">
+                        <input name="width"
+                               id="width"
+                               value=""
+                               class="input-text"
+                               type="text"
+                               data-validate="{required:true}"/>
+                    </div>
+                </div>
+                <legend>X</legend>
+                <div class="field height required">
+                    <label class="label" for="height"><span><?= __('Printing height (cm)') ?></span></label>
+                    <div class="control">
+                        <input name="height"
+                               id="height"
+                               value=""
+                               class="input-text"
+                               type="text"
+                               data-validate="{required:true}"/>
+                    </div>
+                </div>
+
+            </div>
+            <div class="field nbr required">
+                <label class="label" for="nbr"><span><?= __('Number of copies (maximum 30)') ?></span></label>
+                <div class="control">
+                    <input name="nbr"
+                           id="nbr"
+                           value=""
+                           min="1"
+                           max="30"
+                           class="input-text"
+                           type="number"
+                           data-validate="{required:true}"/>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <div class="actions-toolbar">
+        <div class="primary">
+            <input type="hidden" name="hideit" id="hideit" value="" />
+            <button type="submit" title="<?= $block->escapeHtmlAttr(__('Submit')) ?>" class="action submit primary">
+                <span><?= $block->escapeHtml(__('Submit')) ?></span>
+            </button>
+        </div>
+    </div>
+</form>
+
+<script type="text/x-magento-init">
+          {
+              "#new-certificate-form": {
+                  "validation": {}
+              }
+          }
+</script>
+<script>
+    require(['jquery','mage/translate', 'domReady!'],
+        function ($, $t) {
+            'use strict';
+
+            $("#file").change(function () {
+
+                let file = this.files[0];
+                let error = false;
+
+                switch (file.type) {
+                    case 'image/jpg':
+                    case 'image/jpeg':
+                        break;
+                    default:
+                        alert($t('Not allowed, invalid file type : ') + file.type);
+                        this.value = '';
+                        error = true;
+                }
+
+                if(!error) {
+                    const reader = new FileReader();
+                    // asynchronous
+                    reader.readAsDataURL(file);
+                    reader.onload = function(e) {
+                        $("input#b64_file").attr("value", reader.result);
+                    };
+
+                }
+
+            });
+
+
+
+        });
+
+</script>

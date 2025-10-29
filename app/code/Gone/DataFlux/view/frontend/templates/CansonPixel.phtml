@@ -1,0 +1,26 @@
+<?php
+
+use Gone\DataFlux\Block\CansonPixel;
+
+/**
+ * @var $block CansonPixel
+ */
+$pixelData = $block->genPixelData();
+
+?>
+
+<?php if (!empty($pixelData)) : ?>
+    <script type="text/javascript">
+        require([
+            'jquery',
+            'pixeljs',
+            'domReady!'
+        ], function ($, pixeljs) {
+
+            if (CCConversionTag) {
+                <?= $pixelData ?>
+                CCConversionTag.fire();
+            }
+        })
+    </script>
+<?php endif; ?>

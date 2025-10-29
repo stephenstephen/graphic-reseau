@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\Catalog\Helper\Product" type="Gone\Catalog\Helper\Product" />
+    <preference for="Magento\Catalog\Block\Product\View\Details" type="Gone\Catalog\Block\Product\View\Details" />
+
+    <type name="Mirasvit\Search\Index\Magento\Catalog\Product\InstantProvider\Mapper">
+        <plugin name="short_description_in_autocomplete"
+            type="Gone\Catalog\Plugin\ShortDescriptionInAutocomplete"/>
+     </type>
+
+    <type name="Magento\Checkout\Block\Cart\Item\Renderer">
+        <plugin name="get_occasion_parent_product_url"
+            type="Gone\Catalog\Plugin\OccasionGetLinkedNewProductUrl"/>
+     </type>
+</config>

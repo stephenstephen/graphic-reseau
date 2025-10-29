@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Colissimo Shipping Module
+ *
+ * @author    Magentix
+ * @copyright Copyright © 2018 Magentix. All rights reserved.
+ * @license   https://www.magentix.fr/en/licence.html Magentix Software Licence
+ * @link      https://colissimo.magentix.fr/
+ */
+-->
+<include xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_include.xsd">
+    <group id="pickup" translate="label" type="text" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+        <label>Point de retrait</label>
+        <fieldset_css>colissimo-configuration</fieldset_css>
+        <field id="active" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Enabled</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+        </field>
+        <field id="account_number" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Account</label>
+        </field>
+        <field id="account_password" translate="label" type="password" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Password</label>
+        </field>
+        <field id="api_test" translate="label" type="button" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+            <frontend_model>Colissimo\Shipping\Block\Adminhtml\System\Config\Test</frontend_model>
+            <label>Test API credentials</label>
+        </field>
+        <field id="name" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Name</label>
+        </field>
+        <field id="specificcountry" translate="label" type="multiselect" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Ship to Specific Countries</label>
+            <source_model>Colissimo\Shipping\Model\Config\Source\Country\Pickup</source_model>
+            <can_be_empty>1</can_be_empty>
+        </field>
+        <field id="map_type" translate="label" type="select" sortOrder="7" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Map Type</label>
+            <source_model>Colissimo\Shipping\Model\Config\Source\Map</source_model>
+        </field>
+        <field id="api_key" translate="label" type="text" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Google Map API Key</label>
+            <depends>
+                <field id="map_type">gmaps</field>
+            </depends>
+        </field>
+        <field id="open" translate="label" type="select" sortOrder="9" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Open pickup list on shipping method selection</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+        </field>
+        <field id="remove_selection" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Remove Pickup on shipping method selection</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <comment>Active only with third party checkout</comment>
+        </field>
+        <field id="sort_order" translate="label" type="text" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Sort Order</label>
+        </field>
+        <field id="apply_default" translate="label" type="select" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Default address</label>
+            <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+            <comment>Apply a default search address if customer has not entered any data</comment>
+        </field>
+        <field id="default_city" translate="label" type="text" sortOrder="13" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Default city</label>
+            <depends>
+                <field id="apply_default">1</field>
+            </depends>
+        </field>
+        <field id="default_postcode" translate="label" type="text" sortOrder="13" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Default postcode</label>
+            <depends>
+                <field id="apply_default">1</field>
+            </depends>
+        </field>
+        <field id="default_country" translate="label" type="select" sortOrder="14" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Default country</label>
+            <source_model>Colissimo\Shipping\Model\Config\Source\Country\Pickup</source_model>
+            <depends>
+                <field id="apply_default">1</field>
+            </depends>
+        </field>
+    </group>
+</include>

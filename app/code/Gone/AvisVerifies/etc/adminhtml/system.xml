@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="av_configuration" translate="label" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+            <group id="widget_integration" translate="label" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Widget</label>
+                <field id="widget_code" translate="label" type="textarea" sortOrder="2" showInDefault="0" showInWebsite="0" showInStore="1">
+                    <label>Widget Code</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

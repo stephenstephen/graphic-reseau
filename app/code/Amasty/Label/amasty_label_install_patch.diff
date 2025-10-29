@@ -1,0 +1,89 @@
+diff --git a/Api/Data/LabelInterface.php b/Api/Data/LabelInterface.php
+index 67d6e466eee629e381fa985a4330e83a978abaa7..a678727de458286d36ed1342cba5523d9f7d6653 100644
+--- a/Api/Data/LabelInterface.php
++++ b/Api/Data/LabelInterface.php
+@@ -13,6 +13,7 @@ interface LabelInterface extends ExtensibleDataInterface
+ {
+     const LABEL_ID = 'label_id';
+     const NAME = 'name';
++    const STORES = 'stores';
+     const STATUS = 'status';
+     const PRIORITY = 'priority';
+     const IS_SINGLE = 'is_single';
+diff --git a/Setup/Model/DeployExamples.php b/Setup/Model/DeployExamples.php
+index abff09596c8f6aa2147f0c63534bd851e1280a85..e3d99693e68c4162dc877ba5ccd883b5ad9e2f47 100644
+--- a/Setup/Model/DeployExamples.php
++++ b/Setup/Model/DeployExamples.php
+@@ -8,9 +8,9 @@ use Amasty\Base\Model\Serializer;
+ use Amasty\Label\Api\Data\LabelInterface;
+ use Magento\Framework\Exception\LocalizedException;
+ use Magento\Framework\Filesystem\Io\File;
+-use Magento\Framework\Module\Dir;
+ use Magento\Framework\Module\Dir\Reader;
+ use Magento\Framework\Setup\ModuleDataSetupInterface;
++use Magento\Store\Model\StoreManagerInterface;
+ 
+ class DeployExamples
+ {
+@@ -41,26 +41,40 @@ class DeployExamples
+      */
+     private $converter;
+ 
++    /**
++     * @var StoreManagerInterface
++     */
++    private $storeManager;
++
+     public function __construct(
+         Reader $reader,
+         File $file,
+         Serializer $serializer,
+-        ConvertFlatLabelDataToStructuredView $converter
++        ConvertFlatLabelDataToStructuredView $converter,
++        StoreManagerInterface $storeManager
+     ) {
+         $this->reader = $reader;
+         $this->file = $file;
+         $this->serializer = $serializer;
+         $this->converter = $converter;
++        $this->storeManager = $storeManager;
+     }
+ 
++    /**
++     * @param ModuleDataSetupInterface $moduleDataSetup
++     * @param int $firstPossibleId
++     * @throws LocalizedException
++     */
+     public function execute(ModuleDataSetupInterface $moduleDataSetup, int $firstPossibleId = 1): void
+     {
+         $examples = $this->getLabelExamples();
+         $labelId = $firstPossibleId;
+         $connection = $moduleDataSetup->getConnection();
++        $storeId = array_values($this->storeManager->getStores())[0]->getId() ?? 1;
+ 
+         foreach ($examples as $example) {
+             $example[LabelInterface::LABEL_ID] = $labelId++;
++            $example[LabelInterface::STORES] = $storeId;
+             $labels = $this->converter->convert($example);
+ 
+             foreach ($labels as $labelData) {
+@@ -75,11 +89,18 @@ class DeployExamples
+         }
+     }
+ 
++    /**
++     * @param string $fileName
++     */
+     public function setFileName(string $fileName): void
+     {
+         $this->fileName = $fileName;
+     }
+ 
++    /**
++     * @return array
++     * @throws LocalizedException
++     */
+     private function getLabelExamples(): array
+     {
+         $labelsDir = $this->reader->getModuleDir('', 'Amasty_Label');
+

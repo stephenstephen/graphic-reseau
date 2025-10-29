@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<!--
+  ~ *
+  ~ @copyright Copyright © 2020 410-Gone. All rights reserved.
+  ~ @author    contact@410-gone.fr
+  ~
+  -->
+
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+	<table name="cms_block">
+		<column xsi:type="smallint" name="cloaking_mode" padding="6" unsigned="false" nullable="false" identity="false"
+				default="0" comment="Enable replace cloaking"/>
+	</table>
+	<table name="cms_page">
+		<column xsi:type="smallint" name="cloaking_mode" padding="6" unsigned="false" nullable="false" identity="false"
+				default="0" comment="Enable replace cloaking"/>
+	</table>
+</schema>

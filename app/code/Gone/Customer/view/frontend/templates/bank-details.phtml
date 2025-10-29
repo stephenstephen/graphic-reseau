@@ -1,0 +1,8 @@
+<?php
+/** @var \Gone\Base\Helper\CoreConfigData $configHelper */
+$configHelper = $this->helper(\Gone\Base\Helper\CoreConfigData::class);
+?>
+
+<div class="bank-details">
+    <?= $configHelper->getValueOnCurrentStore("payment/banktransfer/instructions") ?>
+</div>

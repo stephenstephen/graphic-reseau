@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="AtooSync_GesCom" setup_version="20.12.22.0">
+        <sequence>
+            <module name="Chronopost_Chronorelais" />
+        </sequence>
+    </module>
+</config>

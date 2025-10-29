@@ -1,0 +1,74 @@
+<?php
+
+use Gone\Cloaking\Helper\Replace;
+
+$loginUrl = $block->getUrl('customer/account/login');
+$accountUrl = $block->getUrl('customer/account');
+$logoutUrl = $block->getUrl('customer/account/logout');
+?>
+<div class="link-my-account">
+    <span class="icon icon-user"></span>
+    <div class="my-account-header-link <?= Replace::LINK_TO_CLOAK_CLASS ?>"
+         data-bind="scope: 'customer'"
+         data-atc="<?= base64_encode($loginUrl) ?>">
+        <span class="span-title"><?= __("My account"); ?></span>
+        <!-- ko if: customer().fullname  -->
+        <span class='welcome-message'
+              data-bind="text: customer().firstname.charAt(0).toUpperCase() + customer().firstname.slice(1)">
+        </span>
+        <!-- /ko -->
+        <!-- ko ifnot: customer().fullname  -->
+        <span class='welcome-message' data-bind='text:"<?= $block->escapeHtml(__('Log in')) ?>"'></span>
+        <!-- /ko -->
+
+    </div>
+    <ul class="customer-menu-list" data-bind="scope: 'customer'" >
+        <li onclick="gtl(this.getAttribute('data-atc'))" class="<?= Replace::LINK_TO_CLOAK_CLASS ?>" data-atc="<?= base64_encode($accountUrl) ?>">
+            <span><?= __("My account"); ?></span>
+        </li>
+        <li data-bind="visible: customer().firstname" onclick="gtl(this.getAttribute('data-atc'))" class="<?= Replace::LINK_TO_CLOAK_CLASS ?>"
+            data-atc="<?= base64_encode($logoutUrl) ?>">
+            <span><?= __("Logout"); ?></span>
+        </li>
+    </ul>
+</div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "customer": {
+                        "component": "Magento_Customer/js/view/customer"
+                    }
+                }
+            }
+        }
+    }
+</script>
+<script>
+    require(["jquery", "domReady!"], function($) {
+
+        $(".link-my-account ").hover(
+            function (e) {
+                $(this).toggleClass('active');
+                $('.customer-menu-list').stop(true, true).slideDown('fast');
+            },
+            function () {
+                $(this).removeClass('active');
+                $('.customer-menu-list').stop(true, true).slideUp('fast');
+            }
+        );
+        $(".my-account-header-link").on("click",
+            function (e) {
+                e.preventDefault();
+                if ($(this).attr("class").indexOf("active") == -1) { //if not active
+                    $(this).toggleClass('active');
+                    $('.customer-menu-list').stop(true, true).slideDown('fast');
+                } else {
+                    $(this).removeClass('active');
+                    $('.customer-menu-list').stop(true, true).slideUp('fast');
+                }
+            }
+        );
+    });
+</script>

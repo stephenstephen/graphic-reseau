@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<!--
+  ~ *
+  ~ @copyright Copyright © 2020 410-Gone. All rights reserved.
+  ~ @author    contact@410-gone.fr
+  ~
+  -->
+
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+	<table name="quote">
+		<column xsi:type="text" name="gr_customer_shipment_comment" nullable="true"
+				comment="Customer comment about shipment"/>
+    </table>
+    <table name="sales_order">
+		<column xsi:type="text" name="gr_customer_shipment_comment" nullable="true" comment="Customer comment about shipment"/>
+    </table>
+    <table name="sales_order_grid">
+		<column xsi:type="text" name="gr_customer_shipment_comment" nullable="true" comment="Customer comment about shipment"/>
+    </table>
+</schema>

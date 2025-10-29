@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Gone_SeoCustom">
+        <sequence>
+            <module name="Gone_Seo"/>
+            <module name="MGS_Fbuilder"/>
+        </sequence>
+    </module>
+</config>

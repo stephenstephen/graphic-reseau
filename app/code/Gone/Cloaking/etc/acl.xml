@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<!--
+  ~ *
+  ~ @copyright Copyright © 2020 410-Gone. All rights reserved.
+  ~ @author    contact@410-gone.fr
+  ~
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+	<acl>
+		<resources>
+			<resource id="Magento_Backend::admin">
+				<resource id="Gone_Cloaking::Config" sortOrder="10" title="Cloaking"/>
+			</resource>
+		</resources>
+	</acl>
+</config>

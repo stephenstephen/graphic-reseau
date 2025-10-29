@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Lyra Network.
+ * This file is part of Systempay plugin for Magento 2. See COPYING.md for license details.
+ *
+ * @author    Lyra Network (https://www.lyra.com/)
+ * @copyright Lyra Network
+ * @license   https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ */
+-->
+
+<payment xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Payment:etc/payment.xsd">
+    <groups>
+        <group id="systempay">
+            <label><![CDATA[Systempay]]></label>
+        </group>
+    </groups>
+
+    <methods>
+        <method name="systempay_standard">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="systempay_multi">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="systempay_gift">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="systempay_choozeo">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="systempay_oney">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="systempay_fullcb">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="systempay_sepa">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="systempay_paypal">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="systempay_franfinance">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+        <method name="systempay_other">
+            <allow_multiple_address>0</allow_multiple_address>
+        </method>
+    </methods>
+</payment>

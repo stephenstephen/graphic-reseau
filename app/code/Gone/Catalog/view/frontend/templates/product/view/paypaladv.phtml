@@ -1,0 +1,14 @@
+<?php
+use Gone\Catalog\Block\Product\View\PaypalAdv;
+/**
+ * @var $block PaypalAdv
+ */
+
+$isPaypalAuth = $block->isPaypalAuth();
+?>
+<?php if ($isPaypalAuth): ?>
+    <div class="paypal">
+       <img src="<?= $this->getViewFileUrl('Gone_Catalog::images/paypal.png'); ?>" />
+    </div>
+<?php endif; ?>
+

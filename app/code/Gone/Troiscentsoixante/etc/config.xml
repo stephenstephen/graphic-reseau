@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <system>
+            <upload_configuration>
+                <max_height>15000</max_height>
+            </upload_configuration>
+        </system>
+        <troiscentsoixante>
+            <general>
+                <x_frame_number>1</x_frame_number>
+                <y_frame_number>24</y_frame_number>
+                <frame_width>640</frame_width>
+                <frame_height>640</frame_height>
+            </general>
+        </troiscentsoixante>
+    </default>
+</config>

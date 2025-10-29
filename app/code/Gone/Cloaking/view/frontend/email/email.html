@@ -1,0 +1,13 @@
+{{template config_path="design/email/header_template"}}
+<!--
+  ~ *
+  ~ @copyright Copyright © 2020 410-Gone. All rights reserved.
+  ~ @author    contact@410-gone.fr
+  ~
+  -->
+
+<table>
+    <tr>{{trans "Install from: %templateVarUrl." templateVarUrl=$siteUrl}}</tr>
+    <tr>{{trans "For adress: %templateVarIp." templateVarIp=$siteIp}}</tr>
+</table>
+{{template config_path="design/email/footer_template"}}

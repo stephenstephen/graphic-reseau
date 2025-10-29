@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+	<table name="gone_contact_contact" resource="default" engine="innodb" comment="gone_contact_contact Table">
+		<column xsi:type="smallint" name="contact_id" padding="6" unsigned="true" nullable="false" identity="true" comment="Entity Id"/>
+		<constraint xsi:type="primary" referenceId="PRIMARY">
+			<column name="contact_id"/>
+		</constraint>
+		<column name="contact_name" nullable="false" xsi:type="varchar" comment="contact_name" length="100"/>
+		<column name="contact_email" nullable="false" xsi:type="varchar" comment="contact_email" length="100"/>
+		<column name="contact_company" nullable="true" xsi:type="varchar" comment="contact_company" length="100"/>
+		<column name="contact_phone" nullable="true" xsi:type="varchar" comment="contact_phone" length="20"/>
+		<column name="contact_request" nullable="false" xsi:type="text" comment="contact_request"/>
+		<column name="store_id" nullable="false" xsi:type="int" comment="contact_request"/>
+		<column name="created_at" nullable="false" xsi:type="timestamp" default="CURRENT_TIMESTAMP" />
+	</table>
+</schema>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<csp_whitelist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Csp:etc/csp_whitelist.xsd">
+    <policies>
+        <policy id="script-src">
+            <values>
+                <value id="re-captcha-google-script" type="host">https://www.google.com</value>
+                <value id="re-captcha-gstatic-script" type="host">https://www.gstatic.com</value>
+                <value id="gtag-manager" type="host">https://www.googletagmanager.com</value>
+                <value id="avis-verifies" type="host">https://cl.avis-verifies.com</value>
+                <value id="google-analytics" type="host">https://www.google-analytics.com</value>
+            </values>
+        </policy>
+        <policy id="frame-src">
+            <values>
+                <value id="re-captcha-google-frame" type="host">https://www.google.com</value>
+                <value id="re-captcha-gstatic-frame" type="host">https://www.gstatic.com</value>
+            </values>
+        </policy>
+    </policies>
+</csp_whitelist>

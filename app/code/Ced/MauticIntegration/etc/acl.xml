@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * CedCommerce
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the End User License Agreement (EULA)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://cedcommerce.com/license-agreement.txt
+ *
+ * @category    Ced
+ * @package     Ced_MauticIntegration
+ * @author 	    CedCommerce Core Team <connect@cedcommerce.com>
+ * @copyright   Copyright CedCommerce (http://cedcommerce.com/)
+ * @license     http://cedcommerce.com/license-agreement.txt
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Ced_MauticIntegration::mautic" title="Mautic" sortOrder="30">
+                    <resource id="Ced_MauticIntegration::manage_integration" title="Mautic Integration" sortOrder="10">
+                        <resource id="Ced_MauticIntegration::manage_settings" title="Settings" sortOrder="10" />
+                        <resource id="Ced_MauticIntegration::mautic_error_log" title="Error Log" sortOrder="20" >
+                            <resource id="Ced_MauticIntegration::error_actions" title="Actions" sortOrder="10" >
+                                <resource id="Ced_MauticIntegration::error_log_mass_delete" title="Delete" sortOrder="10"/>
+                            </resource>
+                        </resource>
+                        <resource id="Ced_MauticIntegration::cron_status" title="Cron Status" sortOrder="30" />
+                    </resource>
+                    <resource id="Ced_MauticIntegration::mautic_configuration" title="Mautic Configuration" sortOrder="50">
+                        <resource id="Ced_MauticIntegration::mautic_config" title="mautic Configuration" sortOrder="10" />
+                    </resource>
+                </resource>
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="Ced_MauticIntegration::settings" title="Mautic Itegration" />
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

@@ -1,0 +1,115 @@
+//check if dangerous products
+$allItems = $request->all_items;
+$hasDangerousProduct = function ($allItems) use ($request) {
+    	$count = count(array_filter($allItems, function ($item) {
+                            			return $item->product->dangerous_product == '1';
+                        			}
+				)
+			);
+	if($count > 0){
+		return true;
+	}
+	return false;
+};
+
+//check if outsized products
+$hasOutsizedProduct = function ($allItems) use ($request) {
+    	$count = count(array_filter($allItems, function ($item) {
+                            			return $item->product->outsized == '1';
+                        			}
+				)
+			);
+	if($count > 0){
+		return true;
+	}
+	return false;
+};
+
+// France Standard
+addMethod('id_1', [
+    'title'         => "A domicile : Standard",
+    'enabled'       => in_array($request->dest_country_id, ['FR']),
+    'price'         => array_reduce([ [0.01,1,5], [1.01,2,6.6], [2.01,3,6.9], [3.01,4,7.3], [4.01,5,7.6], [5.01,6,7.7], [6.01,7,8.2], [7.01,8,8.7], [8.01,9,9.4], [9.01,10,10.1], [10.01,11,10.7], [11.01,12,11.1], [12.01,13,11.5], [13.01,14,11.7], [14.01,15,12], [15.01,16,12.2], [16.01,17,12.4], [17.01,18,12.7], [18.01,19,14.1], [19.01,20,15.1], [20.01,21,15.8], [21.01,22,16.2], [22.01,23,17.1], [23.01,24,17.75], [24.01,25,18.1], [25.01,26,18.5], [26.01,27,18.9], [27.01,28,19.3], [28.01,29,19.7], [29.01,30,20.3], [30.01,35,22.5], [35.01,40,25], [40.01,45,30], [45.01,50,35], [50.01,55,40], [55.01,60,45], [60.01,70,50], [70.01,80,55], [80.01,90,60], [90.01,100,65], [100.01,125,85], [125.01,150,100], [150.01,175,125], [175.01,200,150] ], function ($carry, $item) use ($request) {
+            if (isset($carry)) return $carry;
+            if (isset($item[0]) && ($request->package_weight >= $item[0] && $request->package_weight <= $item[1])) {
+               $carry = $item[2];
+            }
+            return $carry;
+        }),
+	'description'   => ""
+])
+->set('is_dangerous', $hasDangerousProduct($allItems))
+->set('delivery_delay', 5)
+->set('sort_order', 1);
+
+// GF,YT,BL,PM,MF,GP,MQ,RE Standard
+addMethod('id_2', [
+    'title'         => "To home : Standard",
+    'enabled'       => in_array($request->dest_country_id, ['GF','YT','BL','PM','MF','GP','MQ','RE']),
+    'price'         => array_reduce([ [0.01,1,20], [1.01,2,25], [2.01,3,35], [3.01,4,40], [4.01,5,50], [5.01,6,60], [6.01,7,70], [7.01,8,80], [8.01,9,90], [9.01,10,100], [10.01,11,110], [11.01,12,120], [12.01,13,130], [13.01,14,140], [14.01,15,150], [15.01,20,190], [20.01,25,215], [25.01,30,250] ], function ($carry, $item) use ($request) {
+            if (isset($carry)) return $carry;
+            if (isset($item[0]) && ($request->package_weight >= $item[0] && $request->package_weight <= $item[1])) {
+               $carry = $item[2];
+            }
+            return $carry;
+        }),
+	'description'   => ""
+])
+->set('is_dangerous', $hasDangerousProduct($allItems))
+->set('delivery_delay', 15)
+->set('sort_order', 2);
+
+// NC, PF Standard
+addMethod('id_3', [
+    'title'         => "To home : Standard",
+    'enabled'       => in_array($request->dest_country_id, ['NC', 'PF']),
+    'price'         => array_reduce([ [0.01,1,20], [1.01,2,30], [2.01,5,50], [5.01,10,110] ], function ($carry, $item) use ($request) {
+            if (isset($carry)) return $carry;
+            if (isset($item[0]) && ($request->package_weight >= $item[0] && $request->package_weight <= $item[1])) {
+               $carry = $item[2];
+            }
+            return $carry;
+        }),
+	'description'   => ""
+])
+->set('is_dangerous', $hasDangerousProduct($allItems))
+->set('delivery_delay', 25)
+->set('sort_order', 3);
+
+// BE, PT, DE,LU,NL,ES,IT Standard
+addMethod('id_4', [
+    'title'         => "To home : Standard",
+    'enabled'       => in_array($request->dest_country_id, ['BE','PT','DE','LU','NL','ES','IT']),
+    'price'         => array_reduce([ [0.01,1,15], [1.01,2,17], [2.01,3,19], [3.01,4,21], [4.01,5,23.5], [5.01,6,24.5], [6.01,7,25.5], [7.01,8,27], [8.01,9,29.5], [9.01,10,30], [10.01,15,35], [15.01,20,40], [20.01,25,45], [25.01,30,50] ], function ($carry, $item) use ($request) {
+            if (isset($carry)) return $carry;
+            if (isset($item[0]) && ($request->package_weight >= $item[0] && $request->package_weight <= $item[1])) {
+               $carry = $item[2];
+            }
+            return $carry;
+        }),
+	'description'   => ""
+])
+->set('is_dangerous', $hasDangerousProduct($allItems))
+->set('delivery_delay', 10)
+->set('sort_order', 4);
+
+// Retrait direct entrepôt
+addMethod('id_5', [
+    'title'         => "Enlèvement direct entrepôt",
+    'enabled'       => in_array($request->dest_country_id, ['FR']),
+    'price'         => 0,
+    'description'   => '
+            <p>Enlèvement à effectuer sur notre entrepôt de Bondoufle (Région Parisienne)</p>
+<p>Graphic Réseau</p>
+<p>6 Rue Bernard Palissy</p>
+<p>91070</p>
+<p>Bondoufle.</p>
+<p>Tel. : 01 64 85 11 06</p>
+<p>(<a class="quatrecentdix" href="https://www.google.com/maps/place/Graphic+R%C3%A9seau-+Bondoufle/@48.6211322,2.387127,17z/data=!4m13!1m7!3m6!1s0x47e5de86fd60f39f:0x79e7cd083f6d6645!2s6+Rue+Bernard+Palissy,+91070+Bondoufle!3b1!8m2!3d48.6213703!4d2.3896364!3m4!1s0x47e5e15cb798eba1:0x7682b663eadbef49!8m2!3d48.6217895!4d2.3889648" target="_blank" rel="noopener">Plan d\'accès</a>)</p>
+<p>Horaires d\'enlèvement du lundi au vendredi de 10h30 à 12h30 et de 14h00 à 16h00.</p>
+<p><strong style="color: red;">ATTENTION</strong>: Ne vous présentez pas à nos entrepôts sans avoir reçu au préalable un email vous signifiant la disponibilité de votre commande.</p>
+<p><strong>Le port du masque est obligatoire ainsi qu\'une distanciation de 1m avec nos équipes</strong></p>'
+])
+->set('is_dangerous', $hasDangerousProduct($allItems))
+->set('delivery_delay', 0)
+->set('sort_order', 99);

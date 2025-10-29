@@ -1,0 +1,12 @@
+<?php /* @var $block \Netreviews\Avisverifies\Block\WidgetFloat */ ?>
+<script type="text/x-magento-init">
+    {
+        "*": {
+             "widgetfloat":
+                        {
+                            "scriptfloatEnable":"<?php echo $block->isEnableScriptfloat; ?>",
+                            "scriptfloat":"<?php echo addslashes($block->scriptfloat); ?>"
+                        }
+        }
+    }
+</script>

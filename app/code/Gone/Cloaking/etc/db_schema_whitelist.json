@@ -1,0 +1,14 @@
+{
+    "cms_block": {
+        "column": {
+            "content_cloaking": true,
+            "cloaking_mode": true
+        }
+    },
+    "cms_page": {
+        "column": {
+            "content_cloaking": true,
+            "cloaking_mode": true
+        }
+    }
+}

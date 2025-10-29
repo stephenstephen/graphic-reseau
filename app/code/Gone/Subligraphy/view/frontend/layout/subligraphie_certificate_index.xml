@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
+    <head>
+        <title>Subligraphy</title>
+    </head>
+    <body>
+        <referenceBlock name="page.main.title">
+            <action method="setPageTitle">
+                <argument translate="true" name="title" xsi:type="string">My subligraphy certificates</argument>
+            </action>
+        </referenceBlock>
+        <referenceContainer name="content">
+            <block class="Gone\Subligraphy\Block\ListCertificates" name="graphicreseau_list_certificates" template="Gone_Subligraphy::list_certificates.phtml" cacheable="false" >
+                <block class="Gone\Base\Block\Pager" name="pager"/>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

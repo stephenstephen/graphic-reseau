@@ -1,0 +1,19 @@
+<!--
+  ~ *
+  ~ @copyright Copyright © 2020 410-Gone. All rights reserved.
+  ~ @author    contact@410-gone.fr
+  ~
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\Template">
+        <plugin name="cloaking_content_flag_in_block_cache"
+                type="Gone\Cloaking\Plugin\BlockCacheKeyPlugin" sortOrder="10"/>
+    </type>
+    <type name="Magento\Cms\Model\Block">
+        <plugin name="cms_block_replace_in_html" type="Gone\Cloaking\Plugin\CloakingReplaceCmsBlockContentPlugin" sortOrder="10" />
+    </type>
+    <type name="Magento\Cms\Model\Page">
+        <plugin name="cms_block_replace_in_html" type="Gone\Cloaking\Plugin\CloakingReplaceCmsPageContentPlugin" sortOrder="10" />
+    </type>
+</config>

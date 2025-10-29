@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Colissimo Shipping Module
+ *
+ * @author    Magentix
+ * @copyright Copyright © 2018 Magentix. All rights reserved.
+ * @license   https://www.magentix.fr/en/licence.html Magentix Software Licence
+ * @link      https://colissimo.magentix.fr/
+ */
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <!-- Cart for guests -->
+    <route url="/V1/guest-carts/:cartId/colissimo-pickup" method="GET">
+        <service class="Colissimo\Shipping\Api\GuestPickupRepositoryInterface" method="current"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/guest-carts/:cartId/colissimo-pickup/:pickupId/:networkCode/:telephone" method="PUT">
+        <service class="Colissimo\Shipping\Api\GuestPickupRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/guest-carts/:cartId/colissimo-pickup" method="DELETE">
+        <service class="Colissimo\Shipping\Api\GuestPickupRepositoryInterface" method="reset"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <!-- Cart for current customer -->
+    <route url="/V1/carts/mine/colissimo-pickup" method="GET">
+        <service class="Colissimo\Shipping\Api\PickupRepositoryInterface" method="current"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+    <route url="/V1/carts/mine/colissimo-pickup/:pickupId/:networkCode/:telephone" method="PUT">
+        <service class="Colissimo\Shipping\Api\PickupRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+    <route url="/V1/carts/mine/colissimo-pickup" method="DELETE">
+        <service class="Colissimo\Shipping\Api\PickupRepositoryInterface" method="reset"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+
+    <!-- Pickup -->
+    <route url="/V1/colissimoPickup" method="GET">
+        <service class="Colissimo\Shipping\Api\PickupRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/colissimoPickup/:pickupId/:networkCode" method="GET">
+        <service class="Colissimo\Shipping\Api\PickupRepositoryInterface" method="get"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/colissimoPickup/:orderId" method="GET">
+        <service class="Colissimo\Shipping\Api\PickupRepositoryInterface" method="shippingData"/>
+        <resources>
+            <resource ref="Magento_Sales::sales" />
+        </resources>
+    </route>
+
+    <!-- Price -->
+    <route url="/V1/colissimoPrice/:priceId" method="GET">
+        <service class="Colissimo\Shipping\Api\PriceRepositoryInterface" method="getById"/>
+        <resources>
+            <resource ref="Colissimo_Shipping::shipping_price"/>
+        </resources>
+    </route>
+    <route url="/V1/colissimoPrice/search" method="GET">
+        <service class="Colissimo\Shipping\Api\PriceRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="Colissimo_Shipping::shipping_price"/>
+        </resources>
+    </route>
+    <route url="/V1/colissimoPrice" method="POST">
+        <service class="Colissimo\Shipping\Api\PriceRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="Colissimo_Shipping::shipping_price"/>
+        </resources>
+    </route>
+    <route url="/V1/colissimoPrice/:priceId" method="DELETE">
+        <service class="Colissimo\Shipping\Api\PriceRepositoryInterface" method="deleteById"/>
+        <resources>
+            <resource ref="Colissimo_Shipping::shipping_price"/>
+        </resources>
+    </route>
+    <route url="/V1/colissimoPrice" method="DELETE">
+        <service class="Colissimo\Shipping\Api\PriceRepositoryInterface" method="truncate"/>
+        <resources>
+            <resource ref="Colissimo_Shipping::shipping_price"/>
+        </resources>
+    </route>
+</routes>

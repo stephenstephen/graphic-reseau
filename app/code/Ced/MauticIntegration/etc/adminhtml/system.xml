@@ -1,0 +1,229 @@
+<!--
+/**
+ * CedCommerce
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the End User License Agreement(EULA)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://cedcommerce.com/license-agreement.txt
+ *
+ * @category  Ced
+ * @package   Ced_MauticIntegration
+ * @author    CedCommerce Core Team <connect@cedcommerce.com>
+ * @copyright Copyright CEDCOMMERCE(http://cedcommerce.com/)
+ * @license   http://cedcommerce.com/license-agreement.txt
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="ced_integration" sortOrder="10">
+            <label>CedCommerce Integration</label>
+        </tab>
+        <section id="mautic_integration" translate="label" type="text" sortOrder="5" showInDefault="1">
+            <tab>ced_integration</tab>
+            <label>Mautic</label>
+            <resource>Ced_MauticIntegration::mautic_configuration</resource>
+            <group id="mauticapi_integration" translate="label" type="text" sortOrder="1" showInDefault="1">
+                <label>Mautic Configuration</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1">
+                    <label>Enable Mautic Integration</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="oauth_type" translate="label" type="select" sortOrder="1" showInDefault="1">
+                    <label>Authentication Type</label>
+                    <source_model>Ced\MauticIntegration\Block\Adminhtml\System\Config\AuthenticationType</source_model>
+                    <depends>
+                        <field id="mautic_integration/mauticapi_integration/enable">1</field>
+                    </depends>
+                    <validate>required-entry</validate>
+                    <backend_model>Ced\MauticIntegration\Model\System\Config\Backend\MauticConfiguration</backend_model>
+                </field>
+                <field id="client_id" translate="label" type="text" sortOrder="3" showInDefault="1">
+                    <label>Client ID</label>
+                    <depends>
+                        <field id="mautic_integration/mauticapi_integration/oauth_type">Oauth2</field>
+                        <field id="mautic_integration/mauticapi_integration/enable">1</field>
+                    </depends>
+                    <validate>required-entry</validate>
+                    <backend_model>Ced\MauticIntegration\Model\System\Config\Backend\MauticConfiguration</backend_model>
+                </field>
+                <field id="client_secret" translate="label" type="text" sortOrder="80" showInDefault="1">
+                    <label>Client Secret</label>
+                    <depends>
+                        <field id="mautic_integration/mauticapi_integration/oauth_type">Oauth2</field>
+                        <field id="mautic_integration/mauticapi_integration/enable">1</field>
+                    </depends>
+                    <validate>required-entry</validate>
+                    <backend_model>Ced\MauticIntegration\Model\System\Config\Backend\MauticConfiguration</backend_model>
+                </field>
+
+                <field id="mautic_username" translate="label" type="text" sortOrder="80" showInDefault="1">
+                    <label>Username</label>
+                    <depends>
+                        <field id="mautic_integration/mauticapi_integration/oauth_type">Basic</field>
+                        <field id="mautic_integration/mauticapi_integration/enable">1</field>
+                    </depends>
+                    <validate>required-entry</validate>
+                    <backend_model>Ced\MauticIntegration\Model\System\Config\Backend\MauticConfiguration</backend_model>
+                </field>
+                <field id="mautic_password" translate="label" type="password" sortOrder="80" showInDefault="1">
+                    <label>Password</label>
+                    <depends>
+                        <field id="mautic_integration/mauticapi_integration/oauth_type">Basic</field>
+                        <field id="mautic_integration/mauticapi_integration/enable">1</field>
+                    </depends>
+                    <validate>required-entry</validate>
+                    <backend_model>Ced\MauticIntegration\Model\System\Config\Backend\MauticConfiguration</backend_model>
+                </field>
+                <field id="mautic_url" translate="label" type="text" sortOrder="80" showInDefault="1">
+                    <label>Mautic Url</label>
+                    <validate>required-entry url2</validate>
+                    <depends>
+                        <field id="mautic_integration/mauticapi_integration/enable">1</field>
+                    </depends>
+                    <comment><![CDATA[Mautic URI of your app should be https://mauticurl.com ]]></comment>
+                    <backend_model>Ced\MauticIntegration\Model\System\Config\Backend\MauticConfiguration</backend_model>
+                </field>
+                <field id="redirect_url" translate="label comment" sortOrder="80" showInDefault="1">
+                    <label>Redirect URI</label>
+                    <frontend_model>Ced\MauticIntegration\Block\Adminhtml\System\Config\RedirectUri</frontend_model>
+                    <depends>
+                        <field id="mautic_integration/mauticapi_integration/oauth_type">Oauth2</field>
+                        <field id="mautic_integration/mauticapi_integration/enable">1</field>
+                    </depends>
+                    <validate>required-entry </validate>
+                    <comment><![CDATA[Redirect URI of your app should be www.yourdomain.com/mauticintegration/config/getcode ]]></comment>
+                </field>
+                <field id="oauth2_authorize" translate="label" sortOrder="80" showInDefault="1">
+                    <label>Authorize</label>
+                    <frontend_model>Ced\MauticIntegration\Block\Adminhtml\System\Config\GenerateCode</frontend_model>
+                    <depends>
+                        <field id="mautic_integration/mauticapi_integration/oauth_type">Oauth2</field>
+                        <field id="mautic_integration/mauticapi_integration/enable">1</field>
+                    </depends>
+                    <validate>required-entry</validate>
+                </field>
+
+                <field id="basic_authorize" translate="label" sortOrder="80" showInDefault="1">
+                    <label>Install</label>
+                    <frontend_model>Ced\MauticIntegration\Block\Adminhtml\System\Config\BasicInstall</frontend_model>
+                    <depends>
+                        <field id="mautic_integration/mauticapi_integration/oauth_type">Basic</field>
+                        <field id="mautic_integration/mauticapi_integration/enable">1</field>
+                    </depends>
+                    <validate>required-entry</validate>
+                </field>
+            </group>
+            
+            <group id="mautic_property_groups" translate="label" type="text" sortOrder="1" showInDefault="1">
+                <label>Manage Property Groups</label>
+                <depends>
+                    <field id="mautic_integration/mauticapi_integration/enable">1</field>
+                </depends>
+                <field id="customer_group" translate="label" type="select" sortOrder="1" showInDefault="1">
+                    <label>Customer Group</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="feedback" translate="label" type="select" sortOrder="1" showInDefault="1">
+                    <label>Order Item Feedback</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="shopping_cart_fields" translate="label" type="select" sortOrder="1" showInDefault="1">
+                    <label>Shipping and Billing Address</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="abandoned_cart" translate="label" type="select" sortOrder="1" showInDefault="1">
+                    <label>Abandoned Cart</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                    <validate>required-entry</validate>
+                </field>
+            </group>
+            
+            <group id="mautic_abandoned_cart" translate="label" type="text" sortOrder="1" showInDefault="1">
+                <label>Abandoned Cart</label>
+                <depends>
+                    <field id="mautic_integration/mauticapi_integration/enable">1</field>
+                    <field id="mautic_integration/mautic_property_groups/abandoned_cart">1</field>
+                </depends>
+                <field id="abandoned_cart_cron_time" translate="label" type="select" sortOrder="80" showInDefault="1">
+                    <label>Abandoned Cart Cron Time</label>
+                    <source_model>Ced\MauticIntegration\Block\Adminhtml\System\Config\AbandonedCartCronTime</source_model>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="abandoned_cart_time" translate="label" type="text" sortOrder="80" showInDefault="1">
+                    <label>Abandoned Cart</label>
+                    <comment>After how many minute of inactive cart we should treat it as Abandoned</comment>
+                    <validate>required-entry validate-number validate-digits validate-greater-than-zero validate-length maximum-length-3</validate>
+                </field>
+            </group>
+
+            <group id="mautic_cron_configuration" translate="label" type="text" sortOrder="1" showInDefault="1">
+                <label>Cron Setting</label>
+                <depends>
+                    <field id="mautic_integration/mauticapi_integration/enable">1</field>
+                </depends>
+                <field id="delete_error_log" translate="label" type="text" sortOrder="80" showInDefault="1">
+                    <label>Auto Delete Error Log After</label>
+                     <comment>In Days</comment>
+                    <validate>required-entry validate-number validate-digits validate-greater-than-zero validate-length maximum-length-3</validate>
+                </field>
+            </group>
+            
+            <group id="mautic_customer_export" translate="label" type="text" sortOrder="1" showInDefault="1">
+                <label>Customer Export Settings</label>
+                <depends>
+                    <field id="mautic_integration/mauticapi_integration/enable">1</field>
+                </depends>
+                <field id="export_type" translate="label" type="select" sortOrder="80" showInDefault="1">
+                    <label>Export Type</label>
+                    <source_model>Ced\MauticIntegration\Block\Adminhtml\System\Config\ExportType</source_model>
+                </field>
+                <field id="cron_time" translate="label" type="select" sortOrder="80" showInDefault="1">
+                    <label>Cron Time</label>
+                    <source_model>Ced\MauticIntegration\Block\Adminhtml\System\Config\CronTime</source_model>
+                    <depends>
+                        <field id="mautic_integration/mautic_customer_export/export_type">cron</field>
+                    </depends>
+                </field>
+            </group>
+
+            <group id="mautic_rfm_settings" translate="label" type="text" sortOrder="1" showInDefault="1">
+                <label>RFM Settings</label>
+                <depends>
+                    <field id="mautic_integration/mauticapi_integration/enable">1</field>
+                </depends>
+                <field id="rfm_fields" translate="label" sortOrder="80" showInDefault="1">
+                    <label>RFM Fields</label>
+                    <depends>
+                        <field id="mautic_integration/mauticapi_integration/enable">1</field>
+                    </depends>
+                    <frontend_model>Ced\MauticIntegration\Block\Adminhtml\System\Config\RfmFields</frontend_model>
+                    <backend_model>Ced\MauticIntegration\Model\System\Config\Backend\MauticConfig</backend_model>
+                </field>
+            </group>
+
+            <group id="mautic_fields_mapping" translate="label" type="text" sortOrder="1" showInDefault="1">
+                <label>Fields Mapping</label>
+                <depends>
+                    <field id="mautic_integration/mauticapi_integration/enable">1</field>
+                </depends>
+                <field id="mapping_table" translate="label" sortOrder="80" showInDefault="1">
+                    <label>Mapping Table</label>
+                    <depends>
+                        <field id="mautic_integration/mauticapi_integration/enable">1</field>
+                    </depends>
+                    <comment>Mautic authentication is required to get the data of Mautic contact fields</comment>
+                    <frontend_model>Ced\MauticIntegration\Block\Adminhtml\System\Config\Form\Field\FieldsMapping</frontend_model>
+                    <backend_model>Ced\MauticIntegration\Model\System\Config\Backend\FieldsMapping</backend_model>
+                </field>
+            </group>   
+        </section>
+    </system>
+</config>

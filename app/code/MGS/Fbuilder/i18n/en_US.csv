@@ -1,0 +1,877 @@
+"Are you sure you want to use this account to create front-end builder account ?","Are you sure you want to use this account to create front-end builder account ?"
+"Front-end Builder Account","Front-end Builder Account"
+Active,Active
+"Refresh Data Images","Refresh Data Images"
+"Please wait...","Please wait..."
+Delete,Delete
+"Delete All","Delete All"
+"Choose Page to Export","Choose Page to Export"
+Export,Export
+"Choose Page to Import","Choose Page to Import"
+Import,Import
+"Install %1 theme","Install %1 theme"
+"Choose Page to Restore","Choose Page to Restore"
+"Choose Version to Restore","Choose Version to Restore"
+Restore,Restore
+Edit,Edit
+"Move Block","Move Block"
+Copy,Copy
+"Change column setting","Change column setting"
+"Are you sure you would like to remove this block?","Are you sure you would like to remove this block?"
+"Delete Block","Delete Block"
+"Move Up","Move Up"
+"Move Down","Move Down"
+"Edit Section","Edit Section"
+"Duplicate Section","Duplicate Section"
+"Are you sure you would like to duplicate this section?","Are you sure you would like to duplicate this section?"
+"Delete Section","Delete Section"
+"Are you sure you would like to remove this section?","Are you sure you would like to remove this section?"
+"Front-end Builder","Front-end Builder"
+"Successfully updated product description","Successfully updated product description"
+"The account with same email already exists on %1","The account with same email already exists on %1"
+"Front-end Builder account have been created for website %1.","Front-end Builder account have been created for website %1."
+"Successfully deleted the file.","Successfully deleted the file."
+"Successfully deleted ","Successfully deleted "
+" files"," files"
+"Something went wrong while deleting the file.","Something went wrong while deleting the file."
+"Successfully deleted all the files.","Successfully deleted all the files."
+"Something went wrong while deleting the files.","Something went wrong while deleting the files."
+"Have no page to export","Have no page to export"
+"Can not upload file.","Can not upload file."
+"Cannot import page","Cannot import page"
+"Have no page to import","Have no page to import"
+"Successfully updated category description","Successfully updated category description"
+"Can not update this block !","Can not update this block !"
+"Can not delete this block !","Can not delete this block !"
+"You saved the Text content block. Please wait for page reload.","You saved the Text content block. Please wait for page reload."
+"You saved the ""OWL Carousel Slider"" block. Please wait for page reload.","You saved the ""OWL Carousel Slider"" block. Please wait for page reload."
+"You have not add any images to slider.","You have not add any images to slider."
+"You saved the ""New Products"" block. Please wait for page reload.","You saved the ""New Products"" block. Please wait for page reload."
+"You saved the ""Products by Attribute"" block. Please wait for page reload.","You saved the ""Products by Attribute"" block. Please wait for page reload."
+"You saved the ""Sale Products"" block. Please wait for page reload.","You saved the ""Sale Products"" block. Please wait for page reload."
+"You saved the ""Top Rate Products"" block. Please wait for page reload.","You saved the ""Top Rate Products"" block. Please wait for page reload."
+"You saved the ""Category Products"" block. Please wait for page reload.","You saved the ""Category Products"" block. Please wait for page reload."
+"You saved the ""Deals"" block. Please wait for page reload.","You saved the ""Deals"" block. Please wait for page reload."
+"You saved the ""Product Tabs"" block. Please wait for page reload.","You saved the ""Product Tabs"" block. Please wait for page reload."
+"You have not add any tabs.","You have not add any tabs."
+"You saved the ""Single Product"" block. Please wait for page reload.","You saved the ""Single Product"" block. Please wait for page reload."
+"You saved the ""Facebook Fanbox"" block. Please wait to reload page.","You saved the ""Facebook Fanbox"" block. Please wait to reload page."
+"You saved the ""Twitter Timeline"" block. Please wait to reload page.","You saved the ""Twitter Timeline"" block. Please wait to reload page."
+"You saved the ""Instagram"" block. Please wait to reload page.","You saved the ""Instagram"" block. Please wait to reload page."
+"You saved the ""Instagram Shop"" block. Please wait to reload page.","You saved the ""Instagram Shop"" block. Please wait to reload page."
+"You saved the ""Category List"" block. Please wait to reload page.","You saved the ""Category List"" block. Please wait to reload page."
+"You saved the ""Accordion"" block. Please wait for page reload.","You saved the ""Accordion"" block. Please wait for page reload."
+"You have not add any content for Accordion.","You have not add any content for Accordion."
+"You saved the ""Video"" block. Please wait for page reload.","You saved the ""Video"" block. Please wait for page reload."
+"You saved the ""Google Map"" block. Please wait for page reload.","You saved the ""Google Map"" block. Please wait for page reload."
+"You saved the ""Promo Banner"" block. Please wait for page reload.","You saved the ""Promo Banner"" block. Please wait for page reload."
+"You saved the ""Profile"" block. Please wait for page reload.","You saved the ""Profile"" block. Please wait for page reload."
+"You saved the ""Content Box"" block. Please wait for page reload.","You saved the ""Content Box"" block. Please wait for page reload."
+"You saved the ""Counter Box"" block. Please wait for page reload.","You saved the ""Counter Box"" block. Please wait for page reload."
+"You saved the ""Countdown Box"" block. Please wait for page reload.","You saved the ""Countdown Box"" block. Please wait for page reload."
+"You saved the ""Progress Bar"" block. Please wait for page reload.","You saved the ""Progress Bar"" block. Please wait for page reload."
+"You saved the ""Progress Circle"" block. Please wait for page reload.","You saved the ""Progress Circle"" block. Please wait for page reload."
+"You saved the ""Divider"" block. Please wait for page reload.","You saved the ""Divider"" block. Please wait for page reload."
+"No timeline to create chart.","No timeline to create chart."
+"No segment to create chart.","No segment to create chart."
+"You saved the ""Chart"" block. Please wait for page reload.","You saved the ""Chart"" block. Please wait for page reload."
+"You saved the ""Heading"" block. Please wait for page reload.","You saved the ""Heading"" block. Please wait for page reload."
+"You saved the ""List"" block. Please wait for page reload.","You saved the ""List"" block. Please wait for page reload."
+"Have no item to save.","Have no item to save."
+"You saved the ""Lookbook"" block. Please wait for page reload.","You saved the ""Lookbook"" block. Please wait for page reload."
+"You saved the ""Lookbook Slider"" block. Please wait for page reload.","You saved the ""Lookbook Slider"" block. Please wait for page reload."
+"You saved the ""Latest Post"" block. Please wait for page reload.","You saved the ""Latest Post"" block. Please wait for page reload."
+"You saved the ""Portfolio"" block. Please wait for page reload.","You saved the ""Portfolio"" block. Please wait for page reload."
+"You saved the ""Testimonial"" block. Please wait for page reload.","You saved the ""Testimonial"" block. Please wait for page reload."
+"You saved the ""Image"" block. Please wait for page reload.","You saved the ""Image"" block. Please wait for page reload."
+"Have no button to save.","Have no button to save."
+"You saved the ""Button"" block. Please wait for page reload.","You saved the ""Button"" block. Please wait for page reload."
+"Have no content to save.","Have no content to save."
+"You saved the ""Table"" block. Please wait for page reload.","You saved the ""Table"" block. Please wait for page reload."
+"You saved the ""Masonry"" block. Please wait for page reload.","You saved the ""Masonry"" block. Please wait for page reload."
+"Have no image to add to gallery.","Have no image to add to gallery."
+"You saved the ""Tabs"" block. Please wait for page reload.","You saved the ""Tabs"" block. Please wait for page reload."
+"Have no tabs to save.","Have no tabs to save."
+"Have no content for popup.","Have no content for popup."
+"You saved the ""Modal Popup"" block. Please wait for page reload.","You saved the ""Modal Popup"" block. Please wait for page reload."
+"You saved the ""Form"" block. Please wait for page reload.","You saved the ""Form"" block. Please wait for page reload."
+"You saved the ""Lottie Animation"" block. Please wait for page reload.","You saved the ""Lottie Animation"" block. Please wait for page reload."
+"You saved the ""Banner Slider"" block. Please wait for page reload.","You saved the ""Banner Slider"" block. Please wait for page reload."
+"You saved ""Blog posts"" block. Please wait for page reload.","You saved ""Blog posts"" block. Please wait for page reload."
+"You saved Countdown Timer block. Please wait for page reload.","You saved Countdown Timer block. Please wait for page reload."
+"You saved ""Countdown Timer"" block. Please wait for page reload.","You saved ""Countdown Timer"" block. Please wait for page reload."
+"Have no brand to display.","Have no brand to display."
+"You saved ""Brand"" block. Please wait for page reload.","You saved ""Brand"" block. Please wait for page reload."
+"You saved ""Product Slider"" block. Please wait for page reload.","You saved ""Product Slider"" block. Please wait for page reload."
+"You duplicated the section.","You duplicated the section."
+"Incorrect CAPTCHA.","Incorrect CAPTCHA."
+"Not allow extension .%1 for %2. Allowed extensions: %3","Not allow extension .%1 for %2. Allowed extensions: %3"
+"Add New Block","Add New Block"
+"Paste Copied Block","Paste Copied Block"
+"You duplicated the block.","You duplicated the block."
+"You saved the %1 information.","You saved the %1 information."
+"Something went wrong while saving the %1.","Something went wrong while saving the %1."
+"Can not find section to delete.","Can not find section to delete."
+"This section no longer exists.","This section no longer exists."
+"You saved the section. Please wait to reload page.","You saved the section. Please wait to reload page."
+"You saved the Block. Please wait to reload page.","You saved the Block. Please wait to reload page."
+"Please add content.","Please add content."
+"Can not find block id.","Can not find block id."
+Validate,Validate
+"Number Only","Number Only"
+"Letter Only","Letter Only"
+"Number Or Letter","Number Or Letter"
+Email,Email
+Url,Url
+Identifier,Identifier
+"0 Or Greater","0 Or Greater"
+"Greater Than 0","Greater Than 0"
+"Allow Extensions","Allow Extensions"
+Options,Options
+Comma-separated.,Comma-separated.
+"Something went wrong while getting the image url.","Something went wrong while getting the image url."
+"You saved the page.","You saved the page."
+"Something went wrong while saving the page.","Something went wrong while saving the page."
+"Have no content to import","Have no content to import"
+"Low Resolution","Low Resolution"
+Thumbnail,Thumbnail
+"Standard Resolution","Standard Resolution"
+"Use Image","Use Image"
+"Use Font Icon","Use Font Icon"
+name,name
+description,description
+"Copy Description Template","Copy Description Template"
+Source:,Source:
+Check,Check
+Apply,Apply
+"Use this user information to create Front-end Builder account.","Use this user information to create Front-end Builder account."
+"Copy Desctiption Template","Copy Desctiption Template"
+"Add New Section","Add New Section"
+"Select Block","Select Block"
+"Static Content","Static Content"
+Heading,Heading
+"Text content & Images","Text content & Images"
+Images,Images
+"OWL Carousel Slider","OWL Carousel Slider"
+"Masonry Gallery","Masonry Gallery"
+"Promo Banner","Promo Banner"
+Profile,Profile
+Accordion,Accordion
+Video,Video
+"Google Map","Google Map"
+"Content Box","Content Box"
+"Counter Box","Counter Box"
+"Countdown Box","Countdown Box"
+Chart,Chart
+"Progress Bar","Progress Bar"
+"Progress Circle","Progress Circle"
+Divider,Divider
+List,List
+Button,Button
+Table,Table
+Tabs,Tabs
+"Modal Popup","Modal Popup"
+Form,Form
+Catalog,Catalog
+"Category List","Category List"
+"Category Products","Category Products"
+"New Products","New Products"
+"Products by Attribute","Products by Attribute"
+"Sale Products","Sale Products"
+"Top Rate Products","Top Rate Products"
+Deals,Deals
+"Product Tabs","Product Tabs"
+"Single Product","Single Product"
+Social,Social
+"Facebook Fanbox","Facebook Fanbox"
+"Twitter Timeline","Twitter Timeline"
+Instagram,Instagram
+"Instagram Shop","Instagram Shop"
+Extensions,Extensions
+Lookbook,Lookbook
+"Lookbook Slider","Lookbook Slider"
+"Latest Post","Latest Post"
+Portfolio,Portfolio
+Testimonial,Testimonial
+"Mageplaza Extensions","Mageplaza Extensions"
+"Here are the extensions from Mageplaza that we recommend you use:","Here are the extensions from Mageplaza that we recommend you use:"
+"Banner Slider","Banner Slider"
+"Blog Post","Blog Post"
+"Countdown Timer","Countdown Timer"
+"Daily Deal","Daily Deal"
+Brands,Brands
+"Product Slider","Product Slider"
+"Accordion Block","Accordion Block"
+"* Required Fields","* Required Fields"
+"Content Config","Content Config"
+"Add new item","Add new item"
+"View Config","View Config"
+"Allow collapse all","Allow collapse all"
+No,No
+Yes,Yes
+"Margin bottom","Margin bottom"
+"Content padding","Content padding"
+Title,Title
+"Font size","Font size"
+Height,Height
+Color,Color
+Background,Background
+"Font Bold","Font Bold"
+"Font Italic","Font Italic"
+Uppercase,Uppercase
+"Title active","Title active"
+Icon,Icon
+Position,Position
+Right,Right
+Left,Left
+Back,Back
+Submit,Submit
+"Products by Attribute Block","Products by Attribute Block"
+"Product Config","Product Config"
+Attribute,Attribute
+"Choose an attribute","Choose an attribute"
+"Number of product to display","Number of product to display"
+"Items per row (default)","Items per row (default)"
+"Items per row (tablet)","Items per row (tablet)"
+"Items per row (mobile)","Items per row (mobile)"
+"Number col","Number col"
+"Item per col","Item per col"
+"View mode","View mode"
+Grid,Grid
+"Hide Product Name","Hide Product Name"
+"Hide Review","Hide Review"
+"Hide Price","Hide Price"
+"Hide Add to Cart","Hide Add to Cart"
+"Hide Add to Wishlist","Hide Add to Wishlist"
+"Hide Add to Compare","Hide Add to Compare"
+"Use slider","Use slider"
+"Button Block","Button Block"
+"Button Config","Button Config"
+Text,Text
+"Hover Color","Hover Color"
+Link,Link
+"Background Gradient","Background Gradient"
+"Background Hover","Background Hover"
+From,From
+To,To
+Orientation,Orientation
+"Horizontal  →","Horizontal  →"
+"Vertical  ↓","Vertical  ↓"
+"Diagonal  ↘","Diagonal  ↘"
+"Diagonal  ↗","Diagonal  ↗"
+"Radial  ○","Radial  ○"
+"From (Hover)","From (Hover)"
+"To (Hover)","To (Hover)"
+"Orientation (Hover)","Orientation (Hover)"
+Border,Border
+Width,Width
+"Border top","Border top"
+"Border right","Border right"
+"Border bottom","Border bottom"
+"Border left","Border left"
+"Font class","Font class"
+Align,Align
+"Box Shadow","Box Shadow"
+"Border Radius","Border Radius"
+Center,Center
+"Full width","Full width"
+"Category List Block","Category List Block"
+"Grid width Category Thumbnail Image","Grid width Category Thumbnail Image"
+"Go to admin > edit categories and upload thumbnail image.","Go to admin > edit categories and upload thumbnail image."
+"Top Categories","Top Categories"
+"Show Icon","Show Icon"
+"You need to go to admin > edit categories and set icon.","You need to go to admin > edit categories and set icon."
+"Show Category Name","Show Category Name"
+"Show Product count","Show Product count"
+"Category Name","Category Name"
+"Other text","Other text"
+"Primary Color","Primary Color"
+"Secondary Color","Secondary Color"
+"Third Color","Third Color"
+"Fourth Color","Fourth Color"
+"Fifth Color","Fifth Color"
+"Category Products Block","Category Products Block"
+"Chart Block","Chart Block"
+Type,Type
+Line,Line
+Bar,Bar
+Radar,Radar
+Pie,Pie
+Doughnut,Doughnut
+Timeline,Timeline
+Label,Label
+"Add timeline point","Add timeline point"
+Segments,Segments
+Value,Value
+"Add segment","Add segment"
+Items,Items
+Values,Values
+"Add Item","Add Item"
+"You need to add timeline first.","You need to add timeline first."
+"Content Box Block","Content Box Block"
+"Icon font class","Icon font class"
+"Hover border","Hover border"
+"Border width","Border width"
+"Hover color","Hover color"
+"Hover background","Hover background"
+Description,Description
+Style,Style
+Vertical,Vertical
+Horizontal,Horizontal
+"Countdown Box Block","Countdown Box Block"
+Date,Date
+"Font bold","Font bold"
+"Border size","Border size"
+"Border radius","Border radius"
+Days,Days
+Hours,Hours
+Minutes,Minutes
+Seconds,Seconds
+Bottom,Bottom
+Top,Top
+"Counter Box Block","Counter Box Block"
+"Box border","Box border"
+"Number color","Number color"
+"Number font size","Number font size"
+"Number from","Number from"
+"Number to","Number to"
+Duration,Duration
+Separators,Separators
+"Deals Block","Deals Block"
+"Deal Config","Deal Config"
+"Hide Countdown Time","Hide Countdown Time"
+"Time Text","Time Text"
+"Background color","Background color"
+"Text font size","Text font size"
+"Text color","Text color"
+"Hide Discount Percent","Hide Discount Percent"
+"Hide Saved Price","Hide Saved Price"
+"Price font size","Price font size"
+"Price color","Price color"
+"Divider Block","Divider Block"
+"px. Empty for full","px. Empty for full"
+Solid,Solid
+"Double solid","Double solid"
+Dotted,Dotted
+"Double dotted","Double dotted"
+Dashed,Dashed
+"Double dashed","Double dashed"
+Shadown,Shadown
+"Border color","Border color"
+"Show text","Show text"
+Padding,Padding
+"Facebook Fanbox Block","Facebook Fanbox Block"
+"Facebook Config","Facebook Config"
+"Facebook Page URL","Facebook Page URL"
+"The pixel width of the plugin. Min. is 180 & Max. is 500.","The pixel width of the plugin. Min. is 180 & Max. is 500."
+"The pixel height of the plugin. Min. is 70.","The pixel height of the plugin. Min. is 70."
+Events,Events
+Messages,Messages
+"Hide Cover","Hide Cover"
+"Hide cover photo in the header.","Hide cover photo in the header."
+"Show Facepile","Show Facepile"
+"Show profile photos when friends like this.","Show profile photos when friends like this."
+"Small Header","Small Header"
+"Use the small header instead.","Use the small header instead."
+"Fit Inside","Fit Inside"
+"Try to fit inside the container width.","Try to fit inside the container width."
+"Hide call to button","Hide call to button"
+"Hide the custom call to action button (if available)","Hide the custom call to action button (if available)"
+"Form Block","Form Block"
+"Fields Config","Fields Config"
+"Input type","Input type"
+"Text Field","Text Field"
+"Text Area","Text Area"
+Dropdown,Dropdown
+Radio,Radio
+Checkbox,Checkbox
+Multiselect,Multiselect
+"Is Required","Is Required"
+"Add new field","Add new field"
+"Form Config","Form Config"
+"Sent email to","Sent email to"
+"Email subject","Email subject"
+"Use Captcha","Use Captcha"
+"Email template top content","Email template top content"
+"Email template bottom content","Email template bottom content"
+"Success message","Success message"
+File,File
+"Heading Block","Heading Block"
+H1,H1
+H2,H2
+H3,H3
+H4,H4
+H5,H5
+H6,H6
+"Heading text","Heading text"
+"Text align","Text align"
+"Show border","Show border"
+Middle,Middle
+"Margin top","Margin top"
+"Image Block","Image Block"
+"Block Type","Block Type"
+"Single Image","Single Image"
+"Before & After","Before & After"
+Image,Image
+ALT,ALT
+"Image After","Image After"
+Effect,Effect
+"No Effect","No Effect"
+"Zoom In","Zoom In"
+"Zoom Out","Zoom Out"
+"Rotate & Zoom Out","Rotate & Zoom Out"
+Blur,Blur
+"Gray Scale","Gray Scale"
+Sepia,Sepia
+Opacity,Opacity
+Fade,Fade
+Slide,Slide
+"Slide Type","Slide Type"
+"Use Lightbox","Use Lightbox"
+"Lightbox Group","Lightbox Group"
+"For next and previous on lightbox","For next and previous on lightbox"
+"Border Width","Border Width"
+"Border Color","Border Color"
+"Instagram Block","Instagram Block"
+"Instagram Config","Instagram Config"
+"Please go to admin panel > MGS > Social [Configuration] and add setting for <b>Instagram access token</b> first.","Please go to admin panel > MGS > Social [Configuration] and add setting for <b>Instagram access token</b> first."
+"Enable link","Enable link"
+"Instagram Shop Block","Instagram Shop Block"
+"Please go to admin panel > MGS > Social [Configuration] and add setting for <b>Snapppt Embed Code</b> first.","Please go to admin panel > MGS > Social [Configuration] and add setting for <b>Snapppt Embed Code</b> first."
+"Latest Post Block","Latest Post Block"
+"Post Config","Post Config"
+"Filter post by category","Filter post by category"
+"Number of post to display","Number of post to display"
+"Hide Thumbnail","Hide Thumbnail"
+"Hide Short Description","Hide Short Description"
+"Summary character count","Summary character count"
+"Hide Create by and Create at","Hide Create by and Create at"
+"List Block","List Block"
+"List type","List type"
+ul,ul
+ol,ol
+"Font italic","Font italic"
+"List style type","List style type"
+"Default list style","Default list style"
+"Font icon","Font icon"
+"List style","List style"
+Disc,Disc
+Armenian,Armenian
+Circle,Circle
+"Cjk Ideographic","Cjk Ideographic"
+Decimal,Decimal
+"Decimal Leading Zero","Decimal Leading Zero"
+Georgian,Georgian
+Hebrew,Hebrew
+Hiragana,Hiragana
+"Hiragana Iroha","Hiragana Iroha"
+Katakana,Katakana
+"Katakana Iroha","Katakana Iroha"
+"Lower Alpha","Lower Alpha"
+"Lower Greek","Lower Greek"
+"Lower Latin","Lower Latin"
+"Lower Roman","Lower Roman"
+None,None
+Square,Square
+"Upper Alpha","Upper Alpha"
+"Upper Greek","Upper Greek"
+"Upper Latin","Upper Latin"
+"Upper Roman","Upper Roman"
+Initial,Initial
+Inherit,Inherit
+"Icon font size","Icon font size"
+"Margin right","Margin right"
+"List item content","List item content"
+"Lookbook Block","Lookbook Block"
+"Lookbook Config","Lookbook Config"
+"Please go to admin panel > MGS > Manage Lookbook to add lookbooks first.","Please go to admin panel > MGS > Manage Lookbook to add lookbooks first."
+"Lookbook Slider Block","Lookbook Slider Block"
+"Slider Config","Slider Config"
+"Please go to admin panel > MGS > Manage Slider [Lookbook] to add sliders first.","Please go to admin panel > MGS > Manage Slider [Lookbook] to add sliders first."
+"Mageplaza - Blog","Mageplaza - Blog"
+"Show type","Show type"
+"Mageplaza - Shop by Brand","Mageplaza - Shop by Brand"
+"Brand Config","Brand Config"
+"Display type","Display type"
+Category,Category
+"Please go to admin panel > Catalog > [Shop by Brand] Categories to add category first.","Please go to admin panel > Catalog > [Shop by Brand] Categories to add category first."
+Brand,Brand
+Hide,Hide
+Show,Show
+"Mageplaza - Countdown Timer","Mageplaza - Countdown Timer"
+"Countdown Timer Rule","Countdown Timer Rule"
+Rule,Rule
+"Please go to admin panel > Content > Manage Rules to add rule first.","Please go to admin panel > Content > Manage Rules to add rule first."
+"Mageplaza - Daily Deal","Mageplaza - Daily Deal"
+All,All
+Feature,Feature
+New,New
+Upcoming,Upcoming
+Bestseller,Bestseller
+Random,Random
+"Mageplaza - Product Slider","Mageplaza - Product Slider"
+"Mageplaza - Banner Slider","Mageplaza - Banner Slider"
+General,General
+"Block col (12 to full)","Block col (12 to full)"
+"Custom Class","Custom Class"
+"Block Animation","Block Animation"
+"Choose Animation Effect","Choose Animation Effect"
+"Animation Delay","Animation Delay"
+Slider,Slider
+"Please go to admin panel > Content > Manage Sliders to add slider first.","Please go to admin panel > Content > Manage Sliders to add slider first."
+"Number of items on slide (default)","Number of items on slide (default)"
+"Number of items on slide (tablet)","Number of items on slide (tablet)"
+"Number of items on slide (mobile)","Number of items on slide (mobile)"
+"Margin right (on item)","Margin right (on item)"
+RTL,RTL
+"Full Height","Full Height"
+"Auto play","Auto play"
+"Auto play speed","Auto play speed"
+"Stop autoplay on mouse hover","Stop autoplay on mouse hover"
+"Display navigation","Display navigation"
+"Navigation position","Navigation position"
+"Middle Inside","Middle Inside"
+"Top Left","Top Left"
+"Top Right","Top Right"
+"Middle Outside","Middle Outside"
+"Bottom Left","Bottom Left"
+"Bottom Right","Bottom Right"
+"Navigation top position","Navigation top position"
+"Auto hide navigation","Auto hide navigation"
+"Display pagination","Display pagination"
+"Pagination position","Pagination position"
+Loop,Loop
+"Google Map Block","Google Map Block"
+"Our Office","Our Office"
+"Map Config","Map Config"
+"Please go to admin panel > MGS > Social [Configuration] and add <b>Google API Key</b> first.","Please go to admin panel > MGS > Social [Configuration] and add <b>Google API Key</b> first."
+"By address","By address"
+"By Location (Priority)","By Location (Priority)"
+Latitude,Latitude
+Longitude,Longitude
+"Pin image","Pin image"
+Remove,Remove
+"Address Box","Address Box"
+px,px
+"Line 1","Line 1"
+"Line 2","Line 2"
+"Line 3","Line 3"
+"Line 4","Line 4"
+"Line 5","Line 5"
+"Map Setting","Map Setting"
+"Zoom level","Zoom level"
+"Scroll wheel","Scroll wheel"
+Navigation,Navigation
+"Type control","Type control"
+"Scale control","Scale control"
+Draggable,Draggable
+"Grayscale color","Grayscale color"
+"Masonry Gallery Block","Masonry Gallery Block"
+"Manage Images","Manage Images"
+"Add to Gallery&nbsp;&nbsp;&nbsp;","Add to Gallery&nbsp;&nbsp;&nbsp;"
+"Remove Image&nbsp;&nbsp;","Remove Image&nbsp;&nbsp;"
+"Upload new Image","Upload new Image"
+"Masonry Config","Masonry Config"
+"Number of columns","Number of columns"
+"Item margin","Item margin"
+"Hover effect","Hover effect"
+"Use lightbox","Use lightbox"
+"Box shadow","Box shadow"
+"Please upload selected image first.","Please upload selected image first."
+"Please choose file to upload.","Please choose file to upload."
+"Choose File to Upload","Choose File to Upload"
+Upload,Upload
+"Modal Popup Block","Modal Popup Block"
+"Popup content","Popup content"
+"Code (click to copy)","Code (click to copy)"
+"If you want to insert image to content, please copy code and paste to content in HTML mode.","If you want to insert image to content, please copy code and paste to content in HTML mode."
+"Popup Config","Popup Config"
+"Popup Title","Popup Title"
+"The image was successfully uploaded.","The image was successfully uploaded."
+"New Products Block","New Products Block"
+Desktop,Desktop
+Tablet,Tablet
+Mobile,Mobile
+Hidden,Hidden
+"On Desktop","On Desktop"
+"On Tablet","On Tablet"
+"On Mobile","On Mobile"
+"Manage Slide","Manage Slide"
+"Text (Html)","Text (Html)"
+"Text Position","Text Position"
+"Text Align","Text Align"
+"Text Animation","Text Animation"
+"Slide In Down","Slide In Down"
+"Slide In Up","Slide In Up"
+"Slide In Right","Slide In Right"
+"Slide In Left","Slide In Left"
+Cancel,Cancel
+"Add New Slide","Add New Slide"
+"Are you sure?","Are you sure?"
+"Please select an image","Please select an image"
+"Portfolio Block","Portfolio Block"
+"Portfolio Config","Portfolio Config"
+"Filter by category","Filter by category"
+"Number of portfolio to display","Number of portfolio to display"
+"Hide Categories","Hide Categories"
+"Profile Block","Profile Block"
+"Profile Config","Profile Config"
+Photo,Photo
+Name,Name
+Subtitle,Subtitle
+Facebook,Facebook
+Twitter,Twitter
+Linkedin,Linkedin
+"Progress Bar Block","Progress Bar Block"
+Percent,Percent
+"Percent value","Percent value"
+"Font weight","Font weight"
+"Default background","Default background"
+"Progress background","Progress background"
+Animation,Animation
+"Title - Percent position","Title - Percent position"
+"Inside bar","Inside bar"
+"Top left","Top left"
+"Top left - right","Top left - right"
+"Top right","Top right"
+"Bottom left","Bottom left"
+"Bottom left - right","Bottom left - right"
+"Bottom right","Bottom right"
+"Progress Circle Block","Progress Circle Block"
+Progress,Progress
+"Icon Color","Icon Color"
+"Progress width","Progress width"
+"Middle background","Middle background"
+"Promo Banner Block","Promo Banner Block"
+"Banner Config","Banner Config"
+"Text content","Text content"
+"Button text","Button text"
+"Top Center","Top Center"
+"Middle Left","Middle Left"
+"Middle Center","Middle Center"
+"Middle Right","Middle Right"
+"Bottom Center","Bottom Center"
+Zoom,Zoom
+"Border Zoom","Border Zoom"
+Flashed,Flashed
+"Zoom Flashed","Zoom Flashed"
+"Shadow Corner","Shadow Corner"
+"Zoom Shadow","Zoom Shadow"
+"Cup Border","Cup Border"
+"Flashed Zoom","Flashed Zoom"
+"Zoom Out Shadow","Zoom Out Shadow"
+Mist,Mist
+"Mist Text","Mist Text"
+"Button background","Button background"
+"Button border","Button border"
+"Button hover background","Button hover background"
+"Button hover text","Button hover text"
+"Button hover border","Button hover border"
+"Top Rate Products Block","Top Rate Products Block"
+"Sale Products Block","Sale Products Block"
+"Single Product Block","Single Product Block"
+Product,Product
+"Enter product name to search.","Enter product name to search."
+"Hide short description","Hide short description"
+"Truncate short description","Truncate short description"
+"Text & Image Block","Text & Image Block"
+Content,Content
+"Show / Hide Editor","Show / Hide Editor"
+"Tabs Block","Tabs Block"
+"Tab Style","Tab Style"
+"Style 1","Style 1"
+"Style 2","Style 2"
+"Style 3","Style 3"
+"Style 4","Style 4"
+"Style 5","Style 5"
+"Style 6","Style 6"
+"Style 7","Style 7"
+"Font Size","Font Size"
+"Table Block","Table Block"
+"Table Config","Table Config"
+"Row height","Row height"
+"Heading (First row)","Heading (First row)"
+"Border vertical","Border vertical"
+"Border horizontal","Border horizontal"
+"Other rows","Other rows"
+"Even background","Even background"
+"Odd background","Odd background"
+"Tab Config","Tab Config"
+"Tab Title","Tab Title"
+"Add new tab","Add new tab"
+"Testimonial Block","Testimonial Block"
+"Testimonial Config","Testimonial Config"
+"Number of testimonial to display","Number of testimonial to display"
+"Hide Photo","Hide Photo"
+"Hide Name","Hide Name"
+"Hide Information","Hide Information"
+"Text Italic","Text Italic"
+"Twitter Timeline Block","Twitter Timeline Block"
+"Twitter Config","Twitter Config"
+"Timeline URL","Timeline URL"
+Theme,Theme
+Light,Light
+Dark,Dark
+"Link color","Link color"
+Language,Language
+Automatic,Automatic
+"English (default)","English (default)"
+Arabic,Arabic
+Bengali,Bengali
+Czech,Czech
+Danish,Danish
+German,German
+Greek,Greek
+Spanish,Spanish
+Persian,Persian
+Finnish,Finnish
+Filipino,Filipino
+French,French
+Hindi,Hindi
+Hungarian,Hungarian
+Indonesian,Indonesian
+Italian,Italian
+Japanese,Japanese
+Korean,Korean
+Malay,Malay
+Dutch,Dutch
+Norwegian,Norwegian
+Polish,Polish
+Portuguese,Portuguese
+Romanian,Romanian
+Russian,Russian
+Swedish,Swedish
+Thai,Thai
+Turkish,Turkish
+Ukrainian,Ukrainian
+Urdu,Urdu
+Vietnamese,Vietnamese
+"Chinese (Simplified)","Chinese (Simplified)"
+"Chinese (Traditional)","Chinese (Traditional)"
+"Video Block","Video Block"
+"Video Config","Video Config"
+"Video Url","Video Url"
+"Youtube video url or Vimeo video url","Youtube video url or Vimeo video url"
+"Full Width","Full Width"
+Width:px,Width:px
+Height:px,Height:px
+Autoplay,Autoplay
+"Hide video information","Hide video information"
+"Hide video controls","Hide video controls"
+"Loop video","Loop video"
+Mute,Mute
+"Category Config","Category Config"
+"Choose Categories","Choose Categories"
+"Expand all","Expand all"
+"Collapse all","Collapse all"
+"Use Category Tabs","Use Category Tabs"
+"Embed Code","Embed Code"
+"For CMS:","For CMS:"
+"Main color","Main color"
+"Background gradient","Background gradient"
+"Background image","Background image"
+"Remove background","Remove background"
+"Background repeat","Background repeat"
+"Background Cover","Background Cover"
+"Additional content","Additional content"
+"Number of row","Number of row"
+"Navigation slide by","Navigation slide by"
+"Edit Static Block ""%1""","Edit Static Block ""%1"""
+"Section Settings","Section Settings"
+"Class name","Class name"
+Fullwidth,Fullwidth
+"No Padding","No Padding"
+Parallax,Parallax
+"Padding top","Padding top"
+"Padding bottom","Padding bottom"
+"Column Config","Column Config"
+"Set columns (Desktop view)","Set columns (Desktop view)"
+"Or input by yourself:","Or input by yourself:"
+"Set columns for Tablet view","Set columns for Tablet view"
+"Set columns for Mobile view","Set columns for Mobile view"
+"Custom class","Custom class"
+"Config for column %1","Config for column %1"
+"Config for column","Config for column"
+"Config for column ","Config for column "
+Publish,Publish
+"Active CMS Builder","Active CMS Builder"
+"We can't find products matching the selection.","We can't find products matching the selection."
+"There are no categories matching the selection.","There are no categories matching the selection."
+"Add to Cart","Add to Cart"
+"In stock","In stock"
+"Out of stock","Out of stock"
+"Add to Wish List","Add to Wish List"
+"Add to Compare","Add to Compare"
+Qty,Qty
+"Learn More","Learn More"
+"Have no accodion content to show.","Have no accodion content to show."
+"By <span class=""color-theme"">%1</span> on %2","By <span class=""color-theme"">%1</span> on %2"
+"We can't find post matching the selection.","We can't find post matching the selection."
+"<span class=""number"">%1</span> Products","<span class=""number"">%1</span> Products"
+"<span class=""number"">%1</span> Product","<span class=""number"">%1</span> Product"
+"We can't find categories matching the selection.","We can't find categories matching the selection."
+"Have no field for form.","Have no field for form."
+"File is not exist on server.","File is not exist on server."
+"Have no image to display.","Have no image to display."
+"There are no content matching the selection.","There are no content matching the selection."
+"Read More","Read More"
+"Read more","Read more"
+"Have no map to show.","Have no map to show."
+"There are no sliders matching the selection.","There are no sliders matching the selection."
+"We can't find portfolio matching the selection.","We can't find portfolio matching the selection."
+"Have no banner to show.","Have no banner to show."
+"Can not get Facebook Fanbox data.","Can not get Facebook Fanbox data."
+"Can not get Instagram data or your instagram account have not any images.","Can not get Instagram data or your instagram account have not any images."
+"Can not get Instagram shop data.","Can not get Instagram shop data."
+"Can not get Twitter Timeline data.","Can not get Twitter Timeline data."
+"We can't find testimonial matching the selection.","We can't find testimonial matching the selection."
+"Have no video to show.","Have no video to show."
+"Mage Solution","Mage Solution"
+"Active Front-end Builder","Active Front-end Builder"
+"Disabled Widgets on Homepage & CMS Pages","Disabled Widgets on Homepage & CMS Pages"
+"If you choose ""Yes"": all widgets for homepage and cms pages added from <b>CONTENT > Widgets</b> will not visible.","If you choose ""Yes"": all widgets for homepage and cms pages added from <b>CONTENT > Widgets</b> will not visible."
+"Disabled Widgets on Category Pages","Disabled Widgets on Category Pages"
+"If you choose ""Yes"": all widgets for category pages added from <b>CONTENT > Widgets</b> will not visible.","If you choose ""Yes"": all widgets for category pages added from <b>CONTENT > Widgets</b> will not visible."
+"Width of section container","Width of section container"
+"Columns padding","Columns padding"
+"Html Structure","Html Structure"
+"Grid Mode","Grid Mode"
+"List Mode","List Mode"
+"Deal Product Grid Mode","Deal Product Grid Mode"
+"Deal Product List Mode","Deal Product List Mode"
+"Access Token","Access Token"
+"Limit Images","Limit Images"
+"Image resolution","Image resolution"
+"Instagram Data","Instagram Data"
+"<hr style=""border:1px solid #ddd; border-bottom:none""/>","<hr style=""border:1px solid #ddd; border-bottom:none""/>"
+Snapppt,Snapppt
+"- Go to <a href=""https://snapppt.com/users/sign_in"" target=""_blank"">https://snapppt.com/users/sign_in</a><br/>- Login with your instagram account<br/>- Go to <a href=""https://snapppt.com/embeds"" target=""_blank"">https://snapppt.com/embeds</a> to configuration and get embed code","- Go to <a href=""https://snapppt.com/users/sign_in"" target=""_blank"">https://snapppt.com/users/sign_in</a><br/>- Login with your instagram account<br/>- Go to <a href=""https://snapppt.com/embeds"" target=""_blank"">https://snapppt.com/embeds</a> to configuration and get embed code"
+Google,Google
+"Google API Key","Google API Key"
+"OWL Slider (Single Slide)","OWL Slider (Single Slide)"
+NAVIGATION,NAVIGATION
+"Navigation type","Navigation type"
+"Next icon","Next icon"
+"Previous icon","Previous icon"
+"Next font class","Next font class"
+"Previous font class","Previous font class"
+"<span style=""display:block; text-align:center"">DEFAULT</span>","<span style=""display:block; text-align:center"">DEFAULT</span>"
+"Background opacity","Background opacity"
+"<span style=""display:block; text-align:center"">HOVER</span>","<span style=""display:block; text-align:center"">HOVER</span>"
+PAGINATION,PAGINATION
+"Active background","Active background"
+"OWL Slider (Multiple Slides)","OWL Slider (Multiple Slides)"
+"Font & Style","Font & Style"
+"Include font Awesome","Include font Awesome"
+"If you choose <b>Yes</b>: we will insert <a href=""https://fontawesome.com/v4.7.0/"" target=""_blank"">fontawesome 4.7.0</a> style file to the &lt;head> of the document. If fontawesome already exists in your theme, please choose <b>No</b>","If you choose <b>Yes</b>: we will insert <a href=""https://fontawesome.com/v4.7.0/"" target=""_blank"">fontawesome 4.7.0</a> style file to the &lt;head> of the document. If fontawesome already exists in your theme, please choose <b>No</b>"
+"Custom style","Custom style"
+"Export - Import - Restore","Export - Import - Restore"
+"<hr style=""border:1px solid #ddd; border-bottom:none; width:70%""/>","<hr style=""border:1px solid #ddd; border-bottom:none; width:70%""/>"
+"Restore Versions","Restore Versions"
+"Delete Versions","Delete Versions"
+"Thumbnail Image","Thumbnail Image"
+"Icon (Image)","Icon (Image)"
+"Icon (Font class)","Icon (Font class)"
+"Source: ","Source: "
+copy_template,copy_template
+"Product Id","Product Id"

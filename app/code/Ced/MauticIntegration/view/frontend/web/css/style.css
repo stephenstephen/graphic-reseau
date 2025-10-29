@@ -1,0 +1,48 @@
+
+/**
+ * CedCommerce
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the End User License Agreement (EULA)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://cedcommerce.com/license-agreement.txt
+ *
+ * @category    Ced
+ * @package     Ced_MauticIntegration
+ * @author 		CedCommerce Core Team <connect@cedcommerce.com>
+ * @copyright   Copyright CedCommerce (http://cedcommerce.com/)
+ * @license     http://cedcommerce.com/license-agreement.txt
+ */
+#mautic-responses {
+  padding: 0;
+}
+#mautic-responses .success {
+  background: #e0efd8 none repeat scroll 0 0;
+  border: 1px solid #d1e0c9;
+  border-radius: 2px;
+  color: #3c753e;
+  padding: 10px;
+}
+#mautic-responses .warning {
+  background: #FDF8E4 none repeat scroll 0 0;
+  border: 1px solid #ece7d3;
+  border-radius: 2px;
+  color: #976D3B;
+  padding: 10px;
+}
+#mautic-responses .warning {
+  background: #FDF8E4 none repeat scroll 0 0;
+  border: 1px solid #ece7d3;
+  border-radius: 2px;
+  color: #976D3B;
+  padding: 10px;
+}
+#mautic-responses .error {
+  background: #f2dedf none repeat scroll 0 0;
+  border: 1px solid #e1cdce;
+  border-radius: 2px;
+  color: #a94341;
+  padding: 10px;
+}

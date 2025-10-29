@@ -1,0 +1,26 @@
+{
+    "name": "gone/module-subligraphy",
+    "description": "Manage Graphicreseau subligraphy service",
+    "type": "magento2-module",
+    "license": "OSL-3.0",
+    "authors": [
+        {
+            "name": "Mage2Gen",
+            "email": "info@mage2gen.com"
+        },
+        {
+            "name": "Cedric Caccomo",
+            "email": "cedric@410-gone.fr"
+        }
+    ],
+     "minimum-stability": "dev",
+    "require": { },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Gone\\Subligraphy\\": ""
+        }
+    }
+}

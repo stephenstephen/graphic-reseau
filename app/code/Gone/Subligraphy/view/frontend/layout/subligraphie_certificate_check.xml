@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Check Subligraphy certificate</title>
+    </head>
+    <body>
+        <referenceBlock name="page.main.title">
+            <arguments>
+                <argument translate="true" name="title" xsi:type="string">Check Subligraphy certificate</argument>
+            </arguments>
+        </referenceBlock>
+        <referenceBlock name="breadcrumbs">
+            <action method="addCrumb">
+                <argument name="crumbName" xsi:type="string">homepage</argument>
+                <argument name="crumbInfo" xsi:type="array">
+                    <item name="title" xsi:type="string" translate="true">Home</item>
+                    <item name="label" xsi:type="string" translate="true">Home</item>
+                    <item name="link" xsi:type="string">{{baseUrl}}</item>
+                </argument>
+            </action>
+            <action method="addCrumb">
+                <argument name="crumbName" xsi:type="string">certificate.check</argument>
+                <argument name="crumbInfo" xsi:type="array">
+                    <item name="title" xsi:type="string" translate="true">Check Subligraphy certificate</item>
+                    <item name="label" xsi:type="string" translate="true">Check Subligraphy certificate</item>
+                    <item name="last" xsi:type="boolean">true</item>
+                </argument>
+            </action>
+        </referenceBlock>
+        <referenceContainer name="content">
+            <block class="Gone\Subligraphy\Block\CheckCertificate" name="graphicreseau_check_certificate" template="Gone_Subligraphy::check_certificate.phtml">
+            <container name="certificate.check.form.recaptcha">
+                <block class="Magento\ReCaptchaUi\Block\ReCaptcha"
+                       name="recaptcha"
+                       after="-"
+                       template="Magento_ReCaptchaFrontendUi::recaptcha.phtml"
+                       ifconfig="recaptcha_frontend/type_for/certificate_check_form">
+                    <arguments>
+                        <argument name="recaptcha_for" xsi:type="string">certificate_check_form</argument>
+                        <argument name="jsLayout" xsi:type="array">
+                            <item name="components" xsi:type="array">
+                                <item name="recaptcha" xsi:type="array">
+                                    <item name="component" xsi:type="string">Magento_ReCaptchaFrontendUi/js/reCaptcha</item>
+                                </item>
+                            </item>
+                        </argument>
+                    </arguments>
+                </block>
+            </container>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,162 @@
+<?php /* @var $block \Netreviews\Avisverifies\Block\Reviews */  ?>
+<?php if ($block->nbReviews > 0): ?>
+    <?php $reduceProductReviews = $block->getReduceProductReviews()?>
+    <!--:: start verified reviews ::-->
+    <div id="netreviews_reviews_tab" <?php echo ($reduceProductReviews == '1') ? 'class="nrResponsive"' : ''; ?>>
+        <div id="netreviews_rating_section">
+
+            <div class="netreviews_rating_header">
+                <img class="netreviews_logo"
+                     src="<?php echo $block->logoNetreviews ?>"/>
+                <div>
+                    <a class="netreviews_certification" target="_blank"
+                       href="<?php echo $block->urlcertificat; ?>"><?php echo __('View the trust certificate'); ?></a><br>
+                    <label id="netreviews_informations_label">
+                        <?php echo __("Reviews subject to control"); ?>&nbsp;<div class="nr-icon nr-info"></div>
+                    </label>
+                    <span id="netreviews_informations">
+                            <div class="nr-icon nr-exit"></div>
+                                <ul>
+                                    <li><?php echo __("For further information on the nature of the review controls, as well as the possibility of contacting the author of the review please consult our"); ?>
+                                        &nbsp;<a
+                                                href="http://www.<?php echo __('verified-reviews.com'); ?>/index.php?page=mod_conditions_utilisation"
+                                                target="_blank"><?php echo __("GCU"); ?></a>.</li>
+                                    <li><?php echo __("No inducements have been provided for these reviews"); ?>.</li>
+                                    <li><?php echo __("Reviews are published and kept for a period of five years"); ?>
+                                        .</li>
+                                    <li><?php echo __("Reviews can not be modified: If a customer wishes to modify their review then they can do so by contacting Verified Reviews directly to remove the existing review and publish an amended one"); ?>
+                                        .</li>
+                                    <li><?php echo __("The reasons for deletion of reviews are available"); ?>&nbsp;<a
+                                                href="http://www.<?php echo __('verified-reviews.com'); ?>/index.php?page=mod_conditions_utilisation#Rejet_de_lavis_de_consommateur"
+                                                target="_blank"><?php echo __("here"); ?></a>.</li>
+                                </ul>
+                            </span>
+                </div>
+            </div>
+            <div class="netreviews_rating_content">
+                <div  <?php if ($reduceProductReviews == 0) : ?> class="netreviews_global_rating" <?php endif; ?>>
+                    <p class="netreviews_note_generale">
+                        <?php echo $block->rate; ?><span>&nbsp;/5</span>
+                    </p>
+
+                    <div class="netreviews_bg_stars_big">
+                        <?php echo $block->helperReviewsAPI->ntavAddStars($block->rate) ?>
+                    </div>
+                    <p class="netreviews_subtitle">
+                        <?php echo __('Based on'); ?>&nbsp;<?php echo $block->nbReviews; ?>&nbsp;<?php echo __('customer(s) reviews'); ?>
+                    </p>
+                </div>
+                <?php if ($reduceProductReviews == 0) : ?>
+                    <div class="netreviews_global_rating_details">
+                        <ul class="netreviews_rates_list">
+                            <li class="netreviews_rate_list_item" data-rate-filter="1" >
+                                <span>1</span>
+                                <div class="nr-icon nr-star gold"></div>
+                                <div class="netreviews_rate_graph">
+                                        <span class="netreviews_rate_percent"
+                                              style="height: <?php echo round((1 + ($block->nbReviewsByRate[0] / $block->nbReviews * 100))); ?>px">
+                                            <span class="netreviews_rate_total1"><?php echo $block->nbReviewsByRate[0]; ?></span>
+                                        </span>
+                                </div>
+                            </li>
+                            <li class="netreviews_rate_list_item" data-rate-filter="2">
+                                <span>2</span>
+                                <div class="nr-icon nr-star gold"></div>
+                                <div class="netreviews_rate_graph">
+                                        <span class="netreviews_rate_percent"
+                                              style="height: <?php echo round((1 + ($block->nbReviewsByRate[1] / $block->nbReviews * 100))); ?>px">
+                                            <span class="netreviews_rate_total2"><?php echo $block->nbReviewsByRate[1]; ?></span>
+                                        </span>
+                                </div>
+                            </li>
+                            <li class="netreviews_rate_list_item" data-rate-filter="3">
+                                <span>3</span>
+                                <div class="nr-icon nr-star gold"></div>
+                                <div class="netreviews_rate_graph">
+                                        <span class="netreviews_rate_percent"
+                                              style="height: <?php echo round((1 + ($block->nbReviewsByRate[2] / $block->nbReviews * 100))); ?>px">
+                                            <span class="netreviews_rate_total3"><?php echo $block->nbReviewsByRate[2]; ?></span>
+                                        </span>
+                                </div>
+                            </li>
+                            <li class="netreviews_rate_list_item" data-rate-filter="4">
+                                <span>4</span>
+                                <div class="nr-icon nr-star gold"></div>
+                                <div class="netreviews_rate_graph">
+                                        <span class="netreviews_rate_percent"
+                                              style="height: <?php echo round((1 + ($block->nbReviewsByRate[3] / $block->nbReviews * 100))); ?>px">
+                                            <span class="netreviews_rate_total4"><?php echo $block->nbReviewsByRate[3]; ?></span>
+                                        </span>
+                                </div>
+                            </li>
+                            <li class="netreviews_rate_list_item" data-rate-filter="5">
+                                <span>5</span>
+                                <div class="nr-icon nr-star gold"></div>
+                                <div class="netreviews_rate_graph">
+                                        <span class="netreviews_rate_percent"
+                                              style="height: <?php echo round((1 + ($block->nbReviewsByRate[4] / $block->nbReviews * 100))); ?>px">
+                                            <span class="netreviews_rate_total5"><?php echo $block->nbReviewsByRate[4]; ?></span>
+                                        </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                <?php endif; ?>
+            </div>
+            <!-- filtering section -->
+            <div class="netreviews_filtering_section">
+
+                <label for="netreviews_reviews_filter"><?php echo __("Sort reviews"); ?>&nbsp;:</label><select id="netreviews_reviews_filter" name="netreviews_reviews_filter">
+                    <option value="no_filter">---</option>
+                    <option value="newest" selected="selected"><?php echo __("Newests"); ?></option>
+                    <option value="oldest"><?php echo __("Oldests"); ?></option>
+                    <option value="highest"><?php echo __("Highest ratings"); ?></option>
+                    <option value="lowest"><?php echo __("Lowest ratings"); ?></option>
+                    <?php if ($block->isEnableHelpfulReviews): ?>
+                        <option value="most_useful"><?php echo __("Most useful"); ?></option>
+                    <?php endif; ?>
+                </select>
+            </div>
+        </div>
+        <!-- reviews section -->
+        <div class="netreviews_reviews_section">
+            <div id="avisVerifiesAjaxImage" style="display: none;"></div>
+            <?php echo $block->getChildHtml('nr-reviews');?>
+        </div>
+    </div>
+    <?php if ($block->nbReviews > $block->reviewsPerPage): ?>
+        <div id="netreviews_button_more_reviews">
+            <a class="netreviews_button">
+                <span class="display"><?php echo __("More Reviews..."); ?></span>
+            </a>
+        </div>
+    <?php endif; ?>
+    <!-- Modal -->
+    <div id="netreviews_media_modal">
+        <div id="netreviews_media_content"></div>
+        <a id="netreviews_media_close">×</a>
+    </div>
+    <input id="avisVerifiesPageNumber" type="hidden" value="1"/>
+    <input id="avisVerifiesAjaxUrl" type="hidden" value="<?php echo $block->ajaxUrl; ?>"/>
+    <input id="avisVerifiesProductRef" type="hidden" value="<?php echo $block->productRef; ?>"/>
+    <input id="avisverifiesNbTotalReviews" type="hidden" value="<?php echo $block->nbReviews; ?>"/>
+    <input id="avisVerifiesIdwebsite" type="hidden" value="<?php echo $block->idWebsite; ?>"/>
+    <input id="avisverifiesHelpfulURL" type="hidden"
+           value="<?php echo $block->urlHelpfulReviews; ?>"/>
+    <input id="avisverifiesHelpfulErrorMsg" type="hidden" value="<?php echo __('An error has occurred.'); ?>"/>
+    <input id="avisverifiesHelpfulSuccessMsg" type="hidden"
+           value="<?php echo __('Thank you, your vote will soon be published.'); ?>"/>
+    <input id="avisverifiesRateFilter" type="hidden" value=""/>
+    <script type="text/x-magento-init">
+		{
+			"*": {
+				 "Netreviews_Avisverifies/js/avisverifies":
+				            {
+								"isEnableHelpfulReviews":"<?php echo $block->isEnableHelpfulReviews; ?>"
+
+				            }
+			}
+		}
+	</script>
+    <!--:: end verified reviews ::-->
+<?php endif; ?>

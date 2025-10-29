@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="Gone\Subligraphy\Api\CertificateRepositoryInterface" type="Gone\Subligraphy\Model\CertificateRepository"/>
+	<preference for="Gone\Subligraphy\Api\Data\CertificateInterface" type="Gone\Subligraphy\Model\Data\Certificate"/>
+	<preference for="Gone\Subligraphy\Api\Data\CertificateSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+	<type name="Gone\Subligraphy\Model\ResourceModel\Certificate\Grid\Collection">
+		<arguments>
+			<argument name="mainTable" xsi:type="string">gr_subligraphy_certificate</argument>
+			<argument name="resourceModel" xsi:type="string">Gone\Subligraphy\Model\ResourceModel\Certificate\Collection</argument>
+		</arguments>
+	</type>
+	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+		<arguments>
+			<argument name="collections" xsi:type="array">
+				<item name="gone_subligraphy_certificate_listing_data_source" xsi:type="string">Gone\Subligraphy\Model\ResourceModel\Certificate\Grid\Collection</item>
+			</argument>
+		</arguments>
+	</type>
+    <type name="Magento\Customer\Model\ResourceModel\Grid\Collection">
+        <plugin name="add_subligraph_to_customer_grid" type="Gone\Subligraphy\Plugin\AddSubligraphToCustomerGrid" />
+    </type>
+</config>

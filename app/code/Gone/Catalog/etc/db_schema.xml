@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<!--
+  ~ *
+  ~ @copyright Copyright © 2020 410-Gone. All rights reserved.
+  ~ @author    contact@410-gone.fr
+  ~
+  -->
+
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+	<table name="cms_block">
+        <!--        field definition from legacy M1 -->
+		<column xsi:type="smallint" name="gr_type" padding="6" unsigned="true" nullable="false" identity="false"
+				default="0" comment="Select CMS block type"/>
+		<column xsi:type="int" name="gr_position" padding="6" unsigned="true" nullable="true" identity="false"
+				default="0" comment="Custom product tab position"/>
+	</table>
+</schema>

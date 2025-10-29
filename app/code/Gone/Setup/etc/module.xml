@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Gone_Setup" setup_version="1.0.0">
+        <sequence>
+            <module name="Magento_Cms"/>
+            <module name="Amasty_Faq"/>
+            <module name="Amasty_RequestQuote"/>
+            <module name="Amasty_Rma"/>
+            <module name="Mageplaza_Shopbybrand"/>
+            <module name="Mageplaza_LayeredNavigationUltimate"/>
+            <module name="Magedelight_Productpdf"/>
+            <module name="PHPCuong_BannerSlider"/>
+            <module name="Netreviews_Avisverifies"/>
+            <module name="Amasty_GdprCookie"/>
+        </sequence>
+    </module>
+</config>

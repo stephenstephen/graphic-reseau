@@ -1,0 +1,76 @@
+<?php
+/*
+ * Copyright © 410 Gone (contact@410-gone.fr). All rights reserved.
+ * See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+ */
+
+/**
+ * @var $block OrderView
+ * @var SecureHtmlRenderer $secureRenderer
+ */
+
+/** @var \Magento\Shipping\Helper\Data $shippingHelper */
+
+use Gone\Shipping\Block\Adminhtml\OrderView;
+use Magento\Framework\View\Helper\SecureHtmlRenderer;
+use Magento\Tax\Helper\Data;
+
+$shippingHelper = $block->getData('shippingHelper');
+/** @var Data $taxHelper */
+$taxHelper = $block->getData('taxHelper');
+?>
+<?php $order = $block->getOrder() ?>
+<?php if ($order->getIsVirtual()):
+    return '';
+endif; ?>
+
+<?php /* Shipping Method */ ?>
+<div class="admin__page-section-item order-shipping-method">
+    <div class="admin__page-section-item-title">
+        <span class="title"><?= $block->escapeHtml(__('Shipping &amp; Handling Information')) ?></span>
+    </div>
+    <div class="admin__page-section-item-content">
+        <?php if ($order->getTracksCollection()->count()): ?>
+            <p>
+                <a href="#" id="linkId" title="<?= $block->escapeHtmlAttr(__('Track Order')) ?>">
+                    <?= $block->escapeHtml(__('Track Order')) ?>
+                </a>
+            </p>
+            <?= /* @noEscape */ $secureRenderer->renderEventListenerAsTag(
+                'onclick',
+                "popWin('" . $block->escapeJs($shippingHelper->getTrackingPopupUrlBySalesModel($order)) .
+                "','trackorder','width=800,height=600,resizable=yes,scrollbars=yes')",
+                'a#linkId'
+            ) ?>
+        <?php endif; ?>
+        <?php if ($order->getShippingDescription()): ?>
+            <strong><?= $block->escapeHtml($order->getShippingDescription()) ?></strong>
+
+            <?php if ($taxHelper->displayShippingPriceIncludingTax()): ?>
+                <?php $_excl = $block->displayShippingPriceInclTax($order); ?>
+            <?php else: ?>
+                <?php $_excl = $block->displayPriceAttribute('shipping_amount', false, ' '); ?>
+            <?php endif; ?>
+            <?php $_incl = $block->displayShippingPriceInclTax($order); ?>
+
+            <?= /** @noEscape */ $_excl ?>
+            <?php if ($taxHelper->displayShippingBothPrices() && $_incl != $_excl): ?>
+                (<?= $block->escapeHtml(__('Incl. Tax')) ?> <?= /** @noEscape */ $_incl ?>)
+            <?php endif; ?>
+
+            <!-- 410 override begin -->
+            <?php
+                $relaisId = ($block->getQuote() && !empty($block->getQuote()->getRelaisId())) ? $block->getQuote()->getRelaisId() : false;
+                if ($relaisId):
+                    ?>
+                    <div>
+                        <?= __('Relais pickup:') . ' ' . $relaisId ?>
+                    </div>
+                <?php endif; ?>
+            <!-- 410 override end -->
+
+        <?php else: ?>
+            <?= $block->escapeHtml(__('No shipping information available')) ?>
+        <?php endif; ?>
+    </div>
+</div>

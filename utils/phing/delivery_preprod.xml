@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Deploy Magento" default="deploy-magento">
+    <property environment="env" />
+
+    <tstamp>
+        <format property="DATE" pattern="%Y-%m-%d-%H-%M" />
+    </tstamp>
+    <property name="local.SCM_SRC" value="${env.WORKSPACE}/src" />
+    <property name="local.APP_PATH_NEW_RELEASE" value="${env.APP_PATH_RELEASES}/${DATE}" />
+    <property name="local.APP_PATH_BIN" value="${local.APP_PATH_NEW_RELEASE}/bin" />
+
+    <property name="local.SHARED_FOLDERS" value="pub/media,pub/mtc,var/log,var/report,var/import,var/export,var/subligraphy,pub/sitemap,var/invoices" />
+
+    <target name="deploy-magento" depends="">
+        <phingcall target="generate-release-dir" />
+        <phingcall target="copy-sources" />
+        <phingcall target="deploy-config" />
+        <phingcall target="enable-maintenance" />
+        <phingcall target="set-symlinks" />
+        <phingcall target="call-opcache-reset" />
+        <phingcall target="call-magento-setup" />
+        <phingcall target="call-magento-compile" />
+        <phingcall target="call-magento-static-content-deploy" />
+        <phingcall target="set-permissions" />
+        <phingcall target="clear-magento-cache" />
+        <!--        <phingcall target="clear-varnish-cache" />-->
+        <phingcall target="disable-maintenance" />
+        <phingcall target="call-magento-reindex" />
+        <phingcall target="clean-old-releases" />
+    </target>
+
+    <target name="generate-release-dir" description="Generate release dir">
+        <echo message="Generate release dir ${local.APP_PATH_NEW_RELEASE}" />
+        <mkdir dir="${local.APP_PATH_NEW_RELEASE}" mode="0775" />
+    </target>
+
+    <target name="copy-sources" description="Copy sources">
+        <echo message="Copy sources from ${local.SCM_SRC} to ${local.APP_PATH_NEW_RELEASE}" />
+        <copy todir="${local.APP_PATH_NEW_RELEASE}">
+            <fileset dir="${local.SCM_SRC}">
+                <include name="**" />
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="deploy-config" description="Deploying spec conf">
+        <echo message="Deploying ${env.APP_SPEC_EXTENSION} conf" />
+        <foreach param="filename" absparam="absfilename" target="rename-conf">
+            <fileset dir="${local.APP_PATH_NEW_RELEASE}">
+                <include name="**/*.${env.APP_SPEC_EXTENSION}" />
+                <include name="*.${env.APP_SPEC_EXTENSION}" />
+            </fileset>
+        </foreach>
+    </target>
+
+    <target name="rename-conf" description="">
+        <php expression="preg_replace('/\.[^.\s]{3,7}$/', '', '${filename}')" returnProperty="new_filename" />
+        <echo message="- Renaming ${filename} to ${new_filename}" />
+        <move file="${local.APP_PATH_NEW_RELEASE}/${filename}" tofile="${local.APP_PATH_NEW_RELEASE}/${new_filename}" overwrite="true" />
+    </target>
+
+    <target name="set-symlinks">
+        <echo message="Set sym link current to release" />
+        <symlink target="${local.APP_PATH_NEW_RELEASE}" link="${env.APP_PATH_CURRENT}" overwrite="true" />
+
+        <echo message="Linking shared folders and files" />
+        <foreach list="${local.SHARED_FOLDERS}" param="shared.folder" target="shared-folder" />
+    </target>
+
+    <target name="shared-folder" description="">
+        <echo message="Sharing ${shared.folder}" />
+        <if>
+            <not>
+                <available filepath="${env.APP_PATH_SHARED}" file="${shared.folder}" />
+            </not>
+            <then>
+                <mkdir dir="${env.APP_PATH_SHARED}/${shared.folder}" mode="0775" />
+            </then>
+        </if>
+        <if>
+            <available filepath="${env.APP_PATH_NEW_RELEASE}" file="${shared.folder}" />
+            <then>
+                <exec command="cp -Rn ${local.APP_PATH_NEW_RELEASE}/${shared.folder} {env.APP_PATH_SHARED}" escape="false" logoutput="true" />
+                <delete dir="${local.APP_PATH_NEW_RELEASE}/${shared.folder}" includeemptydirs="true" verbose="false" failonerror="true" />
+            </then>
+        </if>
+        <symlink target="${env.APP_PATH_SHARED}/${shared.folder}" link="${local.APP_PATH_NEW_RELEASE}/${shared.folder}" overwrite="true" />
+    </target>
+
+    <target name="set-permissions">
+        <echo message="Set 775 rights for ${local.APP_PATH_NEW_RELEASE}" />
+        <exec command="chmod -R 0775 ${local.APP_PATH_NEW_RELEASE}" escape="false" logoutput="true" />
+    </target>
+
+    <target name="clean-old-releases">
+        <echo message="Delete old releases (keep only 2 most recent releases)" />
+        <exec command="ls -rF | tail -n +3 | xargs rm -Rf" dir="${env.APP_PATH_RELEASES}" escape="false" logoutput="true" />
+    </target>
+
+    <target name="call-magento-setup" depends="">
+        <echo message="Runing Magento setup scripts" />
+        <exec command="cd ${local.APP_PATH_BIN};php magento setup:upgrade" logoutput="true" />
+    </target>
+
+    <target name="call-magento-static-content-deploy" depends="">
+        <echo message="Runing Magento deploy static" />
+        <exec command="cd ${local.APP_PATH_BIN};php magento setup:static-content:deploy en_US fr_FR -j 4" logoutput="true" />
+    </target>
+
+    <target name="call-magento-compile" depends="">
+        <echo message="Compiling Magento files" />
+        <exec command="cd ${local.APP_PATH_BIN};php magento setup:di:compile" logoutput="true" />
+    </target>
+
+    <target name="clear-magento-cache" depends="">
+        <echo message="Purge Magento cache" />
+        <exec command="cd ${local.APP_PATH_BIN};php magento cache:flush" logoutput="true" />
+    </target>
+
+    <target name="clear-varnish-cache" depends="">
+        <echo message="Purge Varnish cache" />
+        <exec command='varnishadm -S /var/www/graphic-reseau.com/secret -T 127.0.0.1:6082 "ban req.http.host ~ rec.graphic-reseau.com"' logoutput="true" />
+    </target>
+
+    <target name="call-opcache-reset" depends="">
+        <echo message="Reset Opcache" />
+        <exec command="cd ${local.APP_PATH_NEW_RELEASE}/utils;php cachetool.phar opcache:reset -vvv --cli --fcgi=/var/run/php-fpm/graphic-r-0e150c.socket" logoutput="true" />
+    </target>
+
+    <target name="call-magento-reindex" depends="">
+        <echo message="Calling Magento to rebuild indexes" />
+        <exec command="cd ${local.APP_PATH_BIN};php magento indexer:reindex" logoutput="true" />
+    </target>
+
+    <target name="disable-maintenance" depends="">
+        <echo message="Removing ${env.APP_PATH_CURRENT}/maintenance.flag" />
+        <exec command="cd ${local.APP_PATH_BIN};php magento maintenance:disable" logoutput="true" />
+        <tstamp>
+            <format property="END_MAINTENANCE_DATE" pattern="%s" />
+        </tstamp>
+    </target>
+
+    <target name="enable-maintenance" depends="">
+        <echo message="Adding ${local.APP_PATH_NEW_RELEASE}/maintenance.flag" />
+        <exec command="cd ${local.APP_PATH_BIN};php magento maintenance:enable" logoutput="true" />
+        <tstamp>
+            <format property="START_MAINTENANCE_DATE" pattern="%s" />
+        </tstamp>
+    </target>
+
+    <target name="call-magento-home">
+        <echo message="Call Magento Home" />
+        <exec command="wget -O /dev/null ${env.APP_HOME_URL}" logoutput="true" />
+    </target>
+
+</project>

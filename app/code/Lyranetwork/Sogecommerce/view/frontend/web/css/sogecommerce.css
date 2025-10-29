@@ -1,0 +1,123 @@
+#sogecommerce_iframe {
+    position: relative;
+    width: 100%;
+    min-height: 530px;
+    border: 0 none;
+    margin-bottom: -5px !important;
+}
+
+.sogecommerce-standard-cc-block {
+    display: none;
+}
+
+.sogecommerce-sepa-cc-block {
+    display: none;
+}
+
+ul.sogecommerce-identifier {
+    list-style-type: none;
+    display: initial;
+}
+
+a.sogecommerce-payment-link {
+    color: #39C;
+    text-decoration: none;
+    font-family: Georgia,Times,"Times New Roman",serif;
+    font-size: 16px;
+}
+
+.kr-form-error span a {
+    all: inherit !important;
+    text-decoration: underline !important;
+    cursor: pointer !important;
+}
+
+.sogecommerce-multi fieldset div.field {
+    float: left;
+    width: 50%;
+}
+
+.sogecommerce-choozeo fieldset div.field {
+    float: left;
+    width: 50%;
+}
+.sogecommerce-payment-option ul {
+    padding: 5px 5px;
+}
+
+
+.sogecommerce-other fieldset div.field {
+    float: left;
+    width: 50%;
+}
+
+.sogecommerce_review .small {
+    font-size: 10px;
+}
+
+.sogecommerce_review {
+    margin-top: 10px;
+    margin-left: 20px;
+    border: 1px solid black;
+    font-size: 13px !important;
+    width: 50%;
+}
+
+.sogecommerce_review thead tr {
+    border-bottom: 1px solid black;
+}
+
+.sogecommerce_review .sogecommerce_bold {
+    font-weight: bold;
+}
+
+.sogecommerce_review td, .sogecommerce_review th {
+    padding: 5px 5px;
+}
+
+button.kr-popin-button {
+    display: none !important;
+    width: 0;
+    height: 0;
+}
+
+.kr-smart-form .kr-smart-form-wrapper.kr-type-popin button.kr-smart-form-modal-button {
+    display: none !important;
+}
+
+.sogecommerce-card {
+    display: inline !important;
+}
+
+.sogecommerce-card img, .sogecommerce-card span {
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.sogecommerce-card img {
+    max-width: 90px;
+    max-height: 30px;
+}
+
+.sogecommerce-card span {
+    height: 30px;
+}
+
+.sogecommerce-confirm-delete {
+    max-width: 750px;
+    margin: auto;
+}
+
+.sogecommerce-confirm-delete .modal-footer {
+    text-align: right;
+}
+
+.loading-mask .loader p {
+    display: block;
+    font-size: 16px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -100px;
+}

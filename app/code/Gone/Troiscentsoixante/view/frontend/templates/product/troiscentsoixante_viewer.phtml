@@ -1,0 +1,77 @@
+<?php
+
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var Troiscentsoixante $block */
+
+use Gone\Troiscentsoixante\Block\Product\View\Troiscentsoixante;
+
+$viewerConfig = $block->getSpriteSpinnerConfigArray();
+$troiscentsoixanteImgUrl = $block->getTroiscentsoixanteSpriteUrl();
+?>
+
+<?php if ($troiscentsoixanteImgUrl): ?>
+    <span class='open-popup troiscentsoixante-icon'>
+        <img src='<?= $block->getViewFileUrl('Gone_Troiscentsoixante::img/360icon.jpg') ?>' alt='360-view'/>
+    </span>
+
+    <div id='360-popup' class='360-popup' style='display:none;'>
+        <p>
+            <?= __('Drag product to see 360 model') ?>:
+        </p>
+        <div class="spritespin"
+             data-src="<?= $troiscentsoixanteImgUrl ?>"
+             data-frames-x="<?= $viewerConfig['x_frame_number'] ?>"
+             data-frames-y="<?= $viewerConfig['y_frame_number'] ?>"
+             data-frame-width="<?= $viewerConfig['frame_width'] ?>"
+             data-frame-height="<?= $viewerConfig['frame_height'] ?>"
+        >  <!-- Sprite container -->
+        </div>
+    </div>
+
+    <script type='text/javascript'>
+
+        require([
+            'jquery',
+            'Magento_Ui/js/modal/modal',
+            'sprite.spin',
+            'domReady!'
+        ], function ($, modal) {
+
+            const spriteOptions = {
+                source: '',
+                width: '',
+                height: '',
+                frames: '',
+                framesX: '',
+                framesY: '',
+                //responsive: true,
+                sense: -1
+            }
+
+            const sprite = $(".spritespin")
+            spriteOptions.source = sprite.data('src');
+            spriteOptions.width = sprite.data('frameWidth');
+            spriteOptions.height = sprite.data('frameHeight');
+            spriteOptions.frames = sprite.data('framesY');
+            spriteOptions.framesX = sprite.data('framesX');
+            spriteOptions.framesY = sprite.data('framesY');
+
+            const options = {
+                type: 'popup',
+                responsive: true,
+                innerScroll: true,
+                title: "<?= __('360 Viewer') ?>",
+            };
+
+            modal(options, $('#360-popup'));
+            $('.open-popup').on('click', () => {
+                $('#360-popup').modal('openModal');
+                sprite.spritespin(spriteOptions);
+            });
+        })
+    </script>
+<?php endif ?>

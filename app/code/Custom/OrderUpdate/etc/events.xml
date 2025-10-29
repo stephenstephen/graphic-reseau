@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+
+    <!-- Observer pour la mise à jour de sales_order après la création d'une facture -->
+    <!-- <event name="sales_order_invoice_save_after">
+        <observer name="update_sales_order_after_invoice"
+                  instance="Custom\OrderUpdate\Observer\UpdateSalesOrderAfterInvoice"/>
+    </event> -->
+    <event name="sales_order_save_after">
+        <observer name="update_sales_order_fields" instance="Custom\OrderUpdate\Observer\UpdateSalesOrderFields"/>
+    </event>
+
+</config>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright © 410 Gone (contact@410-gone.fr). All rights reserved.
+  ~ See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <btob>
+            <credit>
+               <btobcreditmax>0</btobcreditmax>
+            </credit>
+        </btob>
+        <payment>
+            <btob_credit>
+                <active>1</active>
+                <model>Gone\Paymentbtob\Model\Payment\BtobCredit</model>
+                <order_status>pending</order_status>
+                <title>Paiement compte professionnel</title>
+                <allowspecific>0</allowspecific>
+                <group>offline</group>
+            </btob_credit>
+        </payment>
+    </default>
+</config>

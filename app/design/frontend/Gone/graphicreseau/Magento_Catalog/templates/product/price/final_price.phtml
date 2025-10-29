@@ -1,0 +1,124 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+
+<?php
+/** @var \Magento\Catalog\Pricing\Render\FinalPriceBox $block */
+
+/** ex: \Magento\Catalog\Pricing\Price\RegularPrice */
+/** @var \Magento\Framework\Pricing\Price\PriceInterface $priceModel */
+$priceModel = $block->getPriceType('regular_price');
+
+/** ex: \Magento\Catalog\Pricing\Price\FinalPrice */
+/** @var \Magento\Framework\Pricing\Price\PriceInterface $finalPriceModel */
+$finalPriceModel = $block->getPriceType('final_price');
+
+
+$product = $block->getSaleableItem();
+$attribute = $product->getResource()->getAttribute('ecotaxe');
+$ecotaxe = $attribute->getFrontend()->getValue($product);
+
+$idSuffix = $block->getIdSuffix() ? $block->getIdSuffix() : '';
+$schema = ($block->getZone() == 'item_view') ? true : false;
+
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$customerSession = $objectManager->create('Magento\Customer\Model\Session');
+$customerGroupId = $customerSession->isLoggedIn() ? $customerSession->getCustomer()->getGroupId() : 0;
+
+$finalPriceModelHT = $product->getPriceInfo()->getPrice('final_price')->getAmount()->getBaseAmount();
+$finalPriceModelHT = number_format($finalPriceModelHT, 2, ',', '');
+ 
+$publicPriceTTC = $product->getPriceInfo()->getPrice('regular_price')->getAmount()->getValue();
+$publicPriceHT = $product->getPriceInfo()->getPrice('regular_price')->getAmount()->getBaseAmount();
+$specialPriceTTC = $product->getPriceInfo()->getPrice('final_price')->getAmount()->getValue();
+
+?>
+<?php if ($block->hasSpecialPrice()) :?>
+
+    <?php if ($customerGroupId == 32 || $customerGroupId == 34) :?>
+        <span class="price-container">
+            <span class="price-label">Prix Spécial</span>
+            <span class="special-price">
+                <span data-price-amount="<?php echo $finalPriceModelHT ?>" class="price-wrapper">
+                    <span class="price">HT: <?php echo $finalPriceModelHT ?>&nbsp;€</span>
+                </span>
+            </span>
+        </span>
+    <?php else: ?>
+        <?= /* @noEscape */ $block->renderAmount($finalPriceModel->getAmount(), [
+            'display_label'     => __('Special Price'),
+            'price_id'          => $block->getPriceId('product-price-' . $idSuffix),
+            'price_type'        => 'finalPrice',
+            'include_container' => true,
+            'schema' => $schema
+        ]); ?>
+
+        <span class="price-ht" style="font-size: 0.9em;">        
+            <div>HT: <strong><?php echo $finalPriceModelHT ?>€</strong></div>
+        </span>
+
+    <?php endif; ?>
+
+    <span class="old-price">
+
+        <span class="price-container">
+            <span class="price-label"><?php echo __('Regular Price') ?></span>
+            <span data-price-amount="<?php echo $publicPriceTTC ?>" class="price-wrapper">
+                <span class="price"><?php if ($customerGroupId != 34) :?>TTC: <?php endif; ?><?php echo number_format($publicPriceTTC, 2, ',', '') ?>&nbsp;€</span>
+            </span>
+        </span>
+    </span>
+
+    <?php if (round($ecotaxe) > 0) :?>
+        <span class="ecotaxe" style="color:#a9a9a9">
+            <i>Inclus éco-participation DEE: <?php echo round($ecotaxe) ?>€</i>
+        </span>
+    <?php endif; ?>
+<?php else :
+    
+    $finalPriceTTC = $priceModel->getAmount()->getValue();
+    $finalPriceModelHT = $product->getPriceInfo()->getPrice('regular_price')->getAmount()->getBaseAmount();
+    $finalPriceModelHT = number_format($finalPriceModelHT, 2, ',', '') 
+?>
+
+    <?php if ($customerGroupId == 32 || $customerGroupId == 34) :?>
+        <span class="price-container">
+            <span class="special-price">
+                <span data-price-amount="<?php echo $finalPriceModelHT ?>" class="price-wrapper">
+                    <span class="price">HT: <?php echo $finalPriceModelHT ?>&nbsp;€</span>
+                </span>
+            </span>
+        </span>
+    <?php else: ?>
+
+        <span class="price-container">
+            <span class="special-price">
+                <span data-price-amount="<?php echo $publicPriceTTC ?>" class="price-wrapper">
+                    <span class="price"><?php if ($customerGroupId != 34) :?>TTC: <?php endif; ?><?php echo number_format($publicPriceTTC, 2, ',', '') ?>&nbsp;€</span>
+                </span>
+            </span>
+        </span>
+
+        <?php if ($customerGroupId == 0 || $customerGroupId == 1) :?>
+            <span class="price-container" style="font-size: 0.9em;">        
+                <div>HT: <strong><?php echo $publicPriceHT ?>€</strong></div>
+            </span>
+        <?php endif; ?>
+
+    <?php endif; ?>
+<?php endif; ?>
+
+<?php if ($block->showMinimalPrice()) :?>
+    <?php if ($block->getUseLinkForAsLowAs()) :?>
+        <a href="<?= $block->escapeUrl($block->getSaleableItem()->getProductUrl()) ?>" class="minimal-price-link">
+            <?= /* @noEscape */ $block->renderAmountMinimal() ?>
+        </a>
+    <?php else :?>
+        <span class="minimal-price-link">
+            <?= /* @noEscape */ $block->renderAmountMinimal() ?>
+        </span>
+    <?php endif?>
+<?php endif; ?>

@@ -1,0 +1,9 @@
+.admin__menu .level-0.item-top-level > a:before {
+    content: url('../images/vr_icon.png');
+}
+
+.admin__menu .level-0.item-top-level > a:hover:before {
+    /*background-color: white;*/
+    /*color: #f7f3eb;*/
+    content: url('../images/vr_icon_hover.png');
+}

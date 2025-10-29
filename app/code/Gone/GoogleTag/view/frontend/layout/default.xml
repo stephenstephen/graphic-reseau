@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="head.additional">
+            <block class="Gone\GoogleTag\Block\GoogleDataLayer" name="google-data-layer"
+                   template="Gone_GoogleTag::dataLayer.phtml"/>
+            <block class="Gone\GoogleTag\Block\GoogleTag" name="google-tag-manager-head"
+                   template="Gone_GoogleTag::googleTagHead.phtml"/>
+        </referenceContainer>
+        <referenceContainer name="after.body.start">
+            <block class="Gone\GoogleTag\Block\GoogleTag" name="google-tag-manager-body"
+                   template="Gone_GoogleTag::googleTagBody.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

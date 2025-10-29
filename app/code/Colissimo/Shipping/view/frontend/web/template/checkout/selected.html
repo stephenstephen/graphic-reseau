@@ -1,0 +1,19 @@
+<!-- ko if: (address()) -->
+<div id="colissimo-pickup-selected">
+    <div class="line">
+        <strong data-bind="text: address().nom"></strong>
+    </div>
+    <div class="line">
+        <span data-bind="text: address().adresse1"></span>
+    </div>
+    <div class="line">
+        <span data-bind="text: address().code_postal"></span>
+        <span data-bind="text: address().localite"></span>
+    </div>
+    <div class="change">
+        <a href="#" data-bind="click: updatePickupAddress" class="sc-update-pickup">
+            <span data-bind="i18n: 'Change pickup location'"></span>
+        </a>
+    </div>
+</div>
+<!-- /ko -->

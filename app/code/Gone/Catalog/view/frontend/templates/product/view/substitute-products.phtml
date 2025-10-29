@@ -1,0 +1,79 @@
+<?php
+/**
+ * @var $block SubstituteProduct
+ * @var $escaper Escaper
+ */
+
+use Gone\Catalog\Block\Product\View\SubstituteProduct;
+use Magento\Framework\Escaper;
+
+$substituteProducts = $block->getSubstituteProducts();
+?>
+
+<?php if ($substituteProducts): ?>
+
+    <span class="display-substitutes action primary">Produits de remplacement</span>
+    <div id="substitutes-popup" class="substitutes-product-popup" style='display:none;'>
+        <p>
+            <?= __('Below products are technically equivalents to initial product') ?>:
+        </p>
+        <?php foreach ($substituteProducts as $substituteProduct): ?>
+            <div class="product-popup-thumb">
+                <?= $block->getImage($substituteProduct, 'cart_page_product_thumbnail')->toHtml() ?>
+            </div>
+            <div class="product-popup-details">
+                <?= $block->getProductPrice($substituteProduct) ?>
+                <a href="<?= $substituteProduct->getProductUrl(); ?>"><?= $substituteProduct->getName(); ?></a>
+                <p>
+                    <?= $substituteProduct->getShortDescription(); ?>
+                </p>
+                <form data-role='tocart-form'
+                      data-product-sku="<?= $block->escapeHtmlAttr($substituteProduct->getSku()) ?>"
+                      action="<?= $block->escapeUrl($block->getAddToCartUrl($substituteProduct)) ?>"
+                      method='post'>
+                    <input type='hidden' name='product'
+                           value="<?= /* @noEscape */
+                            (int)$substituteProduct->getEntityId() ?>">
+                    <?= $block->getBlockHtml('formkey') ?>
+                    <button type="submit"
+                            title="<?= $block->escapeHtmlAttr(__('Add to Cart')) ?>"
+                            data-product-type="not-visible"
+                            class="action tocart primary">
+                        <span><?= $block->escapeHtml(__('Add to Cart')) ?></span>
+                    </button>
+                </form>
+            </div>
+        <?php endforeach; ?>
+    </div>
+    <script type="text/x-magento-init">
+    {
+        "[data-role=tocart-form]": {
+            "catalogAddToCart": {}
+        }
+    }
+
+
+
+    </script>
+    <script>
+        require([
+            'jquery',
+            'Magento_Ui/js/modal/modal',
+            'domReady!'
+        ], function ($, modal) {
+
+            const options = {
+                type: 'popup',
+                responsive: true,
+                innerScroll: true,
+                title: "<?= __('Substitutes products') ?>",
+            };
+
+            modal(options, $('#substitutes-popup'));
+            $('.display-substitutes.action').on('click', () => {
+                $('#substitutes-popup').modal('openModal');
+            });
+
+        })
+    </script>
+<?php endif ?>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright © 410 Gone (contact@410-gone.fr). All rights reserved.
+  ~ See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+  -->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="checkout.cart.item.renderers">
+            <referenceBlock name="checkout.cart.item.renderers.simple">
+                <block class="Gone\Checkout\Block\ProductOptions"
+                       as="options"
+                       name="gr_custom_product_options"
+                       template="Gone_Checkout::options.phtml"/>
+                <block class="Gone\Checkout\Block\ProductStockRenderer"
+                       as="stock"
+                       name="gr_product_cart_stock"
+                       template="Gone_Checkout::stock.phtml"/>
+            </referenceBlock>
+        </referenceBlock>
+    </body>
+</page>

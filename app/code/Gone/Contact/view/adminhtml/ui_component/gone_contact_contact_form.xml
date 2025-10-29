@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+	<argument name="data" xsi:type="array">
+		<item name="js_config" xsi:type="array">
+			<item name="provider" xsi:type="string">gone_contact_contact_form.contact_form_data_source</item>
+		</item>
+		<item name="label" xsi:type="string" translate="true">General Information</item>
+		<item name="template" xsi:type="string">templates/form/collapsible</item>
+	</argument>
+	<settings>
+		<buttons>
+			<button name="back" class="Gone\Contact\Block\Adminhtml\Contact\Edit\BackButton"/>
+			<button name="delete" class="Gone\Contact\Block\Adminhtml\Contact\Edit\DeleteButton"/>
+			<button name="save" class="Gone\Contact\Block\Adminhtml\Contact\Edit\SaveButton"/>
+			<button name="save_and_continue" class="Gone\Contact\Block\Adminhtml\Contact\Edit\SaveAndContinueButton"/>
+		</buttons>
+		<namespace>gone_contact_contact_form</namespace>
+		<dataScope>data</dataScope>
+		<deps>
+			<dep>gone_contact_contact_form.contact_form_data_source</dep>
+		</deps>
+	</settings>
+	<dataSource name="contact_form_data_source">
+		<argument name="data" xsi:type="array">
+			<item name="js_config" xsi:type="array">
+				<item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+			</item>
+		</argument>
+		<settings>
+			<submitUrl path="*/*/save"/>
+		</settings>
+		<dataProvider name="contact_form_data_source" class="Gone\Contact\Model\Contact\DataProvider">
+			<settings>
+				<requestFieldName>contact_id</requestFieldName>
+				<primaryFieldName>contact_id</primaryFieldName>
+			</settings>
+		</dataProvider>
+	</dataSource>
+	<fieldset name="general">
+		<settings>
+			<label>General</label>
+		</settings>
+		<field name="contact_email" formElement="input" sortOrder="20">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">Contact</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">contact_email</label>
+				<dataScope>contact_email</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">false</rule>
+				</validation>
+			</settings>
+		</field>
+	</fieldset>
+</form>

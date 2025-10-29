@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <av_configuration>
+            <system_integration>
+                <enabledwebsite>0</enabledwebsite>
+                <display_mode>production</display_mode>
+            </system_integration>
+            <advanced_configuration>
+                <add_reviews_to_product_page>1</add_reviews_to_product_page>
+                <reduce_product_reviews>0</reduce_product_reviews>
+                <activate_rich_snippets>default</activate_rich_snippets>
+                <offline_store>0</offline_store>
+<!--                <get_id_or_sku>sku</get_id_or_sku>-->
+                <use_parent_sku>1</use_parent_sku>
+            </advanced_configuration>
+        </av_configuration>
+    </default>
+</config>

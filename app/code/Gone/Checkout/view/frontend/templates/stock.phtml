@@ -1,0 +1,18 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/**
+ * @var $block \Gone\Checkout\Block\ProductStockRenderer
+ */
+$_productStockQty = $block->getStockItemQty();
+?>
+<?php if($_productStockQty > 0 && $_productStockQty <= 3): ?>
+<div class="availability only red-text red-icon-before"
+     title="<?= $block->escapeHtmlAttr(__('Only %1 left', $_productStockQty)) ?>">
+    <?= /* @noEscape */
+    __('Only %1 left', "<strong>{$block->escapeHtml($_productStockQty)}</strong>") ?>
+</div>
+<?php endif; ?>

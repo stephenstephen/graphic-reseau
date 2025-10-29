@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+	<router id="admin">
+		<route frontName="gone_subligraphy" id="gone_subligraphy">
+			<module before="Magento_Backend" name="Gone_Subligraphy"/>
+		</route>
+	</router>
+</config>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    
+    <head>
+        <css src="css/custom.css" rel="stylesheet" type="text/css"  />
+    </head>
+    <body>
+        <move element="page.main.title" destination="content" before="-"/>
+        <move element="product.info.sku" destination="page.main.title" after="-"/>
+        <move element="product.info.stock.sku" destination="product.info.main" after="product.info.price"/>
+        <move element="product.info.simple.extra.catalog_inventory_stockqty_default" destination="product.info.simple" after="-"/>
+        <move element="productpdf.link" destination="product.info.social" after="product.info.mailto"/>
+        <referenceBlock name="productpdf.link.bottom" remove="true"/>
+
+        <referenceBlock name="mpattachments.tab">
+            <block class="Magedelight\Productpdf\Block\Catalog\Product\View" name="gr_product_pdf_link" as="product_pdf"
+                   template="Magedelight_Productpdf::md/productpdf/link.phtml" after="-" />
+        </referenceBlock>
+
+        <block class="Magento\Framework\Pricing\Render" name="product.price.render.default">
+            <arguments>
+                <argument name="price_render_handle" xsi:type="string">custom_catalog_product_prices</argument>
+                <argument name="use_link_for_as_low_as" xsi:type="boolean">true</argument>
+                <!-- set "override" configuration settings here -->
+            </arguments>
+        </block>
+    </body>
+</page>

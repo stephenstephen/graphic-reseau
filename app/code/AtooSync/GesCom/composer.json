@@ -1,0 +1,13 @@
+{
+  "name": "atoonext/atoosync-magento",
+  "type": "magento2-module",
+  "description": "Module Atoo-Sync GesCom pour Magento 2",
+  "autoload": {
+    "psr-4": {
+      "AtooSync\\GesCom\\": ""
+    },
+    "files": [
+      "registration.php"
+    ]
+  }
+}

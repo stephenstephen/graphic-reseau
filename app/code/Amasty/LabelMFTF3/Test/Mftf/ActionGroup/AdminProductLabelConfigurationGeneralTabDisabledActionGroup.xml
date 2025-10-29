@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_LabelMFTF3
+ */
+-->
+<actionGroups xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:noNamespaceSchemaLocation="urn:magento:mftf:Test/etc/actionGroupSchema.xsd">
+
+    <actionGroup name="AdminProductLabelConfigurationGeneralTabDisabledActionGroup"
+                 extends="AdminProductLabelConfigurationGeneralTabActionGroup">
+        <conditionalClick selector="{{AdminProductLabelProfileSection.SettingToggle('status')}}"
+                          dependentSelector="{{AdminProductLabelProfileSection.SettingToggleWithValue('status','1')}}"
+                          visible="true"
+                          stepKey="selectLabelStatus"/>
+    </actionGroup>
+
+</actionGroups>

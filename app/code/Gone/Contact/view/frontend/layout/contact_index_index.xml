@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <referenceBlock class="Magento\Contact\Block\ContactForm" name="contactForm" template="Gone_Contact::form.phtml">
+                <block class="Magento\Captcha\Block\Captcha" name="contact_form_captcha" template="Magento_Captcha::default.phtml">
+                    <arguments>
+                        <argument name="formId" xsi:type="string">contact</argument>
+                    </arguments>
+                </block>
+            </referenceBlock>
+        </referenceContainer>
+    </body>
+</page>

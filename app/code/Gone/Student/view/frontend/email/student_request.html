@@ -1,0 +1,29 @@
+<!--
+  ~ Copyright © 410 Gone (contact@410-gone.fr). All rights reserved.
+  ~ See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+  -->
+
+<!--@subject {{trans "Nouvelle demande étudiante"}} @-->
+<!--@vars {
+"var customerName":"customerName",
+"var customerId":"customerId"
+} @-->
+{{template config_path="design/email/header_template"}}
+
+<table>
+    <tr class="email-intro">
+        <td>
+            <p>
+                Bonjour, <br/>
+                Vous avez reçu une nouvelle demande étudiante
+            </p>
+        </td>
+    </tr>
+    <tr class="email-summary">
+        <td>
+            {{var customerName}} (id : {{var customerId}}) a envoyé une demande pour avoir les promotions étudiante. Veuillez trouver le justificatif joint.
+        </td>
+    </tr>
+</table>
+
+{{template config_path="design/email/footer_template"}}

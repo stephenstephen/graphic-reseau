@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <body>
+            <referenceBlock name="product.info.addtocart">
+                <block class="Magedelight\Productpdf\Block\Catalog\Product\View" name="productpdf.link" after="product.info.addtocart"/>
+            </referenceBlock>
+            <referenceBlock name="product.info.addtocart.additional">
+                <block class="Magedelight\Productpdf\Block\Catalog\Product\View" name="productpdf.link.bottom"/>
+            </referenceBlock>
+            <referenceBlock name="product.info.addtocart.bundle">
+                <block class="Magedelight\Productpdf\Block\Catalog\Product\View" name="productpdf.link.bottom.main"/>
+            </referenceBlock>
+    </body>
+</page>

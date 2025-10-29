@@ -1,0 +1,225 @@
+//slider
+.rs-container {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 45px;
+    position: relative;
+    padding: 0 20px;
+
+    * {
+        box-sizing: border-box;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .rs-bg {
+        background-color: #eee;
+        border: 1px solid #ededed;
+        height: 10px;
+        left: 0;
+        position: absolute;
+        top: 5px;
+        width: 100%;
+        border-radius: 3px;
+    }
+
+    .rs-selected {
+        background-color: #eee;
+        border: 1px solid #ededed;
+        height: 10px;
+        left: 0;
+        position: absolute;
+        top: 5px;
+        width: 100%;
+        border-radius: 3px;
+        background-color: @darkBlue;
+        border: 1px solid #00969b;
+        transition: all 0.2s linear;
+        width: 0;
+    }
+
+    .rs-pointer {
+        background-color: @theme__color__secondary;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        height: 30px;
+        left: -10px;
+        position: absolute;
+        top: -5px;
+        transition: all 0.2s linear;
+        width: 30px;
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 1px;
+            height: 9px;
+            background-color: #ddd;
+            left: 12px;
+            top: 10px;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            width: 1px;
+            height: 9px;
+            background-color: #ddd;
+            left: 12px;
+            top: 10px;
+            left: auto;
+            right: 12px;
+        }
+    }
+
+    .rs-scale {
+        left: 0;
+        position: absolute;
+        top: 5px;
+        white-space: nowrap;
+
+        span {
+            float: left;
+            position: relative;
+
+            &::before {
+                background-color: #ededed;
+                content: "";
+                height: 8px;
+                left: 0;
+                position: absolute;
+                top: 10px;
+                width: 1px;
+            }
+
+            &:last-child {
+                margin-left: -1px;
+                width: 0px;
+            }
+
+            ins {
+                color: #333;
+                display: inline-block;
+                font-size: @font-size__l;
+                margin-top: 20px;
+                text-decoration: none;
+            }
+        }
+    }
+
+    .sliding {
+        .rs-selected {
+            transition: none;
+        }
+
+        .rs-pointer {
+            transition: none;
+        }
+    }
+
+    .disabled {
+        .rs-selected {
+            background-color: #ccc;
+            border-color: #bbb;
+        }
+
+        .rs-pointer {
+            border-color: #ccc;
+            cursor: default;
+        }
+
+        .rs-scale {
+            span {
+                ins {
+                    color: #999;
+                }
+            }
+        }
+
+        .rs-tooltip {
+            border-color: #ccc;
+            color: #999;
+        }
+    }
+
+    .rs-noscale {
+        span {
+            &::before {
+                display: none;
+            }
+
+            &:first-child {
+                &::before {
+                    display: block;
+                }
+            }
+
+            &:last-child {
+                &::before {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+.rs-tooltip {
+    color: #333;
+    width: auto;
+    min-width: 60px;
+    height: 30px;
+    background: #fff;
+    border: 1px solid @darkBlue;
+    border-radius: 3px;
+    position: absolute;
+    transform: translate(-50%, -35px);
+    left: 13px;
+    text-align: center;
+    font-size: 13px;
+    padding: 6px 10px 0;
+}
+
+//end slider
+
+#funding-container {
+    color: @darkGray;
+    padding: 10px 0;
+
+    #funding-details {
+        text-align: center;
+        font-weight: @font-weight__bold;
+        padding: 20px;
+
+        span:first-of-type {
+            display: inline-block;
+            padding: 5px;
+            background-color: @theme__color__secondary;
+            color: @white;
+
+            span {
+                font-size: @font-size__s;
+                font-weight: @font-weight__regular;
+            }
+
+            .bold {
+                font-size: @font-size__xl;
+                font-weight: @font-weight__bold;
+            }
+        }
+    }
+
+    #funding-mentions {
+        font-size: @font-size__xs;
+        font-style: italic;
+        margin-top: 10px;
+
+        .quatrecentdix {
+            color: @clearBlue;
+        }
+    }
+}
+

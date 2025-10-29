@@ -1,0 +1,31 @@
+<?php
+/**
+ * @var $block Flash
+ */
+
+use Gone\Catalog\Block\Product\View\Flash;
+
+$dateEnd = $block->getIsFlash();
+
+?>
+<?php  if ($dateEnd): ?>
+<div class="row countdown-container" id="countdown" style="display: none">
+    <span><?= __('End of discount') ?>&nbsp;</span>
+    <div class="countdown-block"><span class="countdown" id="count-days"></span><span class="countdown-label">jours</span></div>
+    <div class="countdown-block"><span class="countdown" id="count-hours"></span><span class="countdown-label">heures</span></div>
+    <div class="countdown-block"><span class="countdown" id="count-minutes"></span><span class="countdown-label">minutes</span></div>
+    <div class="countdown-block"><span class="countdown" id="count-seconds"></span><span class="countdown-label">secondes</span></div>
+</div>
+
+<script>
+    require([
+        'countdown',
+        'domReady!'
+    ], () => {
+
+        let clock = new CountdownClass('<?= $dateEnd ?>')
+        clock.initClock();
+
+    })
+</script>
+<?php endif;?>

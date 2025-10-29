@@ -1,0 +1,63 @@
+<?php
+
+/**
+ * @var $block ListCertificates
+ * @var $escaper Escaper
+ */
+
+use Gone\Subligraphy\Block\ListCertificates;
+use Magento\Framework\Escaper;
+
+$certificates = $block->getCertificatesForLoggedUser();
+?>
+
+<div class="gone-toolbar">
+    <ul>
+        <li>
+            <a class="action primary" href="<?= $block->getFrontendCreateCertificateFormUrl() ?>"><?= __('Add new certificate') ?></a>
+        </li>
+    </ul>
+</div>
+
+<?php if ($block->getPagerHtml()): ?>
+    <div class="toolbar"><?= $block->getPagerHtml() ?></div>
+<?php endif ?>
+
+<?php if ($certificates): ?>
+    <div class="table-wrapper">
+
+        <table>
+            <thead>
+            <th></th>
+            <th><?= $escaper->escapeHtml(__('number')) ?></th>
+            <th><?= $escaper->escapeHtml(__('title')) ?></th>
+            <th><?= $escaper->escapeHtml(__('author')) ?></th>
+            <th><?= $escaper->escapeHtml(__('created_at')) ?></th>
+            <th></th>
+            </thead>
+            <tbody>
+            <?php foreach ($certificates as $certificate): ?>
+
+                <tr>
+                    <td><img src="<?= $block->getImage($certificate->getImage()) ?>"/></td>
+                    <td><?= $escaper->escapeHtml($certificate->getNumber()) ?></td>
+                    <td><?= $escaper->escapeHtml($certificate->getTitle()) ?></td>
+                    <td><?= $escaper->escapeHtml($certificate->getAuthor()) ?></td>
+                    <td><?= $escaper->escapeHtml($certificate->getCreatedAt()) ?></td>
+                    <td>
+                        <a href="<?= $block->getUrl('subligraphie/certificate/download', [
+                            'id'=>$certificate->getCertificateId() ?: ''
+                        ]) ?>">
+                            <?= __('Download') ?>
+                        </a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+
+    </div>
+
+<?php endif ?>
+
+

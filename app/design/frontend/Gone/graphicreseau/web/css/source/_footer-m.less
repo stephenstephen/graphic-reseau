@@ -1,0 +1,102 @@
+.page-footer {
+    color: @white;
+    background-color: @darkBlue;
+
+    .footer.content {
+        padding: 0;
+        width: 100%;
+    }
+
+    .footer-links {
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+
+        ul {
+            margin-right: 15px;
+
+            li {
+                &:first-of-type {
+                    font-weight: bold;
+                    margin: 10px 0;
+                }
+
+                margin-bottom: 10px;
+            }
+        }
+    }
+
+    a {
+        color: @white;
+    }
+
+    .block.newsletter {
+        width: 100%;
+        max-width: 100%;
+        background-color: @clearBlue;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        font-color: @white;
+        padding: 15px;
+        border-bottom: 2px solid @white;
+        margin: 0;
+        box-sizing: border-box;
+
+        .content {
+            width: auto;
+
+            form {
+                text-align: center;
+            }
+        }
+
+        .title {
+            display: block;
+            margin: 0;
+            padding: 15px;
+        }
+
+        .action.primary {
+            &:hover {
+                background-color: lighten(@theme__color__primary, 5%);
+            }
+        }
+    }
+
+    .footer-copyright-wrapper {
+        position: relative;
+        width: 100vw;
+        left: calc(~"-50vw + " 49.3%);
+        background: @darkGray;
+
+        .footer-copyright {
+            margin: auto;
+            display: flex;
+            box-sizing: border-box;
+            flex-direction: column-reverse;
+            justify-content: center;
+            padding: 15px;
+            color: @lightGray;
+            max-width: @site-max-width;
+
+            img {
+                max-width: 320px;
+                margin-bottom: 20px;
+                align-self: center;
+            }
+
+            p,
+            small {
+                color: @white;
+                text-align: center;
+            }
+
+            p {
+                font-size: @font-size__l;
+                font-weight: @font-weight__heavier;
+            }
+        }
+    }
+}

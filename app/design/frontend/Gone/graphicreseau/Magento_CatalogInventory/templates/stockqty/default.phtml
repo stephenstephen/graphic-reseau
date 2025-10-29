@@ -1,0 +1,16 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/**
+ * @var $block \Magento\CatalogInventory\Block\Stockqty\DefaultStockqty
+ */
+$textClass = $block->getStockQtyLeft() < 3 ? 'red-text red-icon-before' : 'green-text';
+ ?>
+<?php if ($block->isMsgVisible()) : ?>
+    <div class="availability only <?= $textClass ?>" title="<?= $block->escapeHtmlAttr(__('Only %1 left', ($block->getStockQtyLeft()))) ?>">
+        <?= /* @noEscape */ __('Only %1 left', "<strong>{$block->escapeHtml($block->getStockQtyLeft())}</strong>") ?>
+    </div>
+<?php endif ?>

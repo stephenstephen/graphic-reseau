@@ -1,0 +1,52 @@
+<!--
+/**
+ * CedCommerce
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the End User License Agreement (EULA)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://cedcommerce.com/license-agreement.txt
+ *
+ * @category    Ced
+ * @package     Ced_MauticIntegration
+ * @author 		CedCommerce Core Team <connect@cedcommerce.com>
+ * @copyright   Copyright CedCommerce (http://cedcommerce.com/)
+ * @license     http://cedcommerce.com/license-agreement.txt
+ */
+-->
+<?php /* @var $block \Ced\MauticIntegration\Block\Authorize\Config */
+$status = $block->getConnectionStatus();
+$oauthType = $block->getOauthType();
+?>
+<?php if ($status || $oauthType == 'Basic') { ?>
+    <h1 id="response-heading"></h1>
+    <ul style="list-style: none" id="mautic-responses">
+        <li class="success">
+            <span><?php echo __('Token Generated Successfully'); ?></span>
+        </li>
+        <li id="mautic-properties" class="warning">
+            <span><?php echo __('Properties Creation is in process, Please do not close the window.'); ?></span>
+            <i class="fa fa-spinner fa-spin" style="font-size:25px"></i>
+        </li>
+    </ul>
+
+
+    <script type="text/x-magento-init">
+        {
+        "*" :{
+        "Ced_MauticIntegration/js/config_create_properties_segments":{
+           "PropertiesAjaxUrl" : "<?php echo $block->baseUrl(); ?>mauticintegration/config/exportproperties/field/properties",
+           "SegmentsAjaxUrl" : "<?php echo $block->baseUrl(); ?>mauticintegration/config/exportproperties/field/segments"
+                 }
+             }
+        }
+
+    </script>
+
+<?php } else { ?>
+    <ul style="list-style: none" id="mautic-responses">
+        <li class="error">Authorization denied, invalid credentials.</li>
+    </ul>
+<?php } ?>

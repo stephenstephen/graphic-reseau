@@ -1,0 +1,83 @@
+<?php
+
+/** @var \PHPCuong\BannerSlider\Block\Widget\BannerSlider $block */
+$banners = $block->getBanners();
+$uniqueId = uniqid();
+$countItem = 0;
+?>
+
+<div class="home-slide full-width">
+
+    <?php if ($banners->getSize()): ?>
+
+    <div class="glider-contain">
+        <div class="glider-brands" id="<?= $uniqueId ?>">
+
+            <?php foreach ($banners as $banner): ?>
+
+                <?php if ($countItem === 0): ?>
+                    <div class="glider-item">  <?php /*open glider-item*/?>
+                        <div class="row">   <?php /*open row*/?>
+                <?php endif; ?>
+
+                <?php if ($countItem === 3): ?>
+                        <div class="row">  <?php /*open row*/?>
+                <?php endif; ?>
+
+                <?php if ($banner->getUrl()): ?>
+                            <a href="<?= $banner->getUrl(); ?>" title="<?= $banner->getName(); ?>" target="_blank">
+                <?php endif; ?>
+                                <img src="<?= $banner->getImageUrl(); ?>" alt="<?= $banner->getName(); ?>"/>
+                <?php if ($banner->getUrl()): ?>
+                            </a>
+                <?php endif; ?>
+
+                <?php if ($countItem === 2): ?>
+                        </div>  <?php /*close row*/?>
+                <?php endif; ?>
+
+                <?php if ($countItem === 5): ?>
+                        </div>  <?php /*close row*/?>
+                    </div>  <?php /*open glider-item*/?>
+                    <?php $countItem=0 ?>
+                <?php else: $countItem ++?>
+                <?php endif; ?>
+
+            <?php endforeach; ?>
+
+            <?php if ($countItem !== 0): ?>
+                        </div>  <?php /*close row*/?>
+                    </div>  <?php /*open glider-item*/?>
+            <?php endif; ?>
+
+            </div>
+
+
+            <button aria-label="Previous" class="glider-prev glider-brands-prev<?= $uniqueId ?>"></button>
+            <button aria-label="Next" class="glider-next glider-brands-next<?= $uniqueId ?>"></button>
+
+        <?php endif; ?>
+        </div>
+    </div>
+
+
+    <script>
+        require(['domReady!'],
+            function () {
+                'use strict';
+
+                new Glider(document.getElementById('<?= $uniqueId ?>'), {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    draggable: true,
+                    arrows: {
+                        prev: '.glider-brands-prev<?= $uniqueId ?>',
+                        next: '.glider-brands-next<?= $uniqueId ?>'
+                    },
+                    scrollLock: true,
+
+                });
+            });
+    </script>
+
+

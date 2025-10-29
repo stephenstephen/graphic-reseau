@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="product.info.main">
+            <block class="Gone\Catalog\Block\Product\View\Flash" name="flash_sale"
+                   template="Gone_Catalog::product/view/flash.phtml" before="product.info"/>
+
+            <block class="Gone\Catalog\Block\Product\View\Showroom" name="in_showroom_product"
+                   template="Gone_Catalog::product/view/showroom.phtml" before="used_product"/>
+            <block class="Gone\Catalog\Block\Product\View\Occasion" name="used_product"
+                   template="Gone_Catalog::product/view/occasion.phtml" after="product.info.addtocart"/>
+        </referenceContainer>
+        <referenceContainer name="alert.urls">
+            <block class="Gone\Catalog\Block\Product\View\SubstituteProduct" name="substitute_product"
+                   template="Gone_Catalog::product/view/substitute-products.phtml" before="productalert.price"/>
+        </referenceContainer>
+        <referenceContainer name="product.info.price">
+            <block class="Gone\Catalog\Block\Product\View\SquareMeterPrice" name="sqmeterprice_product_main"
+                   template="Gone_Catalog::product/view/sq-meter-price.phtml" after="-">
+            </block>
+        </referenceContainer>
+        <referenceContainer name="product.info.addtocart">
+            <block class="Gone\Catalog\Block\Product\View\PaypalAdv" name="paypal_adv"
+                   template="Gone_Catalog::product/view/paypaladv.phtml" before="-">
+            </block>
+        </referenceContainer>
+        <referenceBlock name="product.info.details">
+            <referenceBlock name="related.brand.product.tab.detail">
+                <block class="Gone\Catalog\Block\Product\View\SquareMeterPrice" name="sqmeterprice_product"
+                       template="Gone_Catalog::product/view/sq-meter-price.phtml" after="-">
+                </block>
+            </referenceBlock>
+        </referenceBlock>
+    </body>
+</page>

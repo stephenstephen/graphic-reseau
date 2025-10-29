@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<products>
+  <productprice>
+    <tax_key>1</tax_key>
+    <id_tax_rules_group>1</id_tax_rules_group>
+    <reference>testTOTO</reference>
+    <ecotax>0.00000</ecotax>
+    <price>670.00000</price>
+    <regular_price_tax_exclude>8028.00000</regular_price_tax_exclude>
+    <regular_price_tax_include>8028.00000</regular_price_tax_include>
+    <price_tax_exclude>6690.00000</price_tax_exclude>
+    <price_tax_include>8028.00000</price_tax_include>
+    <price_tax>1338.00000</price_tax>
+    <tax_rate>20.00000</tax_rate>
+    <wholesale_price>4816.80000</wholesale_price>
+    <variations></variations>
+    <packagings></packagings>
+    <specific_prices></specific_prices>
+    <features></features>
+    <custom_fields>
+      <custom_field>
+        <name>ar_stat01</name>
+        <value></value>
+      </custom_field>
+      <custom_field>
+        <name>ar_stat02</name>
+        <value></value>
+      </custom_field>
+      <custom_field>
+        <name>ar_stat03</name>
+        <value></value>
+      </custom_field>
+      <custom_field>
+        <name>ar_stat04</name>
+        <value></value>
+      </custom_field>
+      <custom_field>
+        <name>ar_stat05</name>
+        <value></value>
+      </custom_field>
+      <custom_field>
+        <name>Classe</name>
+        <value></value>
+      </custom_field>
+      <custom_field>
+        <name>Compatibilité :</name>
+        <value></value>
+      </custom_field>
+    </custom_fields>
+  </productprice>
+</products>

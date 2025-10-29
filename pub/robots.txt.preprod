@@ -1,0 +1,53 @@
+# Default robots.txt for graphic-reseau.com
+
+    # Website Sitemap
+    Sitemap: https://preprod.graphic-reseau.com/sitemap/sitemap.xml
+
+    User-agent: *
+    Disallow: /cache/
+    Disallow: /catalogsearch/
+    Disallow: /checkout/
+    Disallow: /customer/
+    #Disallow: /*?order=
+    #Disallow: /*&order=
+    #Disallow: /*?dir=
+    #Disallow: /*&dir=
+    #Disallow: /*?limit=
+    #Disallow: /*&limit=
+    #Disallow: /*?mode=
+    #Disallow: /*&mode=
+    #Disallow: /*?price=
+    #Disallow: /*&price=
+    #Disallow: /*product_compare/
+    #Disallow: /*media/captcha/
+    Disallow: /*media/pixel/
+    #Disallow: /*?SID=
+    Disallow: /contact/index/index/source_id/
+    #Disallow: /sendfriend/
+
+    User-Agent: AhrefsBot
+    Crawl-Delay: 60
+
+    User-agent: MJ12bot
+    Disallow: /
+
+    User-agent: Baiduspider
+    Disallow: /
+
+    User-agent: ShopWiki
+    Disallow: /
+
+    User-agent: msnbot
+    Disallow: /
+
+    User-Agent: bingbot
+    Crawl-delay: 5
+
+    User-agent: Slurp
+    Crawl-delay: 5
+
+    User-agent: Exabot
+    Disallow: /
+
+    User-agent: Nutch
+    Disallow: /

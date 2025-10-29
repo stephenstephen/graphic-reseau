@@ -1,0 +1,21 @@
+<?php
+
+use Gone\Glossary\Block\Definition;
+
+/** @var Definition $block */
+
+?>
+
+<div class="glossary-content">
+    <div class="definition-content"><?= nl2br($block['definition']) ?></div>
+    <span class="quatrecentdix"
+          data-atc="<?= base64_encode($block->getUrl('catalogsearch/result', ['q' => $block['expression']])) ?>">
+        <?= __('Search all product pages containing this expression') ?>
+    </span>
+    <span data-atc="<?= base64_encode($block->getBaseUrl() . 'glossaire') ?>" class="quatrecentdix">
+        <?= __('Back to glossary index') ?>
+    </span>
+</div>
+
+<div class="glossary-links">
+</div>

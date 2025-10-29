@@ -1,0 +1,26 @@
+[
+  {
+    "question":"Quelles sont les différences entre les moniteurs Eizo CG et les CS ?",
+    "answer":"La gamme d’écrans EIZO ColorEdge CS est destinée aux amateurs d'arts graphiques ou de photographie. Elle comprend des moniteurs à des prix accessibles, mais de qualité professionnelle.<br/>\n<br/>\nIl y a 2 différences majeures entre les gammes CS et CG.<br/>\n<ul class=\"disc\"><li>La première, c’est que les CG sont équipés d’une sonde de calibration intégrée. Cela leur permet d’automatiser à 100% le processus de calibration. De plus ils sont également livrés avec une visière antireflet.</li><br/>\n<li>La deuxième, se situe dans l’électronique de l’écran. En effet, bien que les écrans EIZO CG et les CS soient tous équipés de la technologie DUE qui permet d’obtenir un rétroéclairage homogène, il y a une différence de tolérances entre les CS et les CG : les CG sont beaucoup moins tolérants sur le DeltaE de luminosité et de couleur que les CS car ils embarquent davantage de capteurs pour les mesures. Ainsi on obtient avec les CG une meilleure précision des couleurs.</li></ul>\n</p><br/>"
+  },
+  {
+    "question":"A quelle fréquence doit-on calibrer son écran ?",
+    "answer":"<p>Un bon écran neuf, un Eizo ColorEdge par exemple, n’a pas besoin d’être calibré fréquemment. Mais au fur et à mesure du vieillissement de l’écran les performances de l’écran diminuent, et il faudra alors le calibrer de plus en plus souvent.<br/>\n<br/>\nLes ColorEdge sont calibrés en usine suivant un protocole strict. Si votre environnement de travail est un peu exotique (fenêtre sur le côté ou autre), il convient alors de faire une calibration personnalisée.<br/>\n<br/>\nL’avantage indéniable des CG c’est que la sonde est intégrée dans l’écran ; par conséquent vous pouvez automatiser le processus et lancer le calibrage aussi souvent que vous le souhaitez ! Ainsi vous êtes sûr d’avoir pendant des années un écran qui affiche exactement le même rendu colorimétrique.\n</p><br/>"
+  },
+  {
+    "question":"Quelle carte graphique prévoir sur un écran EIZO ?",
+    "answer":"<p>Pas obligatoirement la plus performante mais idéalement une carte en 10-bits récente. Attention également à la connectique disponible.</p>"
+  },
+  {
+    "question":"Quel port vidéo est le mieux ? DVI – Display Port – HDMI ou USB-C ?",
+    "answer":"<p>Le <b>DVI</b> est un port vidéo d' « ancienne » génération ; sa version améliorée dite « dual-links » offre une résolution maximale de 2560x1600 pixels à 60 Hz.<br/>\n<br/>\nIl est désormais remplacé par le <b>Display Port</b>. Ce dernier existe en Display Port dit « standard » et en mini Display Port. Les cartes vidéo récentes embarquent souvent des mini Display Port. A savoir que le Thunderbolt (Mac) est totalement compatible avec le Mini Display Port.<br/>\nLe DisplayPort : dans sa version 1.2 a une bande passante très élevée de l’ordre de 18Gbits/s ; il supporte des affichages 4K à 60Hz.<br/>\nLes nouveaux standards DisplayPort en 2020 sont les versions 1.4, avec des sorties à 26Gbits/s ; ils affichent ainsi du 8K ou de la 4K à 120Hz. Le Display Port achemine un signal constitué de 16 bits par couleur (soit 48).<br/>\n<br/>\nLe <b>HDMI</b> à la capacité de transférer l’image et le son. Dans sa version 1.4 il est limité à 8-bits par couleur. Par conséquent pour un écran pro il est conseillé d’être au minimum en HDMI 2.0 qui offre des sorties 10-bits et 12-bits. La version HDMI 2.1 (en 2020) offre une bande passante de 48Gbits/s et affiche la 4K à 120Hz et la 8K à 60 Hz. Malgré sa rapidité il est davantage orienté pour les moniteurs multimédias et les écrans de salons.<br/><br/>\nEnfin, l'<b>USB-C</b> permet de se passer de tous les câbles : secteur, vidéo et son. Ces informations sont transmises à très grande vitesse via un seul câble. La partie vidéo d’un câble USB-C est équivalente aux performances d’un câble DisplayPort.\n</p><br/>"
+  },
+  {
+    "question":"Quel est l’intérêt de la 4K pour la photo ?",
+    "answer":"<p>Avec l’agrandissement des capteurs photo il est désormais impossible d’afficher une photo en 1 :1 sur un écran. Cependant avec un écran 4K on affiche une plus grande portion de l’image sans avoir à dé-zoomer, c’est donc un meilleur confort de travail.</p><br/>\n"
+  },
+  {
+    "question":"J’ai déjà une sonde de calibration, ai-je besoin de ColorNavigator ?",
+    "answer":"ColorNavigator c’est une solution logicielle pour votre écran EIZO. Si vous avez déjà une sonde de calibration de bonne facture (nous vous recommandons une X-Rite i1 Display Pro), utilisez le logiciel ColorNavigator plutôt que celui de la sonde (i1 Profiler). <br/>\n<br/>\nC’est le logiciel ColorNavigator qui va effectuer la calibration hardware (calibration matérielle en français). Cela consiste à contrôler l’ensemble des paramètres de l’écran lors de la calibration : qu’il s’agisse de la luminosité, du contraste, du gamma ou des canaux RVB, ColorNavigator gère tous les paramètres. Le profil de calibration (profil ICC) sera alors enregistré dans la table LUT de l’écran."
+  }
+]

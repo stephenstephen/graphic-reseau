@@ -1,0 +1,21 @@
+<?php
+$id = $block->getRequest()->getParam('id');
+?>
+<div class="meter animate">
+    <span id="progress" style="width: 1%"><span></span></span>
+    <div id="link" style="margin-top: 20px;text-align:center;"><?= /* @noEscape */ __('Wait product booklet is preparing.'); ?></div>
+</div>
+<script>
+    require(['jquery','productPrintProgress'], function($){
+        $(document).ready(function(){
+           $('#progress').progressBar({'url':'<?= /* @noEscape */ $block->getUrl('md_productpdf/index/progress').'?id='.$id.'&category=categories' ?>','waitLabel':'<?= /* @noEscape */ __('Click Here To Download Catalog') ?>','pdf_generate_url':'<?= /* @noEscape */ ($block->getRegistryUrl()) ? $block->getRegistryUrl() : 'no-url' ?>'}); 
+        });
+    });
+</script>
+<script type="text/javascript">
+    function clickAndDisable(link) {
+     link.onclick = function(event) {
+        event.preventDefault();
+     }
+   }
+</script>

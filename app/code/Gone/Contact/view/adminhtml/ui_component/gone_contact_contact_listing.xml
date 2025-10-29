@@ -1,0 +1,136 @@
+<?xml version="1.0" ?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+	<argument name="data" xsi:type="array">
+		<item name="js_config" xsi:type="array">
+			<item name="provider" xsi:type="string">gone_contact_contact_listing.gone_contact_contact_listing_data_source</item>
+		</item>
+	</argument>
+	<settings>
+		<spinner>gone_contact_contact_columns</spinner>
+		<deps>
+			<dep>gone_contact_contact_listing.gone_contact_contact_listing_data_source</dep>
+		</deps>
+	</settings>
+	<dataSource name="gone_contact_contact_listing_data_source" component="Magento_Ui/js/grid/provider">
+		<settings>
+			<storageConfig>
+				<param name="indexField" xsi:type="string">contact_id</param>
+			</storageConfig>
+			<updateUrl path="mui/index/render"/>
+		</settings>
+		<aclResource>Gone_Contact::Contact</aclResource>
+		<dataProvider name="gone_contact_contact_listing_data_source" class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+			<settings>
+				<requestFieldName>id</requestFieldName>
+				<primaryFieldName>contact_id</primaryFieldName>
+			</settings>
+		</dataProvider>
+	</dataSource>
+	<listingToolbar name="listing_top">
+		<settings>
+			<sticky>true</sticky>
+		</settings>
+		<bookmark name="bookmarks"/>
+		<columnsControls name="columns_controls"/>
+		<filters name="listing_filters"/>
+		<paging name="listing_paging"/>
+        <exportButton name="export_button">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="selectProvider" xsi:type="string">gone_logger_connections_listing.gone_logger_connections_listing.gone_logger_connections_columns.ids</item>
+                </item>
+            </argument>
+        </exportButton>
+	</listingToolbar>
+	<columns name="gone_contact_contact_columns">
+        <settings>
+            <editorConfig>
+                <param name="selectProvider" xsi:type="string">gone_contact_contact_listing.gone_contact_contact_listing.gone_contact_contact_columns.ids</param>
+                <param name="enabled" xsi:type="boolean">true</param>
+                <param name="indexField" xsi:type="string">contact_id</param>
+                <param name="clientConfig" xsi:type="array">
+                    <item name="saveUrl" xsi:type="url" path="gone_contact/Contact/inlineEdit"/>
+                    <item name="validateBeforeSave" xsi:type="boolean">false</item>
+                </param>
+            </editorConfig>
+            <childDefaults>
+                <param name="fieldAction" xsi:type="array">
+                    <item name="provider" xsi:type="string">gone_contact_contact_listing.gone_contact_contact_listing.gone_contact_contact_columns_editor</item>
+                    <item name="target" xsi:type="string">startEdit</item>
+                    <item name="params" xsi:type="array">
+                        <item name="0" xsi:type="string">${ $.$data.rowIndex }</item>
+                        <item name="1" xsi:type="boolean">true</item>
+                    </item>
+                </param>
+            </childDefaults>
+        </settings>
+		<selectionsColumn name="ids">
+			<settings>
+				<indexField>contact_id</indexField>
+			</settings>
+		</selectionsColumn>
+		<column name="contact_id">
+			<settings>
+				<filter>text</filter>
+				<sorting>asc</sorting>
+				<label translate="true">ID</label>
+			</settings>
+		</column>
+        <column name="store_id">
+			<settings>
+				<filter>text</filter>
+				<sorting>asc</sorting>
+				<label translate="true">Store</label>
+			</settings>
+		</column>
+		<column name="contact_name">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">Contact name</label>
+			</settings>
+		</column>
+        <column name="contact_company">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">Company</label>
+			</settings>
+		</column>
+		<column name="contact_email">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">Contact email</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">false</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+		<actionsColumn name="actions" class="Gone\Contact\Ui\Component\Listing\Column\ContactActions">
+			<settings>
+				<indexField>contact_id</indexField>
+				<resizeEnabled>false</resizeEnabled>
+				<resizeDefaultWidth>107</resizeDefaultWidth>
+			</settings>
+		</actionsColumn>
+		<column name="contact_phone">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">Contact phone</label>
+			</settings>
+		</column>
+		<column name="contact_request">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">Contact request</label>
+			</settings>
+		</column>
+		<column name="created_at">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">Created on</label>
+			</settings>
+		</column>
+	</columns>
+</listing>

@@ -1,0 +1,67 @@
+<?php
+/**
+ * Copyright © Lyra Network.
+ * This file is part of Sogecommerce plugin for Magento 2. See COPYING.md for license details.
+ *
+ * @author    Lyra Network (https://www.lyra.com/)
+ * @copyright Lyra Network
+ * @license   https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ */
+$oneClickActive = $block->isOneClickActive(); // 1-Click enabled?
+$customer = $block->getCurrentCustomer(); // Logged in customer.
+?>
+
+<ul class="form-list"
+    id="payment_form_<?php echo $block->escapeHtml($block->getMethodCode()); ?>"
+    style="display: none;">
+
+<?php
+if ($oneClickActive && $customer && $customer->getCustomAttribute('sogecommerce_sepa_identifier')) : ?>
+        <li class="sogecommerce-sepa-cc-block">
+            <?php echo $block->escapeHtml(__('You will enter payment data after order confirmation.')); ?>
+        </li>
+        <li class="sogecommerce-sepa-cc-block">
+            <span class="or"><?php echo $block->escapeHtml(__('OR')); ?></span>
+        </li>
+
+        <li class="sogecommerce-sepa-cc-block">
+            <a class="sogecommerce-payment-link" href="javascript: void(0);"
+                onclick="javascript: sogecommerceUpdatePaymentBlock('id');">
+                <?php echo $block->escapeHtml(__('Click here to pay with your stored means of payment.')); ?>
+            </a>
+        </li>
+
+        <!-- Payment with registered card block. -->
+        <li class="sogecommerce-sepa-id-block">
+            <input type="hidden" value="1" name="payment[sogecommerce_sepa_use_identifier]" />
+            <span>
+                <?php echo $block->escapeHtml(__('You will pay with your stored means of payment %s.')); ?>
+            </span>
+        </li>
+
+        <li class="sogecommerce-sepa-id-block">
+            <span class="or"><?php echo $block->escapeHtml(__('OR')); ?></span>
+        </li>
+
+        <li class="sogecommerce-sepa-id-block">
+            <a class="sogecommerce-payment-link" href="javascript: void(0);"
+                onclick="javascript: sogecommerceUpdatePaymentBlock('cc');">
+                <?php echo $block->escapeHtml(__('Click here to pay with another means of payment.')); ?>
+            </a>
+        </li>
+<?php endif; ?>
+</ul>
+
+<?php if ($oneClickActive && $customer && $customer->getCustomAttribute('sogecommerce_sepa_identifier')) : ?>
+<script>
+    require([
+        'prototype'
+    ], function() {
+        // Display payment by identifier block when sepa payment is selected.
+        Event.stopObserving('p_method_sogecommerce_sepa', 'click', onMethodSogecommerceSepaClick);
+        Event.observe('p_method_sogecommerce_sepa', 'click', onMethodSogecommerceSepaClick);
+
+        sogecommerceUpdatePaymentBlock.delay(0.2, 'id');
+    });
+</script>
+<?php endif;?>

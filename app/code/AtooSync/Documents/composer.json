@@ -1,0 +1,13 @@
+{
+  "name": "atoonext/atoosync-magento-documents",
+  "type": "magento2-module",
+  "description": "Module Atoo-Sync GesCom Documents pour Magento 2",
+  "autoload": {
+    "psr-4": {
+      "AtooSync\\Documents\\": ""
+    },
+    "files": [
+      "registration.php"
+    ]
+  }
+}

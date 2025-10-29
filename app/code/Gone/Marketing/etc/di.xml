@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+  ~   Copyright © 410 Gone (contact@410-gone.fr). All rights reserved.
+  ~   See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+  ~
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="auto_fill_categories" xsi:type="object">Gone\Marketing\Console\Command\AutoFillCategories</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

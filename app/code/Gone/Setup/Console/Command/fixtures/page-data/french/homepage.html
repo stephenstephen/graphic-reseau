@@ -1,0 +1,16 @@
+<!--@title Homepage@-->
+<!--@identifier homepage@-->
+<!--@is_active 1@-->
+<div class="row">
+    {{widget type="PHPCuong\BannerSlider\Block\Widget\BannerSlider" group_id="1" template="PHPCuong_BannerSlider::banner/list.phtml"}}
+</div>
+<div class="row">
+    <aside>
+        {{widget type="PHPCuong\BannerSlider\Block\Widget\BannerSlider" group_id="2" template="PHPCuong_BannerSlider::banner/brand-list.phtml"}}
+        {{widget type="Magento\Cms\Block\Widget\Block" template="widget/static_block/default.phtml" block_id="369"}}
+    </aside>
+    <div class="content">
+        {{widget type="Magento\CatalogWidget\Block\Product\ProductsList" title="Imprimantes" show_pager="0" products_count="4" template="Magento_CatalogWidget::product/widget/content/grid.phtml" conditions_encoded="^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`47`^]^]"}}
+        {{widget type="Magento\CatalogWidget\Block\Product\ProductsList" title="Ecrans" show_pager="0" products_count="4" template="Magento_CatalogWidget::product/widget/content/grid.phtml" conditions_encoded="^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`337`^]^]"}}
+    </div>
+</div>

@@ -1,0 +1,4 @@
+<?php /** @var $block Colissimo\Shipping\Block\Frontend\Pickup\Load\Maps */ ?>
+<?php if ($block->canShow()): ?>
+<script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $block->getApiKey() ?>" async defer></script>
+<?php endif; ?>

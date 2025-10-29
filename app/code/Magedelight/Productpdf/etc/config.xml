@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <md_productpdf>
+            <general>
+                <additional_images>1</additional_images>
+                <count_additional_images>3</count_additional_images>
+                <enable_upsell>1</enable_upsell>
+                <enable_related>1</enable_related>
+                <enable_qrcodes>1</enable_qrcodes>
+                <enable_wishlist>1</enable_wishlist>
+                <enable_compare>1</enable_compare>
+                <enable_reviewes>1</enable_reviewes>
+                <exclude_tag_des><![CDATA[<p><br>]]></exclude_tag_des>
+            </general>
+            <formating_options>
+                <product_title>#0A263C</product_title>
+                <link_color>#3399CC</link_color>
+                <heading_color>#E26703</heading_color>
+            </formating_options>
+        </md_productpdf>
+    </default>
+</config>

@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="gr_subligraphy_certificate" resource="default" engine="innodb" comment="gr_subligraphy_certificate Table">
+        <column xsi:type="smallint" name="certificate_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity Id"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="certificate_id"/>
+        </constraint>
+        <column name="customer_id" nullable="false" xsi:type="int" comment="customer_id" unsigned="true" identity="false"/>
+        <column name="image" nullable="false" xsi:type="varchar" comment="image" length="255"/>
+        <column name="title" nullable="false" xsi:type="varchar" comment="title" length="255"/>
+        <column name="year" nullable="true" xsi:type="varchar" comment="year" length="4"/>
+        <column name="width" nullable="false" xsi:type="int" comment="width" identity="false"/>
+        <column name="height" nullable="false" xsi:type="int" comment="height" identity="false"/>
+        <column name="author" nullable="false" xsi:type="varchar" comment="author" length="255"/>
+        <column name="manufacturer" nullable="false" xsi:type="varchar" comment="manufacturer" length="255"/>
+        <column name="publisher" nullable="false" xsi:type="varchar" comment="publisher" length="255"/>
+        <column name="number" nullable="false" xsi:type="varchar" comment="number" length="32"/>
+        <column name="count" nullable="false" xsi:type="int" comment="count" identity="false"/>
+        <column name="filename" nullable="false" xsi:type="varchar" comment="filename" length="255"/>
+        <column name="created_at" nullable="false" xsi:type="timestamp" comment="created_at" default="CURRENT_TIMESTAMP" on_update="false"/>
+        <constraint xsi:type="foreign" referenceId="GR_SUBLIGRAPHY_CERTIFICATE_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID"
+                    table="gr_subligraphy_certificate" column="customer_id"
+                    referenceTable="customer_entity" referenceColumn="entity_id" onDelete="CASCADE"/>
+    </table>
+</schema>

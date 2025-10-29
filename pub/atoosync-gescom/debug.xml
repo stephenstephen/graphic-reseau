@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<saledeliveries>
+    <order_key>
+        <![CDATA[3000125486]]>
+    </order_key>
+    <deliveries>
+        <delivery>
+            <delivery_number>
+                <![CDATA[BL00070]]>
+            </delivery_number>
+            <delivery_date>
+                <![CDATA[2021-10-27 00:00:00]]>
+            </delivery_date>
+            <delivery_method>
+                <![CDATA[TAT]]>
+            </delivery_method>
+            <tracking_number>
+                <![CDATA[]]>
+            </tracking_number>
+            <carrier_key>
+                <![CDATA[[colissimo] Colissimo avec signature]]>
+            </carrier_key>
+            <products>
+                <product>
+                    <reference>
+                        <![CDATA[ECR/EIZ/343004]]>
+                    </reference>
+                    <quantity>
+                        <![CDATA[1.00000]]>
+                    </quantity>
+                    <delivery_date>
+                        <![CDATA[2021-10-27 00:00:00]]>
+                    </delivery_date>
+                    <tracking_number>
+                        <![CDATA[]]>
+                    </tracking_number>
+                    <variation_key></variation_key>
+                </product>
+                <product>
+                    <reference>
+                        <![CDATA[ZPORT]]>
+                    </reference>
+                    <quantity>
+                        <![CDATA[1.00000]]>
+                    </quantity>
+                    <delivery_date>
+                        <![CDATA[2021-10-27 00:00:00]]>
+                    </delivery_date>
+                    <tracking_number>
+                        <![CDATA[]]>
+                    </tracking_number>
+                    <variation_key></variation_key>
+                </product>
+            </products>
+        </delivery>
+    </deliveries>
+</saledeliveries>

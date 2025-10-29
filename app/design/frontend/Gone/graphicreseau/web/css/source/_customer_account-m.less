@@ -1,0 +1,191 @@
+.account {
+
+    .page-title {
+        background-color: @darkBlue;
+        color: @white;
+        font-weight: bold;
+        padding: 10px;
+        width: 98%;
+    }
+
+    .order-status {
+        margin-bottom: 20px !important;
+        color: @darkBlue;
+        font-weight: @font-weight__heavy;
+        border-color: @darkBlue;
+    }
+
+    .column.main {
+
+        .block-title {
+            strong {
+                font-size: @font-size__xl;
+                font-weight: @font-weight__light;
+            }
+
+            border-bottom: 1px solid @lightGray;
+            margin-bottom: 20px;
+        }
+
+        table {
+            thead {
+                background-color: @lightGray;
+            }
+
+            tr:not(:last-of-type) {
+                border-bottom: 2px solid @lightGray;
+            }
+
+            &.table-order-items {
+                .am-quotes-head {
+                    th {
+                        text-align: left;
+                        word-wrap: break-word;
+                        white-space: normal !important;
+                    }
+                }
+
+                td,
+                tfoot th {
+                    padding: 5px;
+                    font-weight: normal !important;
+                    font-size: 1.4rem !important;
+
+                    span {
+                        font-weight: normal !important;
+                        font-size: 1.4rem !important;
+                        color: @darkGray;
+                    }
+
+                    .price-excluding-tax {
+                        line-height: unset;
+                    }
+
+                    strong {
+                        font-weight: normal !important;
+                        font-size: 1.4rem !important;
+                    }
+                }
+
+            }
+        }
+
+        .block-dashboard-student {
+            .block-content {
+                p,
+                label,
+                input {
+                    margin-bottom: 15px;
+                    display: block;
+                }
+            }
+        }
+
+    }
+
+    .sidebar-main {
+        .block-collapsible-nav-content {
+            background-color: @lightGray;
+
+            ul {
+                list-style: none;
+                padding: 0;
+
+                li {
+                    strong {
+                        border-color: @clearBlue !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//SUBLIGRAPPY
+.subligraphie-certificate-create {
+    form {
+        .fieldset {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .fields-col {
+                width: 100%;
+
+                .field {
+                    width: 100%;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+}
+
+//index table
+.subligraphie-certificate-index {
+    table {
+        td {
+            vertical-align: middle;
+        }
+
+        img {
+            width: 100px;
+        }
+    }
+}
+
+//subligraphy-check
+.subligraphie-certificate-check {
+
+    .form-wrapper {
+        width: 100%;
+        padding: 20px;
+        border-top: 1px solid @white;
+
+        .field-recaptcha {
+            margin-top: 20px;
+        }
+    }
+
+    .result-wrapper {
+        text-align: center;
+        width: 100%;
+        padding: 20px;
+
+        p {
+            font-size: 1.6rem;
+            width: 100%;
+            text-align: left;
+
+            span {
+                font-weight: bold;
+            }
+        ;
+        }
+
+        img {
+            width: 250px;
+            margin-bottom: 20px;
+        }
+    }
+}
+
+//format logo print
+.sales-order-print,
+.sales-invoice-print {
+    .logo {
+        img {
+            display: none;
+        }
+        -webkit-print-color-adjust: exact !important;   /* Chrome, Safari, Edge */
+        color-adjust: exact !important;                 /*Firefox*/
+        display: block;
+        height: 150px;
+        width: 150px;
+        background-size: cover;
+        background-image: url('../images/logo_pdf.png');
+        @media print {
+            content : url('../images/logo_pdf.png');
+        }
+    }
+}

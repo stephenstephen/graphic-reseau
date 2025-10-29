@@ -1,0 +1,89 @@
+.cms-index-index {
+    .home-slider {
+        margin-bottom: 20px;
+    }
+
+    aside {
+
+        ol {
+            list-style: none;
+            padding: 0;
+            li {
+                counter-increment: myCounter;
+                &:first-of-type {
+                    color: @white;
+                    text-transform: uppercase;
+                    font-size: 2rem;
+                    font-weight: @font-weight__bold;
+                    background: @darkBlue;
+                    counter-reset: myCounter -1;
+
+                    &::before {
+                        display: none;
+                    }
+                }
+
+                &.brand-slider.owl-carousel {
+                    width: 92%;
+                    &::before {
+                        display: none;
+                    }
+                    .owl-stage-outer {
+                        padding: 0;
+                        border: 0;
+                        border-radius: 0;
+                    }
+
+                }
+
+                padding: 10px;
+                background: @lightGray;
+                margin: 0;
+                font-size: 1.2rem;
+                border-bottom: 2px solid darken(@lightGray, 15%);
+
+                &::before {
+                    margin-right: 10px;
+                    content: counter(myCounter);
+                    color: @white;
+                    padding: 2px 5px;
+                    background: @theme__color__secondary;
+                }
+            }
+        }
+    }
+
+    .content {
+        .block-products-list {
+            .block-title {
+                background: @gray;
+                color: @white;
+
+                strong {
+                    font-weight: @font-weight__bold;
+                }
+
+                text-transform: uppercase;
+                padding: 5px 10px;
+            }
+
+            .block-content {
+                ol {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+
+                    .product-item {
+                        padding: 10px;
+                        border-bottom: 1px solid @lightGray;
+
+                        &:hover {
+                            box-sizing: content-box;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+}

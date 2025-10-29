@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="logo">
+            <arguments>
+                <argument name="logo_file" xsi:type="string">images/logo.png</argument>
+                <argument name="logo_width" xsi:type="number">170</argument>
+                <argument name="logo_alt" xsi:type="string">graphicreseau_logo</argument>
+            </arguments>
+        </referenceBlock>
+        <referenceBlock name="header" remove="true"/>
+        <referenceContainer name="header.panel">
+            <block class="Magento\Cms\Block\Block" name="header-links" before="-">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">header-links</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Cms\Block\Block" name="social-icons-header">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">social-icons-header</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+
+        <!--    Header 3 icons - row reverse -->
+        <move element="top.search" destination="header-wrapper" after="logo"/>
+        <referenceContainer name="header-wrapper">
+            <referenceBlock name="catalog.compare.link" remove="true"/>
+            <block class="Magento\Framework\View\Element\Template" name="header-wrapper.account-link"
+                   template="Gone_Design::header/customer.phtml" after="top.search"/>
+        </referenceContainer>
+        <referenceBlock name="customer" remove="true"/>
+
+        <referenceContainer name="footer-container">
+            <referenceContainer name="footer">
+                <block class="Magento\Cms\Block\Block" name="footer.links">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">footer-links</argument>
+                    </arguments>
+                </block>
+                <container name="footer-copyright-wrapper" htmlTag="div" htmlClass="footer-copyright-wrapper">
+                    <block class="Magento\Cms\Block\Block" name="copyright-footer">
+                        <arguments>
+                            <argument name="block_id" xsi:type="string">copyright-footer</argument>
+                        </arguments>
+                    </block>
+                </container>
+            </referenceContainer>
+            <referenceBlock name="footer_links" remove="true"/>
+            <referenceBlock name="copyright" remove="true"/>
+        </referenceContainer>
+        <move element="form.subscribe" as="subscribe" destination="footer-container" before="-"/>
+    </body>
+</page>

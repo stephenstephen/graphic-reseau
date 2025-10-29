@@ -1,0 +1,151 @@
+<script>
+
+    require([
+        'domReady!'
+    ], function () {
+        const config = [
+            {
+                'observedClass': '.tocart',
+                'observedEvent': 'click',
+                'dataSourceParentForm': {
+                    'dataSourceAttr':'data-product-sku'
+                },
+                'dataLayer': {
+                    'name': 'Add to cart',
+                    'label': 'Ajouter au panier',
+                    'category': 'Cart',
+                    'action': 'Panier',
+                    'event': 'add_to_cart'
+                }
+            },
+            {
+                'observedClass': '.mp-attachment-tab__item > a',
+                'observedEvent': 'click',
+                'dataSourceAttr':'title',
+                'dataLayer': {
+                    'name': 'DL fichier PDF',
+                    'label': 'Nom du PDF',
+                    'category': 'Navigation ',
+                    'event': 'dl_pdf'
+                }
+            },
+            {
+                'observedClass': '.print-product-link',
+                'observedEvent': 'click',
+                'dataLayer': {
+                    'name': 'DL PDF Produit auto',
+                    'label': 'Nom du produit',
+                    'category': 'Navigation ',
+                    'event': 'dl_product_pdf'
+                }
+            },
+            {
+                'observedClass': '.subscribe',
+                'observedEvent': 'click',
+                'dataLayer': {
+                    'name': 'Inscription Newsletter',
+                    'label': 'Newsletter',
+                    'category': 'Prospect',
+                    'event': 'subscribe_newsletter'
+                }
+            },
+            {
+                'observedClass': '.action.alert',
+                'observedEvent': 'click',
+                'dataLayer': {
+                    'event': 'alert_price',
+                    'name': 'Alerte baisse de prix',
+                    'label': 'Prix',
+                    'category': 'Prospect'
+                }
+            },
+            {
+                'observedClass': '.amquote-addto-button',
+                'observedEvent': 'click',
+                'dataLayer': {
+                    'event': 'ask_for_quote',
+                    'name': 'Demande de devis',
+                    'label': 'Devis',
+                    'category': 'Prospect'
+                }
+            },
+            {
+                'observedClass': '.amquote-addto-button',
+                'observedEvent': 'click',
+                'dataLayer': {
+                    'event': 'contact',
+                    'name': 'Demande de contact',
+                    'label': 'Contact',
+                    'category': 'Prospect'
+                }
+            },
+            {
+                'observedClass': '.amquote-addto-button',
+                'observedEvent': 'click',
+                'dataLayer': {
+                    'event': 'ask_for_quote',
+                    'name': 'Demande de devis',
+                    'label': 'Devis',
+                    'category': 'Prospect'
+                }
+            },
+            {
+                'observedClass': '.checkbox.related',
+                'observedEvent': 'click',
+                'dataSourceAttr':'id',
+                'dataLayer': {
+                    'event': 'checkbox_related_product',
+                    'name': 'Checkbox Produit apparentés',
+                    'label': 'CheckboxVenteCroisee_valeur',
+                    'category': 'Cart'
+                }
+            },
+            {
+                'observedClass': '.block.crosssell .tocart',
+                'observedEvent': 'click',
+                'dataSourceParentForm': {
+                    'dataSourceAttr':'data-product-sku'
+                },
+                'dataLayer': {
+                    'event': 'checkbox_crosssell_product',
+                    'name': 'Checkbox Ventes croisées',
+                    'label': 'CheckboxVenteCroisee_valeur',
+                    'category': 'Cart'
+                }
+            },
+            {
+                'observedClass': '.action.checkout',
+                'observedEvent': 'click',
+                'dataLayer': {
+                    'event': 'click_order',
+                    'name': 'Bouton Commander',
+                    'label': 'Commande',
+                    'category': 'Cart'
+                }
+            }
+        ]
+
+        let domTriggers = []
+        window.dataLayer = window.dataLayer || [];
+
+        for (let custom_event of config) {
+            domTriggers[custom_event.dataLayer.event] = document.querySelectorAll(custom_event.observedClass)
+        }
+
+        for (let custom_event of config) {
+            domTriggers[custom_event.dataLayer.event].forEach(trigger => {
+                    trigger.addEventListener(custom_event.observedEvent, (e) => {
+                        if(custom_event.dataSourceAttr){
+                            custom_event.dataLayer.label = trigger.getAttribute(custom_event.dataSourceAttr)
+                        }
+                        if(custom_event.dataSourceParentForm){
+                            custom_event.dataLayer.label = trigger.closest('form')
+                                .getAttribute(custom_event.dataSourceParentForm.dataSourceAttr)
+                        }
+                        window.dataLayer.push(custom_event.dataLayer)
+                    });
+                }
+            );
+        }
+    })
+</script>

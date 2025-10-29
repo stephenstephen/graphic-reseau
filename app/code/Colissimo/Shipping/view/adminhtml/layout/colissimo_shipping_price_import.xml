@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Colissimo Shipping Module
+ *
+ * @author    Magentix
+ * @copyright Copyright © 2018 Magentix. All rights reserved.
+ * @license   https://www.magentix.fr/en/licence.html Magentix Software Licence
+ * @link      https://colissimo.magentix.fr/
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Price</title>
+        <css src="Colissimo_Shipping::css/style.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Colissimo\Shipping\Block\Adminhtml\Price\Import" name="colissimo.shipping.price.import" template="Colissimo_Shipping::price/import.phtml" />
+        </referenceContainer>
+    </body>
+</page>

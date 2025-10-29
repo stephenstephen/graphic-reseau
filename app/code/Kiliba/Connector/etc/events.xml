@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright © 410 Gone (contact@410-gone.fr). All rights reserved.
+  ~ See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="customer_delete_after">
+        <observer name="record_customer_deletion" instance="Kiliba\Connector\Observer\Customer\RecordCustomerDeletion" />
+    </event>
+    <event name="catalog_product_delete_before">
+        <observer name="record_product_deletion" instance="Kiliba\Connector\Observer\Product\RecordProductDeletion" />
+    </event>
+    <event name="salesrule_rule_delete_before">
+        <observer name="record_priceRule_deletion" instance="Kiliba\Connector\Observer\PriceRule\RecordPriceRuleDeletion" />
+    </event>
+    <event name="sales_quote_save_after">
+        <observer name="improve_quote_data" instance="Kiliba\Connector\Observer\Quote\SalesQuoteSaveAfterObserver" />
+    </event>
+    <event name="customer_login">
+        <observer name="persist_customer_info" instance="Kiliba\Connector\Observer\Customer\LogLastLoginAtObserver" />
+    </event>
+</config>

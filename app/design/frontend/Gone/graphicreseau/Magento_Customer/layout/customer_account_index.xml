@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<!--
+  ~ Copyright © 410 Gone (contact@410-gone.fr). All rights reserved.
+  ~ See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+  -->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>My Account</title>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Gone\Student\Block\Student"
+                   name="gr_student"
+                   template="Gone_Student::content.phtml"
+                   after="-"
+                   ifconfig="student/general/enable"
+                   cacheable="false"/>
+        </referenceContainer>
+    </body>
+</page>

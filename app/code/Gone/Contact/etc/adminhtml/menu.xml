@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+        <add action="gone_contact/contact/index" id="Gone_Contact::gone_contact_contact"
+             module="Gone_Contact" parent="Magento_Customer::customer" resource="Magento_Backend::content"
+             sortOrder="9999" title="Contact Us Request"/>
+    </menu>
+</config>

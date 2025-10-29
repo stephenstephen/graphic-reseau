@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * CedCommerce
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the End User License Agreement (EULA)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://cedcommerce.com/license-agreement.txt
+ *
+ * @category    Ced
+ * @package     Ced_MauticIntegration
+ * @author      CedCommerce Core Team <connect@cedcommerce.com>
+ * @copyright   Copyright CedCommerce (http://cedcommerce.com/)
+ * @license     http://cedcommerce.com/license-agreement.txt
+ */
+-->
+<!--suppress ALL -->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">mautic_setting_form.mautic_setting_form_data_source</item>
+            <item name="deps" xsi:type="string">mautic_setting_form.mautic_setting_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">mautic Information</item>
+        <item name="layout" xsi:type="array">
+            <item name="type" xsi:type="string">tabs</item>
+            <item name="navContainerName" xsi:type="string">left</item>
+        </item>
+
+        <item name="buttons" xsi:type="array">
+            <item name="back" xsi:type="string">Ced\MauticIntegration\Block\Adminhtml\Setting\Edit\Back</item>
+        </item>
+    </argument>
+
+    <dataSource name="mautic_setting_form_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Ced\MauticIntegration\Ui\DataProvider\Setting\Form</argument>
+            <argument name="name" xsi:type="string">mautic_setting_form_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">entity_id</argument>
+            <argument name="requestFieldName" xsi:type="string">entity_id</argument>
+            <argument name="data" xsi:type="array"></argument>
+        </argument>
+
+        <!--Need to give the js that loads provided data Else spinner will not stop loading continues-->
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+    </dataSource>
+
+    <fieldset name="general_information" sortOrder="10">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">General Information</item>
+            </item>
+        </argument>
+        <container name="general_information_container">
+            <htmlContent name="html_content">
+                <argument name="block" xsi:type="object">Ced\MauticIntegration\Block\Adminhtml\Setting\Edit\Tabs\General</argument>
+            </htmlContent>
+        </container>
+    </fieldset>
+
+    <fieldset name="contact_property" sortOrder="20">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">Contact Properties</item>
+                <item name="collapsible" xsi:type="boolean">false</item>
+            </item>
+        </argument>
+        <container name="contact_property_container">
+            <htmlContent name="html_content">
+                <argument name="block" xsi:type="object">Ced\MauticIntegration\Block\Adminhtml\Setting\Edit\Tabs\Contact</argument>
+            </htmlContent>
+        </container>
+    </fieldset>
+
+     <fieldset name="list_segments" sortOrder="30">
+        <settings>
+            <collapsible>false</collapsible>
+            <label translate="true">Segments</label>
+        </settings>
+        <container name="list_segments_container">
+            <htmlContent name="html_content">
+                <argument name="block" xsi:type="object">Ced\MauticIntegration\Block\Adminhtml\Setting\Edit\Tabs\Segment</argument>
+            </htmlContent>
+        </container>
+    </fieldset>
+
+</form>

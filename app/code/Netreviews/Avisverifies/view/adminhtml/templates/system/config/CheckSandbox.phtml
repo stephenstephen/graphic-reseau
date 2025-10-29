@@ -1,0 +1,54 @@
+<?php /* @var $block \Netreviews\Avisverifies\Block\System\Config\CheckSandbox */ ?>
+
+<script>
+    require([
+        'jquery',
+        'prototype'
+    ], function(jQuery) {
+        var sandboxSpan = jQuery('#sandbox_span');
+        var CheckThisUrl = '<?php echo $block->getAjaxUrl() ?>';
+
+        jQuery('#check_sandbox_button').click(function () {
+            if (CheckThisUrl.trim() != "") {
+                jQuery.ajax({
+                    type: 'HEAD',
+                    url: CheckThisUrl,
+                    crossDomain: true,
+                    beforeSend: function () {
+                        sandboxSpan.find('.processing').show();
+                    },
+                    success: function () {
+                        sandboxSpan.find('.processing').hide();
+                        resultText = 'Success';
+                        sandboxSpan.find('.url-success').show();
+                        sandboxSpan.find('.url-fail').hide();
+                        jQuery('#sandbox_message_span').text(resultText);
+                    },
+                    error: function () {
+                        sandboxSpan.find('.processing').hide();
+                        resultText = 'Fail';
+                        sandboxSpan.find('.url-success').hide();
+                        sandboxSpan.find('.url-fail').show();
+                        jQuery('#sandbox_message_span').text(resultText);
+                    }
+                });
+            } else {
+                sandboxSpan.find('.processing').hide();
+                resultText = 'Fail';
+                sandboxSpan.find('.url-success').hide();
+                sandboxSpan.find('.url-fail').show();
+                jQuery('#sandbox_message_span').text(resultText);
+            }
+        });
+
+    });
+</script>
+
+<?php echo $block->getButtonHtml() ?>
+<span class="sandbox-indicator" id="sandbox_span">
+    <img class="processing" hidden="hidden" alt="processing" style="margin:0 5px" src="<?php echo $block->getViewFileUrl('images/process_spinner.gif') ?>"/>
+    <img class="url-fail" hidden="hidden" alt="url-fail" style="margin:0 5px" src="<?php echo $block->getViewFileUrl('images/rule_component_remove.gif') ?>"/>
+    <img class="url-success" hidden="hidden" alt="url-success" style="margin:-3px 5px" src="<?php echo $block->getViewFileUrl('images/rule_component_apply.gif') ?>"/>
+    <span id="sandbox_message_span"></span>
+</span>
+<p class="note"><?php echo $block->getAjaxUrl() ?></p>

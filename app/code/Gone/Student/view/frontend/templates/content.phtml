@@ -1,0 +1,36 @@
+<?php
+/** @var Student $block */
+
+use Gone\Student\Block\Student;
+
+?>
+<?php if (!$block->isCustomerStudent()): ?>
+    <div class="block block-dashboard-student">
+        <div class="block-title">
+            <strong><?= __('Are you a student?') ?></strong>
+        </div>
+        <div class="block-content">
+            <p><?= __('We need to validate that you are a student before you can benefit of discounts') ?></p>
+            <form method="post" action="<?= $block->getFormAction() ?>" enctype="multipart/form-data">
+                <?= $this->getBlockHtml('formkey')?>
+                <div class="field file">
+                    <label class="label" for="file">
+                        <span><?= $block->escapeHtml(__('Please upload justification for your student status')) ?></span>
+                    </label>
+                    <div class="control">
+                        <input type="file" name="file" id="file" accept=".jpg,.pdf,.png" data-validate="{required:true}"/>
+                        <p><?= __('Formats accepted %1 max %2MB', '.jpg .pdf. .png', Student::MAX_UPLOAD) ?></p>
+                    </div>
+                </div>
+
+                <button type="submit"
+                        class="action submit primary "
+                        title="<?= __('Send') ?>" >
+                      <span>
+                        <?= __('Send') ?>
+                      </span>
+                </button>
+            </form>
+        </div>
+    </div>
+<?php endif ?>

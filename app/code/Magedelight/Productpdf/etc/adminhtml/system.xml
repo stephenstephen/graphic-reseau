@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>    
+        <tab id="magedelight" translate="label" sortOrder="300">
+            <label>Magedelight</label>
+        </tab>
+        <section id="md_productpdf" translate="label" type="text" sortOrder="1" showInStore="1" showInDefault="1" showInWebsite="1">
+            <class>separator-top md_section_productpdf</class>
+            <label>Product PDF Print Settings</label>
+            <tab>magedelight</tab>
+            <resource>Magedelight_Productpdf::config_productpdf</resource>
+            <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInStore="1" showInWebsite="1">
+                <label>General Configuration</label>
+		        <field id="enabled" type="select" translate="label" sortOrder="1" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Enable On Frontend</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="cover_image" type="image" translate="label" sortOrder="2" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Cover Page Image</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
+                    <upload_dir config="system/filesystem/media" scope_info="1">theme/productpdf/cover_page</upload_dir>
+                    <base_url type="media" scope_info="1">theme/productpdf/cover_page</base_url>
+                    <comment>Allowed file types: jpeg, gif, png.</comment>
+                </field>
+                <field id="additional_images" type="select" translate="label" sortOrder="3" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Enable Product Additional Images</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="count_additional_images" translate="label" type="text" sortOrder="4" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Number Of Additional Images</label>
+                </field>
+                <field id="enable_upsell" type="select" translate="label" sortOrder="5" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Display Upsell Products</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="enable_related" type="select" translate="label" sortOrder="6" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Display Related Products</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="enable_qrcodes" type="select" translate="label" sortOrder="7" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Display QR Codes</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+              <!--   <field id="enable_wishlist" type="select" translate="label" sortOrder="8" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Display Wishlist Link</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="enable_compare" type="select" translate="label" sortOrder="9" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Display Compare Product Link</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field> -->
+                <field id="enable_reviewes" type="select" translate="label" sortOrder="10" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Display Reviews Link</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="enable_customergroups" type="multiselect" translate="label" sortOrder="11" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Allow Customer Groups</label>
+                    <source_model>Magedelight\Productpdf\Model\System\Config\Source\Group\Multiselect</source_model>
+                </field>
+                <field id="exclude_tag_des" translate="label" type="text" sortOrder="12" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Allow HTML tags in description, short description</label>
+                    <comment><![CDATA[Write HTML tags here,, like &lt;p&gt;&lt;br&gt;]]></comment>
+                </field>
+            </group>
+            <!-- <group id="fonts" translate="label" type="text" sortOrder="2" showInDefault="1" showInStore="1" showInWebsite="1">
+                <label>Fonts</label>
+                <field id="custom_font" type="file" sortOrder="1" translate="label" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Upload Fonts</label>
+                    <backend_model>Magedelight\Productpdf\Model\System\Config\Backend\Fonts</backend_model>
+                    <upload_dir config="system/filesystem/media" scope_info="0">md_product_print/fonts</upload_dir>
+                    <base_url type="media" scope_info="0">md_product_print/fonts</base_url>
+                    <comment><![CDATA[Allowed only ttf file type.]]></comment>
+                </field>
+                <field id="regular_font" type="select" sortOrder="2" translate="label" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Regular font</label>
+                    <source_model>Magedelight\Productpdf\Model\System\Config\Source\Uploaded\Fonts</source_model>
+                </field>
+                <field id="bold_font" type="select" sortOrder="3" translate="label" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Bold font</label>
+                    <source_model>Magedelight\Productpdf\Model\System\Config\Source\Uploaded\Fonts</source_model>
+                </field>
+            </group> -->
+            <group id="formating_options" translate="label" type="text" sortOrder="3" showInDefault="1" showInStore="1" showInWebsite="1">
+                <label>Text Formating Options</label>
+                <field id="product_title" type="text" translate="label" sortOrder="1" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Product Title Color</label>
+                    <comment><![CDATA[Background color]]></comment>
+                    <frontend_model>Magedelight\Productpdf\Block\Color</frontend_model>
+                </field>
+                <field id="link_color" type="text" translate="label" sortOrder="2" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Links Color</label>
+                    <frontend_model>Magedelight\Productpdf\Block\Color</frontend_model>
+                </field>
+                <field id="heading_color" type="text" translate="label" sortOrder="3" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Attribute Heading Color</label>
+                    <frontend_model>Magedelight\Productpdf\Block\Color</frontend_model>
+                </field>
+            </group>
+            <group id="header_footer" translate="label" type="text" sortOrder="4" showInDefault="1" showInStore="1" showInWebsite="1">
+                <label>PDF Document Header / Footer Configuration</label>
+                <field id="pdf_header_image" type="image" sortOrder="1" translate="label" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Header Logo</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
+                    <upload_dir config="system/filesystem/media" scope_info="1">theme/productpdf/header_logo</upload_dir>
+                    <base_url type="media" scope_info="1">theme/productpdf/header_logo</base_url>
+                    <comment><![CDATA[Please upload jpeg, jpg, gif or png files only.]]></comment>
+                </field>
+                <field id="pdf_footer_text" type="textarea" translate="label" sortOrder="2" showInDefault="1" showInStore="1" showInWebsite="1">
+                    <label>Footer Text</label>
+                    <comment><![CDATA[Maximum 550 characters allowed in this field.]]></comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
+

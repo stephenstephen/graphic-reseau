@@ -1,0 +1,372 @@
+[
+  {
+    "status": "1",
+    "description": "La \"<strong>calibration hardware<\/strong>\" ou en français le \"calibrage matériel\" est une fonctionnalité disponible dans les écrans haut de gamme.<br\/> Cette méthode de calibrage permet d'obtenir facilement et rapidement une qualité d'étalonnage sans défaut.<br\/> A noter que le calibrage matériel contrôle directement l'électronique de l'écran ; ce principe est le garant d'une meilleure précision couleur et d'une excellente gradation.<br\/>\r\nLe calibrage est donc réalisé de manière automatique à l'aide d'un colorimètre ou un spectrodensitomètre ; les logiciels de pilotage matériel permettent le stockage de plusieurs réglages et de les appliquer à volonté dans l'électronique de l'écran. Il est donc très simple de disposer de plusieurs conditions de réglages selon son utilisation et de pouvoir y accéder d'un clic.\r\n",
+    "title": "Calibration hardware"
+  },
+  {
+    "status": "1",
+    "description": "Le dispositif <strong>DUE<\/strong> propre à la marque EIZO assure une luminosité et une reproduction des couleurs homogènes sur toute la surface de l’écran.<br\/> Les fluctuations de la luminosité et la chromaticité sur les différentes parties de l'écran sont un trait commun des moniteurs LCD . Pour éviter ces phénomènes, le système <strong>DUE<\/strong> égalise et uniformise les différentes parties de l'écran. Cette technologie assure une différence Delta- E de 3 ou moins sur l'ensemble de l'écran lorsque le moniteur quitte l'usine EIZO.",
+    "title": "DUE"
+  },
+  {
+    "status": "1",
+    "description": "<strong>LUT<\/strong> (\"Look Up Table\", ou en français \"table de conversion\"). Il existe différents types de LUT selon leur complexité, les deux principales étant les LUT 1D et 3D.<br\/>\r\nUne table de correspondance est donc un terme informatique et électronique désignant une liste d'association de valeurs. Dans le cas de l'affichage écran, les valeurs converties par la table sont des correspondances couleurs à restituer.<br\/>\r\nLa LUT d'un écran assure la précision des couleurs affichées. A noter qu'une LUT 1D n’est pas aussi précise qu’une LUT 3D ; en effet, celle-ci ne peut, par exemple, pas modifier la saturation séparément du contraste.\r\n  \r\n",
+    "title": "LUT"
+  },
+  {
+    "status": "1",
+    "description": "La technologie de dalle <strong>IPS<\/strong> (\"In Plane Switching\") est très utilisée dans les domaines où l'affichage des couleurs est déterminante (design, pré-presse, épreuvage, édition photo et vidéo, etc), ainsi que pour les configurations multi-écrans (imagerie médicale, salles de trading, etc.). Un angle de vision étendu avec une atténuation négligeable des couleurs permet de diffuser des images à destination de plusieurs utilisateurs. La technologie de dalle IPS offre également la profondeur et le réalisme des couleurs, grâce auxquels chaque nuance peut être appréciée.",
+    "title": "IPS"
+  },
+  {
+    "status": "1",
+    "description": "Le terme \"<strong>bezel<\/strong>\" est issu du monde de la joaillerie, dans ce cas précis c'est une rainure qui maintient la pierre ou le cristal en place.<br\/> \"Bezel\" est aussi utilisé pour décrire les bords ronds entourant un compteur de vitesse d'une voiture.<br\/> Dans l'industrie de l'informatique, le \"bezel\" désigne le bord ou le méplat entourant la face avant de la dalle d'un écran informatique. Ce \"bezel\" peut être qualifié de fin, épais où être absent dans le cas ou la dalle serait à nue pour être intégrée dans un mur d'écrans par exemple.",
+    "title": "Bezel"
+  },
+  {
+    "status": "1",
+    "description": "<strong>GB-R LED<\/strong> est une technologie de rétroéclairage LED pour les écrans LCD utilisant une combinaison de diodes bleu et verte ainsi qu'un phosphore rouge.<br\/> Le principal atout du rétroéclairage GB-R LED est une augmentation de la taille de l'espace couleur des moniteurs équipés de ce composant.",
+    "title": "GB-R LED"
+  },
+  {
+    "status": "1",
+    "description": "Le terme <strong>4K UHD<\/strong> ou « Ultra High Definition television » désigne une définition d'image de 3 840 pixels par ligne pour 2 160 lignes (8,3 mégapixels pour un ratio 16:9).<br\/>\r\nL'image obtenue est donc deux fois plus définie qu'une image Full HD 1080p de 1 920 pixels par ligne pour 1 080 lignes.<br\/> \r\n<br\/>\r\nAttention, la terminologie 4K, utilisée seule, adopte une définition de 4 096 pixels par ligne pour 2 160 lignes (8,8 mégapixels). Dans ce cas, il s'agit donc de la définition originelle du 4K basée sur le standard de diffusion du cinéma numérique DCI 2K (4K = 2x la définition du DCI 2K).",
+    "title": "4k UHD"
+  },
+  {
+    "status": "1",
+    "description": "<strong>DisplayPort<\/strong> est une interface numérique pour écran mise en place par le consortium \" Video Electronics Standards Association (VESA)\". A  noter que le format \"mini\" du connecteur fait actuellement partie intégrante de la connectique Thunderbolt.\r\n<br\/><br\/>\r\n\r\n<strong>DisplayPort 1.0<\/strong> : supporte des débits de 10,8 Gbit\/s. Comporte un canal bidirectionnel auxiliaire de 1Mbit\/s destiné aux autres données optionnelles à faire transiter entre la source et le diffuseur (données d’écran tactile, une liaison USB, une caméra, un microphone, etc.).\r\n<br\/><br\/>\r\n\r\n<strong>DisplayPort 1.2<\/strong> : la bande passante est doublée et passe à 21,6 Gbit\/s. Supporte la 4K à 60 i\/s. Le canal auxiliaire passe d'une bande passante de 1 Mbit\/s à un 720 Mbit\/s permettant également d’acheminer de l'Ethernet, mais aussi de l'USB 2.0.\r\n<br\/><br\/>\r\n\r\n<strong>DisplayPort 1.3<\/strong> : offre une bande passante de 32,4 Gbit\/s au total. Cette bande passante se fait sur quatre canaux, à hauteur de 8,1 Gbit\/s par canal. Il supporte deux flux 4K à 60 i\/s ou la 4K à 120 i\/s permettant donc un support de la 3D sur les dalles très haute-définition.\r\n<br\/><br\/>\r\n\r\n<strong>DisplayPort 1.4<\/strong> : Elle offre un débit similaire à la version 1.3. La technologie Display Stream Compression (DSC) est intégrée. Cette nouvelle version permet de gérer du 8Kp60 HDR \"Deep color\" ou du 4Kp120 HDR \"Deep color\".\r\n<br\/><br\/>\r\n    \r\n<strong>2 types de connecteurs existent<\/strong> : le port standard (20 broches femelle) et  le connecteur mini (équipant entre autres les ordinateurs Apple sous l'interface Thunderbolt \/ Displayport).\r\n",
+    "title": "DisplayPort"
+  },
+  {
+    "status": "1",
+    "description": "<strong>MHL<\/strong> (\"Mobile High-Definition Link\") est un standard de l'industrie audio\/vidéo qui permet la connexion d'appareils mobiles (téléphones, tablettes...) vers des écrans à affichage haute définition.",
+    "title": "MHL"
+  },
+  {
+    "status": "1",
+    "description": "<strong>LED<\/strong> (\"Light-Emitting Diode\"), en français : diode électroluminescente  (DEL). <br\/>\r\nC'est un composant opto-électronique capable d’émettre de la lumière. Ce système est maintenant retenu pour le rétro-éclairage de la plupart des écrans LCD actuellement produits.\r\nA noter que différents types de LED existent, chacun dédié à un usage spécifique (éclairage publique, automobile, rétro-éclairage LCD, voyants...).",
+    "title": "LED"
+  },
+  {
+    "status": "1",
+    "description": "<strong>LCD<\/strong> (\"Liquid Crystal Display\") est une technologie d'affichage. Des cristaux liquides sensibles sont soumis à un courant électrique afin de générer une image.\r\n",
+    "title": "LCD"
+  },
+  {
+    "status": "1",
+    "description": "Terme d'origine anglaise. Le <strong>gamut<\/strong> est l'ensemble des couleurs reproductibles par un périphérique informatique (écran, appareil photo, imprimante, scanner...).<br \/>\r\nGénéralement, on considère qu'un périphérique est à large gamut quand son espace est équivalent ou supérieur à la perception de l’œil humain.  ",
+    "title": "Gamut"
+  },
+  {
+    "status": "1",
+    "description": "<strong>CCFL<\/strong> (\"Cold Cathode Fluorescent Lamp\") est une source de lumière pour le rétroéclairage des écrans LCD d'ancienne génération. Cette technologie consiste à faire serpenter un tube fluorescent derrière la dalle LCD. On peut aussi rencontrer le terme <strong>CCFT<\/strong> (\"Cold Cathode Fluorescent Tube\") en substitution à CCFL.",
+    "title": "CCFL"
+  },
+  {
+    "status": "1",
+    "description": "La certification <strong>TCO<\/strong> est une certification concernant  plus particulièrement les moniteurs d’ordinateurs utilisés dans un milieu professionnel, attribuée par la compagnie TCO Development, filiale de la Swedish Confederation of Professional Employees. Liste des certifications disponibles :\r\n<div style=\"margin:0 0 0 10px;\">\r\n<ul style=\"list-style-type:disc;margin: 8px 0 6px 10px;\">\r\n    <li><b>TCO’92<\/b> : définit les standards pour les émissions d’écrans.<\/li>\r\n    <li><b>TCO’95<\/b> : définit les standards en termes d’ergonomie, d’émissions, d’énergie et d’écologie pour les écrans, les claviers et les ordinateurs.<\/li>\r\n    <li><b>TCO’99<\/b> : idem, mais également pour les écrans plats et les imprimantes.<\/li>\r\n    <li><b>TCO’01<\/b> : idem, mais pour les téléphones portables.<\/li>\r\n    <li><b>TCO’03<\/b> : nouvelle norme d’affichage qui s’applique uniquement aux affichages de rayon cathodique (tube) et les affichages à panneau plat (FPD). Ce niveau de certification inclut aussi la capacité de chargement d’image,<\/li>\r\n    <li><b>TCO’04<\/b> : définit les standards en termes d’ergonomie et d’émissions pour les fournitures de bureau.<\/li>\r\n   <li><b>TCO’05<\/b> : nouvelle version de la TCO’99, applicable aux ordinateurs fixes et portables.<\/li>\r\n    <li><b>TCO’06<\/b> : extension et mise à jour de la norme TCO’03, applicable notamment aux écrans plats pour télévision.<\/li>\r\n<\/ul>\r\n<\/div>",
+    "title": "TCO"
+  },
+  {
+    "status": "1",
+    "description": "<strong>Energy Star<\/strong> est le nom d'un programme gouvernemental américain chargé de promouvoir les économies d'énergie aux États-Unis et utilisé au Canada, en Australie et au sein de l'Union Européenne.\r\nLe programme permet aux utilisateurs de repérer les matériels les plus efficaces en termes de rendement énergétique. Ils sont classés ainsi :\r\n<div style=\"margin:0 0 0 10px;\">\r\n<ul style=\"list-style-type:disc;margin: 8px 0 6px 10px;\">\r\n    <li>Les appareils électroménagers (réfrigérateur, lave-linge, lave-vaisselle, four à micro-ondes, etc.)<\/li>\r\n    <li>Les moniteurs<\/li>\r\n    <li>Les ordinateurs de bureau<\/li>\r\n    <li>Les ordinateurs portables et tablettes<\/li>\r\n    <li>Les systèmes informatiques intégrés<\/li>\r\n    <li>Les serveurs<\/li>\r\n    <li>Les stations de travail<\/li>\r\n    <li>Les consoles de jeux vidéo<\/li>\r\n    <li>Les appareils de traitement d’images<\/li>\r\n<\/ul>\r\n<\/div>\r\n",
+    "title": "Energy Star"
+  },
+  {
+    "status": "1",
+    "description": "<strong>USB<\/strong> (\"Universal Serial Bus\", en français \"Bus Universel en Série\") est une norme relative à un bus informatique en transmission série qui sert à connecter des périphériques informatiques à un ordinateur.",
+    "title": "USB"
+  },
+  {
+    "status": "1",
+    "description": "<strong>OSD<\/strong> (\"On Screen Display\") désigne un affichage produit à l'écran pour le réglage d'un équipement électronique ou informatique. ",
+    "title": "OSD"
+  },
+  {
+    "status": "1",
+    "description": "<strong>Delta-E<\/strong> indique par un chiffre l'écart perçu entre 2 couleurs. Delta-E 1 est une très petite différence chromatique alors que Delta-E 40 en est une énorme. La valeur Delta-E est déterminée à partir de la mesure d'un échantillon de couleur à l'aide d'un spectrophotomètre ou d'un colorimètre.",
+    "title": "Delta-E"
+  },
+  {
+    "status": "1",
+    "description": "<strong>HDMI<\/strong> (\"High Definition Multimedia Interface\") est une norme et une interface audio\/vidéo totalement numérique pour transmettre des flux chiffrés, généralement non compressés, et destinée au marché grand public. Le HDMI permet la connexion audio\/vidéo d'appareils tels que des lecteurs Blu-ray,  des ordinateurs ou des consoles de jeux,  à un dispositif compatible tel qu'un téléviseur HD, un vidéoprojecteur ou un écran informatique.",
+    "title": "HDMI"
+  },
+  {
+    "status": "1",
+    "description": "<strong>CCFT<\/strong> (\"Cold Cathode Fluorescent Tube\") est une source de lumière pour le rétroéclairage des écrans LCD d'ancienne génération. Cette technologie consiste à faire serpenter un tube fluorescent derrière la dalle LCD. On peut aussi rencontrer le terme <strong>CCFL<\/strong> (\"Cold Cathode Fluorescent Lamp\") en substitution à CCFT.",
+    "title": "CCFT"
+  },
+  {
+    "status": "1",
+    "description": "<strong>DVI<\/strong> (\"Digital Visual Interface\") est un type de connexion numérique qui sert à relier une carte graphique à un écran. La liaison DVI améliore sensiblement la qualité de l’affichage par rapport à la connexion VGA (analogique).\r\n<br \/>\r\nLes principales améliorations sont produites grâce à une séparation des nuances de couleur pour chaque pixel ; on obtient alors une image parfaitement nette, et grâce à une transmission numérique, aucune perte des nuances de couleur. Autre avantage notable par rapport à une connexion VGA analogique, le DVI permet à l’écran de détecter plus vite la définition affichée. Ceci évite aussi des réglages de l’écran, ces derniers étant généralement automatisés.\r\n<br \/>\r\nCaratéristiques principales du connecteur DVI :\r\n<br \/>\r\n<ul style=\"list-style-type:disc;padding:2px 0 0 20px;\">\r\n\t<li>La définition d'image maximale possible via une connectique DVI est le WQUXGA, soit 3 840 × 2 400 pixels.<\/li>\r\n\t<li>Le DVI supporte des débits de 3,7 Gbit\/s en single link (18 Gbit\/s pour le HDMI 2.0 et 21,6 Gbit\/s pour le DisplayPort 1.2 ).<\/li>\r\n<\/ul>\r\n<br \/>\r\nIl existe trois types de prises :\r\n<ul style=\"list-style-type:disc;padding:2px 0 0 20px;\">\r\n\t<li>DVI-A (DVI-Analog) : transmet uniquement le signal analogique.<\/li>\r\n\t<li>DVI-D (DVI-Digital) : transmet uniquement le signal numérique.<\/li>\r\n\t<li>DVI-I (DVI-Integrated) : transmet (sur des broches séparées) soit le signal numérique du DVI-D, soit le signal analogique du DVI-A (un seul type de signal selon ce qui est branché, sans faire de conversion de l’un vers l’autre).<\/li>\r\n<\/ul>\r\n<br \/>\r\n<b>Note<\/b> : seul le DVI-D Dual Link permet d'atteindre la résolution maximum (l'ensemble des broches sont alors présentes sur le connecteur).\r\n",
+    "title": "DVI"
+  },
+  {
+    "status": "1",
+    "description": "Un connecteur <strong>VGA<\/strong> est un connecteur de type D-sub, plus précisément DE-15. Il est utilisé pour connecter une carte graphique à un écran d'ordinateur en analogique. Il possède 15 broches organisées en trois rangées.\r\n<br \/>\r\nLes câbles VGA sont les mêmes pour les différentes résolutions : VGA, SVGA, XGA, SXGA, UXGA, QXGA. La qualité du câble peut cependant avoir une importance pour les plus hautes résolutions.\r\n<br \/>\r\nPrincipales résolutions disponibles en utilisant un connecteur de type VGA (la carte graphique utilisée devant être compatible avec la résolution demandée) :\r\n<table style=\"margin: 8px auto 8px auto;border:1px solid #9e9e9e;\">\r\n\t<tr>\r\n\t\t<td style=\"padding-right:10px;border-right:1px solid #9e9e9e;\">\r\n\t\t\t<table>\r\n\t\t\t\t<tr>\r\n\t\t\t\t\t<td nowrap><b>QVGA<\/b><\/td>\r\n\t\t\t\t\t<td nowrap>&nbsp;:&nbsp;<\/td>\r\n\t\t\t\t\t<td>320x240<\/td>\r\n\t\t\t\t<\/tr>\r\n\t\t\t\t<tr>\r\n\t\t\t\t\t<td nowrap><b>VGA<\/b><\/td>\r\n\t\t\t\t\t<td nowrap>&nbsp;:&nbsp;<\/td>\r\n\t\t\t\t\t<td>640x480<\/td>\r\n\t\t\t\t<\/tr>\r\n\t\t\t\t<tr>\r\n\t\t\t\t\t<td nowrap><b>WVGA<\/b><\/td>\r\n\t\t\t\t\t<td nowrap>&nbsp;:&nbsp;<\/td>\r\n\t\t\t\t\t<td>854x450 ou 800x480<\/td>\r\n\t\t\t\t<\/tr>\r\n\t\t\t\t<tr>\r\n\t\t\t\t\t<td nowrap><b>SVGA<\/b><\/td>\r\n\t\t\t\t\t<td nowrap>&nbsp;:&nbsp;<\/td>\r\n\t\t\t\t\t<td>800x600<\/td>\r\n\t\t\t\t<\/tr>\r\n\t\t\t\t<tr>\r\n\t\t\t\t\t<td nowrap><b>XGA<\/b><\/td>\r\n\t\t\t\t\t<td nowrap>&nbsp;:&nbsp;<\/td>\r\n\t\t\t\t\t<td>1024x768<\/td>\r\n\t\t\t\t<\/tr>\r\n\t\t\t\t<tr>\r\n\t\t\t\t\t<td nowrap><b>WXGA<\/b><\/td>\r\n\t\t\t\t\t<td nowrap>&nbsp;:&nbsp;<\/td>\r\n\t\t\t\t\t<td>1280x800 ou 1280x768<\/td>\r\n\t\t\t\t<\/tr>\r\n\t\t\t\t<tr>\r\n\t\t\t\t\t<td nowrap><b>SXGA+<\/b><\/td>\r\n\t\t\t\t\t<td nowrap>&nbsp;:&nbsp;<\/td>\r\n\t\t\t\t\t<td>1400x1050<\/td>\r\n\t\t\t\t<\/tr>\r\n\t\t\t<\/table>\r\n\t\t<\/td>\r\n\t\t<td style=\"padding-left:10px\">\r\n\t\t\t<table>\r\n\t\t\t\t<tr>\r\n\t\t\t\t\t<td nowrap><b>WSXGA<\/b><\/td>\r\n\t\t\t\t\t<td nowrap>&nbsp;:&nbsp;<\/td>\r\n\t\t\t\t\t<td>1680x1050<\/td>\r\n\t\t\t\t<\/tr>\r\n\t\t\t\t<tr>\r\n\t\t\t\t\t<td nowrap><b>UXGA<\/b><\/td>\r\n\t\t\t\t\t<td nowrap>&nbsp;:&nbsp;<\/td>\r\n\t\t\t\t\t<td>1600x1200<\/td>\r\n\t\t\t\t<\/tr>\r\n\t\t\t\t<tr>\r\n\t\t\t\t\t<td nowrap><b>WUXGA<\/b><\/td>\r\n\t\t\t\t\t<td nowrap>&nbsp;:&nbsp;<\/td>\r\n\t\t\t\t\t<td>1920x1200<\/td>\r\n\t\t\t\t<\/tr>\r\n\t\t\t\t<tr>\r\n\t\t\t\t\t<td nowrap><b>QXGA<\/b><\/td>\r\n\t\t\t\t\t<td nowrap>&nbsp;:&nbsp;<\/td>\r\n\t\t\t\t\t<td>2048x1536<\/td>\r\n\t\t\t\t<\/tr>\r\n\t\t\t\t<tr>\r\n\t\t\t\t\t<td nowrap><b>WQXGA<\/b><\/td>\r\n\t\t\t\t\t<td nowrap>&nbsp;:&nbsp;<\/td>\r\n\t\t\t\t\t<td>2560x1600<\/td>\r\n\t\t\t\t<\/tr>\r\n\t\t\t\t<tr>\r\n\t\t\t\t\t<td nowrap><b>QSXGA<\/b><\/td>\r\n\t\t\t\t\t<td nowrap>&nbsp;:&nbsp;<\/td>\r\n\t\t\t\t\t<td>2560x2048<\/td>\r\n\t\t\t\t<\/tr>\r\n\t\t\t\t<tr style=\"visibility:hidden;\">\r\n\t\t\t\t\t<td nowrap><b>WXGA<\/b><\/td>\r\n\t\t\t\t\t<td nowrap>&nbsp;:&nbsp;<\/td>\r\n\t\t\t\t\t<td>1280x800 ou 1280x768<\/td>\r\n\t\t\t\t<\/tr>\r\n\t\t\t<\/table>\r\n\t\t<\/td>\r\n\t<\/tr>\r\n<\/table>\r\n\r\n<b>Note<\/b> : ce type de connecteur est appelé à disparaître sur la plupart des équipements de dernière génération.\r\n\r\n",
+    "title": "VGA"
+  },
+  {
+    "status": "1",
+    "description": "<strong>APN<\/strong> : Appareil Photo Numérique",
+    "title": "APN"
+  },
+  {
+    "status": "1",
+    "description": "La série de norme <strong>ISO-9241-3xx<\/strong> encadre l'identification des classes de mesures pour les pixels défectueux sur un écran plat.\r\nA titre purement informatif, vous trouverez ci-dessous une description rapide des classes décrites dans la norme :\r\n<br\/>\r\n<br\/>\r\n<table>\r\n\t<tr>\r\n\t\t<td nowrap>\r\n\t\t\t<b>Classe 0<\/b>\r\n\t\t<\/td>\r\n\t\t<td nowrap>&nbsp;:&nbsp;<\/td>\r\n\t\t<td>\r\n\t\t\tdésigne un écran sans pixel ni sous-pixel défectueux.\r\n\t\t<\/td>\r\n\t<\/tr>\r\n\t<tr>\r\n\t\t<td nowrap>\r\n\t\t\t<b>Classe 1<\/b>\r\n\t\t<\/td>\r\n\t\t<td nowrap>&nbsp;:&nbsp;<\/td>\r\n\t\t<td>\r\n\t\t\ttolère certains ou tous les cas suivants :\r\n\t\t\t<br \/>\r\n\t\t\t<ul style=\"list-style-type:disc;padding:2px 0 0 10px;\">\r\n        \t\t<li>1 pixel bloqué ou blanc<\/li>\r\n        \t\t<li>1 pixel noir (bloqué en position éteinte)<\/li>\r\n        \t\t<li>2 simples ou double sous-pixels blancs ou noirs<\/li>\r\n        \t\t<li>De 3 à 5 sous-pixels bloqués allumés ou éteints<\/li>\r\n        \t<\/ul>\r\n\t\t<\/td>\r\n\t<\/tr>\r\n\t<tr>\r\n\t\t<td nowrap>\r\n\t\t\t<b>Classe 2<\/b>\r\n\t\t<\/td>\r\n\t\t<td nowrap>&nbsp;:&nbsp;<\/td>\r\n\t\t<td>\r\n\t\t\ttolère certains ou tous les cas suivants :\r\n\t\t\t<br \/>\r\n\t\t\t<ul style=\"list-style-type:disc;padding:2px 0 0 10px;\">\r\n        \t\t<li>2 pixels blancs<\/li>\r\n        \t\t<li>2 pixels noirs<\/li>\r\n        \t\t<li>5 à 10 simples ou double sous-pixels blancs ou noirs<\/li>\r\n        \t<\/ul>\r\n\t\t<\/td>\r\n\t<\/tr>\r\n\t<tr>\r\n\t\t<td nowrap>\r\n\t\t\t<b>Classe 3<\/b>\r\n\t\t<\/td>\r\n\t\t<td nowrap>&nbsp;:&nbsp;<\/td>\r\n\t\t<td>\r\n\t\t\ttolère certains ou tous les cas suivants :\r\n\t\t\t<br \/>\r\n\t\t\t<ul style=\"list-style-type:disc;padding:2px 0 0 10px;\">\r\n        \t\t<li>5 pixels blancs<\/li>\r\n        \t\t<li>15 pixels noirs<\/li>\r\n        \t\t<li>50 simples ou double sous-pixels bloqués allumés ou éteints.<\/li>\r\n        \t<\/ul>\r\n\t\t<\/td>\r\n\t<\/tr>\r\n<\/table>\r\n<br \/>\t\r\n<b>Note :<\/b> pour connaître les conditions précises d'application de la norme, il est recommandé d'étudier le texte de la norme dans son ensemble.\r\n",
+    "title": "ISO 9241-307"
+  },
+  {
+    "status": "1",
+    "description": "<strong>ColorComp<\/strong> est une  technologie propre la marque d'écran NEC qui permet la réduction des erreurs d'uniformité sur la surface des écrans LCD. Ce système très performant compense les différences entre les couleurs et le long de l'échelle des gris, ainsi que la luminance sur l'ensemble de l'écran. ",
+    "title": "ColorComp"
+  },
+  {
+    "status": "1",
+    "description": "Le <strong>gamma<\/strong> une fonction mathématique qui se traduit par une courbe de réponse qui donne la corrélation entre un signal émis (diffusion d'une image par un écran par exemple) et la réponse d'un capteur (l’œil humain). L’œil humain ne bénéficie pas d'une perception linéaire : il n'a pas la même sensibilité en basse et haute lumière. C'est pour cette raison que l'on applique des courbes de correction du gamma lors de l'étalonnage des écrans afin de prendre en compte cette particularité biologique. La valeur de cette correction est généralement de 2.2 pour l'affichage écran. A noter que plus la valeur de gamma est basse (1.0), plus l'image affichée paraîtra claire ; à l'inverse,  plus la valeur de gamma sera élevée, plus l'image paraîtra sombre (4.0 par exemple).",
+    "title": "Gamma"
+  },
+  {
+    "status": "1",
+    "description": "La longueur d’un câble vidéo relié à un moniteur informatique est habituellement restreinte. Plus la longueur du câble sera importante, plus le signal vidéo véhiculé perdra de l’amplitude, avec pour résultat une détérioration sensible de l’image.\r\nLa technologie NEC <strong>CableComp<\/strong> compense automatiquement cette atténuation du signal et ce décalage de couleur. Ces réglages de compensation peuvent  aussi être effectués manuellement. Des longueurs de câble jusqu’à 100  mètres peuvent être compensées sans aucun matériel supplémentaire.",
+    "title": "CableComp"
+  },
+  {
+    "status": "1",
+    "description": "<strong>sRGB<\/strong>, ou standard RGB (\"Red Green Blue\"), est un espace de couleur rouge vert bleu (RVB) proposé par Hewlett-Packard et Microsoft en 1996.\r\nCe standard colorimétrique est utilisé par la plupart des dispositifs numériques traitant la couleur tels que les écrans, les APN, les ordinateurs, les scanners...\r\n<br\/>\r\nLe point blanc de l'espace couleur sRGB correspond à l'illuminant D65 et le gamma retenu est de 2.2, valeur généralement adoptée pour l'affichage écran.",
+    "title": "sRGB"
+  },
+  {
+    "status": "1",
+    "description": "<strong>Adobe RVB<\/strong> (ou Adobe RGB en anglais) est un espace de couleur rouge vert bleu (RVB) créé par Adobe Systems en 1998.\r\nC'est un espace couleur beaucoup plus grand que l'espace sRGB. Son usage dans le milieu des professionnels de la couleurs en fait un standard de fait pour le traitement et l'affichage des images numériques RVB.\r\nAdobe RVB adopte un point blanc à D65 et un gamma à 2.2 comme l'espace standard sRVB. ",
+    "title": "AdobeRGB"
+  },
+  {
+    "status": "1",
+    "description": "<strong>Overdrive<\/strong> dans le contexte d'un écran signifie la présence d'accélérateur vidéo. Les images animées sont ainsi affichées de façon fluide et sans saccade.",
+    "title": "Overdrive"
+  },
+  {
+    "status": "1",
+    "description": "<strong>DDC<\/strong> (\"Display Data Channel\" ou en français \"canal des données de l'écran\") consiste en une connexion numérique entre un écran et un émetteur (par exemple une carte graphique). Elle permet d'établir une communication entre l'émetteur et le récepteur. Ce standard a été créé par le VESA.\r\nLe lien DDC est transporté sur 3 broches (données, horloge et masse) dans un connecteur VGA D-sub 15 broches, un connecteur DVI, un connecteur HDMI ou Display Port.\r\n<br \/>\r\n<b>DDC\/CI<\/b> (CI : Command Interface) est une extension du DDC spécifiée par le VESA en août 1998. Elle permet à un ordinateur avec une carte graphique appropriée (ou tout autre émetteur de contenu compatible avec la norme) d'ajuster les paramètres du moniteur tels que la luminosité et le contraste ou de réduire les interférences magnétiques.\r\nLes écrans supportant DDC\/CI comportent parfois un capteur externe qui leur permettent de se calibrer de manière autonome. Les écrans pivots qui possèdent ce genre de capteurs basculent l'affichage lorsque l'on fait pivoter leur dalle, offrant à la volée les positions paysage ou portrait.",
+    "title": "DDC"
+  },
+  {
+    "status": "1",
+    "description": "<strong>VESA<\/strong>, pour \"Video Electronics Standards Association\", est un groupe de représentants de constructeurs de matériel informatique dont le but est de définir des standards vidéo et de normaliser certains composants en la matière.\r\nListe des standards VESA :\r\n\r\n<ul style=\"list-style-type:disc;padding:2px 0 0 20px;\">\r\n\t<li><b>Standards obsolètes<\/b> : VESA Feature Connector (VFC), VESA Advanced Feature Connector (VAFC), VESA Local Bus (VLB), VESA Enhanced Video Connector.<\/li>\r\n\r\n\t<li><b>VESA BIOS Extensions (VBE)<\/b> permet d'utiliser des modes vidéo haute résolution et couleurs riches, via une interface logicielle commune à toutes les cartes graphiques compatibles.<\/li>\r\n\r\n\t<li><b>Display Data Channel (DDC)<\/b> permet à un moniteur de s'identifier vis-à-vis de la carte vidéo à laquelle il est connecté. Le format de données utilisé s'appelle Extended Display Identification Data (EDID).<\/li>\r\n\r\n\t<li><b>VESA Display Power Management Signaling<\/b> permet d'interroger les moniteurs sur leur mode d'économie d'énergie.<\/li>\r\n\r\n\t<li><b>Digital Packet Video Link (DPVL)<\/b>, pour ne mettre à jour l'affichage que sur certaines parties de l'écran.<\/li>\r\n\r\n\t<li><b>Flat Panel Display Interface (FPDI)<\/b>, standard de données et d'alimentation électrique pour des écrans plats.<\/li>\r\n\r\n\t<li><b>Flat Display Mounting Interface (FDMI)<\/b>, montage mécanique de l'écran sur un support mural.<\/li>\r\n\r\n\t<li><b>Generalized Timing Formula (GTF)<\/b>, méthode de génération de synchronisation de l'affichage, remplacée par Coordinated Video Timings (CVT).<\/li>\r\n\r\n\t<li><b>Video Interface Port (VIP)<\/b><\/li>\r\n\t<li><b>DisplayPort<\/b><\/li>\r\n<\/ul>\r\n",
+    "title": "VESA"
+  },
+  {
+    "status": "1",
+    "description": "<strong>NTAA<\/strong> (\"Non-Touch-Auto-Adjustment\") est une technologie NEC de réglage automatique. Elle consiste en la détection automatique du signal lors du raccordement du moniteur à la carte graphique de l'ordinateur. Si nécessaire, le système NTAA procède à un réajustement du signal. Cet auto-ajustement permet de garantir un affichage stable et une parfaite netteté. ",
+    "title": "NTAA"
+  },
+  {
+    "status": "1",
+    "description": "La norme <strong>DICOM<\/strong> (\"Digital Imaging and Communication in Medicine\") correspond à la méthode de communication entre les différents équipements d’imagerie médicale. Outre la définition d'un ensemble de règles et de nomenclatures afin d'assurer une bonne transmission des informations entre les différents appareils d'imagerie médicale, un réglage de gamma des écrans médicaux est recommandé pour être conforme à la norme DICOM. \r\n",
+    "title": "DICOM"
+  },
+  {
+    "status": "1",
+    "description": "<strong>NTSC<\/strong> (\"National Television System Committee\") est un système de diffusion analogique de la télévision principalement utilisé sur le continent américain. L'espace couleur NTSC est utilisé comme référence dans la diffusion vidéo et télévisuelle.",
+    "title": "NTSC"
+  },
+  {
+    "status": "1",
+    "description": "<strong>PIP<\/strong> (\"Picture In Picture\") est l'incrustation d'une image secondaire dans une image principale. Cela permet, par exemple, de visualiser deux sources ou flux vidéo en même temps sur un même écran.",
+    "title": "PIP"
+  },
+  {
+    "status": "1",
+    "description": "<strong>Ambix3<\/strong> est une technologie permettant une large compatibilité vidéo analogique et numérique . Elle permet également le basculement entre plusieurs types d’entrées vidéos.",
+    "title": "Ambix3"
+  },
+  {
+    "status": "1",
+    "description": "<strong>TileComp<\/strong> est une technologie permettant de simuler l’affichage d’une image sans cassure sur les bords d’écrans.\r\n",
+    "title": "TileComp"
+  },
+  {
+    "status": "1",
+    "description": "<strong>TileMatrix<\/strong> est une technologie facilitant la mise en place de murs d’écrans. ",
+    "title": "TileMatrix"
+  },
+  {
+    "status": "1",
+    "description": "<strong>Technologie Rapid Response<\/strong> est une technologie permettant un affichage ininterrompu et sans distorsion des vidéos haut débit.",
+    "title": "Technologie Rapid Response"
+  },
+  {
+    "status": "1",
+    "description": "<strong>AmbiBright<\/strong> est une technologie NEC pour l'ajustement automatique de la luminosité, du contraste et du niveau de noir, en fonction de l'environnement lumineux.",
+    "title": "AmbiBright"
+  },
+  {
+    "status": "1",
+    "description": "<strong>RAW<\/strong> est un format de fichier pour les images numériques. Ce n'est pas un format standard, mais plutôt la désignation d'un certain type de fichier créé par des dispositifs tels que les appareils photo numériques ou les scanners, et caractérisé par le fait de n'avoir subi que peu de traitement informatique.\r\n<br \/>\r\nCe terme provient de l'anglais raw qui signifie \"brut\". Le fichier contient toutes les données enregistrées par le capteur et est souvent assimilé à un négatif.\r\n<br \/>\r\nChaque type de RAW (plus de 200 actuellement) nécessite des instructions logicielles spécifiques pour être visionné et édité. \r\nGénéralement, les logiciels de développement RAW sont livrés avec des extensions pour chaque format. \r\n",
+    "title": "RAW"
+  },
+  {
+    "status": "1",
+    "description": "<b>DNG<\/b> (\"Digital NeGative\") est un format ouvert d'enregistrement des signaux bruts générés par les capteurs d'appareils numériques. Il a pour but de standardiser les innombrables (et incompatibles) formats RAW précédemment utilisés. La spécification d'origine a été présentée par Adobe Systems le 27 septembre 2004.",
+    "title": "DNG"
+  },
+  {
+    "status": "1",
+    "description": "<b>SWOP<\/b> (\"Specifications for Web Offset Publications\") désigne des spécifications techniques dans le domaine de l'impression Offset aux Etats-Unis.\r\n<br \/>\r\nSWOP est aussi une association professionnelle qui a pour objectif de promouvoir l'ensemble des critères techniques retenus pour améliorer la qualité et la fiabilité des impressions réalisées par les imprimeurs américains.\r\nA noter que la partie épreuve numérique est aussi traitée par l'association SWOP et permet ainsi aux ateliers prépresse de produire des bons-à-tirer conformes au standard SWOP.",
+    "title": "SWOP"
+  },
+  {
+    "status": "1",
+    "description": "L'IRC ou l'indice de rendu de couleur, est la capacité d'une source de lumière à restituer les différences entre couleurs du spectre visible. Avec la température de couleur, l'IRC est le second facteur permettant de qualifier une source de lumière et donc d'en mesurer la qualité perçue. L'IRC est quantitativement mesurable et s'exprime, pour une lumière considérée, comme un pourcentage de reconnaissance des couleurs, par rapport à un idéal et pour une température de couleur donnée. Pour un éclairage de bonne qualité, il est conseillé d'utiliser des lampes dont l'IRC est supérieur à 90.",
+    "title": "IRC"
+  },
+  {
+    "status": "1",
+    "description": "L'institut de recherche FOGRA est une association regroupant un nombre important d'entreprises allemandes et internationales des industries graphiques. Ses travaux sont mondialement reconnus et apportent aux acteurs de la chaine graphique des méthodes et technologies de pointes pour standardiser et améliorer  la qualité  de la production d'imprimés. FOGRA a parallèlement développé des outils de contrôle qualité et des programmes de certifications basés sur les normes ISO appliquées par les professionnels des arts graphiques. Vous pouvez en savoir plus sur <a href=\"www.fogra.de\" onclick=\"window.open('http:\/\/www.fogra.de');return false;\">www.fogra.de<\/a>.",
+    "title": "FOGRA"
+  },
+  {
+    "status": "1",
+    "description": "CTP est un matériel d'exposition d'image dont l'abréviation signifie en anglais \"Computer to Plate\". Les données sont exposées directement\r\nsur une plaque métallique servant ensuite à l’impression offset.",
+    "title": "CTP"
+  },
+  {
+    "status": "1",
+    "description": "Police de caractères. La somme de toutes les lettres et signes\r\nspéciaux appartenant à un type de caractère précis.",
+    "title": "Police"
+  },
+  {
+    "status": "1",
+    "description": "La norme ISO 12647-7 décrit les procédés et les moyens auxiliaires pour l’impression d'une épreuve de bon à tirer contractuel d'imprimerie. Cette norme encadre la certification FOGRA appelée Contract Proof (CPC).",
+    "title": "ISO 12647-7"
+  },
+  {
+    "status": "1",
+    "description": "La norme ISO 12647-8 décrit les procédés et les moyens auxiliaires pour l’impression numérique. Cette norme encadre la certification FOGRA appelée Validation Print (VPC).",
+    "title": "ISO 12647-8"
+  },
+  {
+    "status": "1",
+    "description": "On parle de métamérisme ou métamérie lorsque les couleurs de deux objets produisent une impression visuelle semblable sous un éclairage donné (lumière du jour) et apparaissent différentes sous un autre genre de lumière comme une ampoule à incandescence (A). Si par exemple un «brun rougeâtre» se transforme en un «brun verdâtre» sous un autre éclairage, on parle de bascule de nuance.",
+    "title": "Métamérisme"
+  },
+  {
+    "status": "1",
+    "description": "Le standard PDF\/X selon ISO 15930 règle la transmission des documents pour l’impression sur la base de PDF. Avec ce standard, il existe pour la première fois une règle précise sur la façon d’utiliser le format PDF dans\r\nl’industrie graphique de manière à la fois sûre et souple. La norme ISO 15930 se décline à ce jour en plusieurs versions : PDF\/X-1a (ISO 15930-1), PDF\/X-2 (ISO 15930-2), PDF\/X-3 (ISO 15930-3 et 15930-6), PDF\/X-4 (ISO 15930-7).",
+    "title": "PDF\/X"
+  },
+  {
+    "status": "1",
+    "description": "Le Softproof  ou épreuve à l'écran est un affichage correct du point de vue colorimétrique et du contenu des données numériques sur un écran. Les mêmes conditions que celles qui régissent l'épreuve numérique sur un support d’impression s'appliquent. Le logiciel utilisé doit permettre le calibrage et le profilage du périphérique d'affichage.",
+    "title": "Softproof"
+  },
+  {
+    "status": "1",
+    "description": "Appareil qui permet de mesurer les valeurs colorimétriques (ex. Lab, Luv, XYZ). Les spectrophotomètres contribuent à ce que l’ensemble de la chaîne graphique gère les couleurs dans  les tolérances\r\nchromatiques prescrites par les différentes normes ISO (ex. ISO 12647-2).",
+    "title": "Spectrophotomètre"
+  },
+  {
+    "status": "1",
+    "description": "L’Ugra a été fondée par huit associations de soutien comme association pour l’encouragement à la recherche scientifique dans l’industrie graphique suisse. De très nombreux produits (gammes Ugra, resp. moyens de contrôle Ugra) et activités (standardisation) contribuent à la renommée internationale du centre de compétence suisse pour la technologie des médias et de l’imprimerie qui a son siège à St. Gall.",
+    "title": "Ugra"
+  },
+  {
+    "status": "1",
+    "description": "FOGRA 51 est un nouveau standard  basé sur la norme ISO 12647-2:2013. Ce standard est destiné à être utilisé avec du papier offset matt et couché. FOGRA 51 prend en compte l'usage de papiers fortement azurés (ultra-blancs). La FOGRA 51 a pour vocation de remplacer la FOGRA 39. Pour une bonne simulation lors d'une épreuve numérique, il est conseillé de choisir un papier certifié FOGRA 51. A noter que les profils ICC pour cette nouvelle condition d'impression sont disponibles sur le site www.eci.org. Pour un complément d'information, une page est dédiée à ce sujet sur le site www.fogra.de.",
+    "title": "FOGRA51"
+  },
+  {
+    "status": "1",
+    "description": "OBA ou \"Optical Brightening Agents\" est un acronyme de langue anglaise indiquant la présence d'azurants optiques dans un papier par exemple. Les azurants optiques se matérialisent par la présence de points bleutés sur le couché du papier. Les papiers fortement azurés sont souvent appelés Ultra-blancs (Ultra-White en anglais). ",
+    "title": "OBA"
+  },
+  {
+    "status": "1",
+    "description": "FOGRA39 est un standard colorimétrique pour l'impression offset se basant sur la norme ISO 12647-2:2004. Son usage s'applique pour l'impression sur papier offset couché de type 1. Pour l'épreuve numérique encadrée par la norme ISO 12647-7, il est recommandé d'utiliser les profils ICC suivants comme profil d'entrée ou de description: isocoated_v2_eci.icc ou   isocoated_v2_300_eci.icc (téléchargeables sur www.eci.org). Pour plus d'informations sur la FOGRA39, une page est dédiée à ce sujet sur www.fogra.de.",
+    "title": "FOGRA39"
+  },
+  {
+    "status": "1",
+    "description": "Norme ISO encadrant l'impression offset selon un certain nombre de critères techniques. ",
+    "title": "12647-2:2004"
+  },
+  {
+    "status": "1",
+    "description": "FOGRA 52 est un nouveau standard  basé sur la norme ISO 12647-2:2013. Ce standard est destiné à être utilisé avec du papier non-couché. FOGRA 52 prend en compte l'usage de papiers fortement azurés (ultra-blancs). La FOGRA 52 a pour vocation de remplacer la FOGRA 47. Pour une bonne simulation lors d'une épreuve numérique, il est conseillé de choisir un papier certifié FOGRA 52. A noter que les profils ICC pour cette nouvelle condition d'impression sont disponibles sur le site www.eci.org. Pour un complément d'information, une page est dédiée à ce sujet sur le site www.fogra.de.",
+    "title": "FOGRA52"
+  },
+  {
+    "status": "1",
+    "description": "La norme ISO 9706 spécifie les critères de permanence du papier (vieillissement). Les impressions qui nécessitent une garantie de lisibilité, d'usage et de transmission sur de longues périodes doivent s'appuyer sur un support garantissant un certain nombre de qualités encadrées par des tolérances strictes :\r\n<br \/>\r\n<ul style=\"list-style-type:disc;padding:2px 0 0 20px;\">\r\n\t<li>Force minimale mesurée par un essai de résistance au déchirement.<\/li>\r\n\t<li>Quantité minimale, mesurée en terme de réserve alcaline, de substances qui neutralisent l’action de l’acide (par exemple, le carbonate de calcium).<\/li>\r\n\t<li>Quantité maximale, mesurée au moyen de l’indice Kappa, de produits facilement oxydables.<\/li>\r\n\t<li>pH maximal et minimal d’un extrait aqueux à froid du papier.<\/li>\r\n<\/ul>\r\n<br \/>\r\nEn conclusion, si tous les critères suivants sont réunis : une résistance à la déchirure minimale, une quantité minimale de substances contenant de l'acide, une quantité minimale de substances facilement oxydables, et une valeur de pH optimale, il est plus que probable de pouvoir utiliser des documents sur une très grande période.",
+    "title": "ISO 9706"
+  },
+  {
+    "status": "1",
+    "description": "L'affichage dit HiDPI (High Dots Per Inch) est apparu avec les écrans de smartphones et autres tablettes pour commencer à se généraliser sur les ordinateurs personnels avec les écrans UHD et DCI 4K. La très haute résolution de ces nouveaux afficheurs engendre une densité de points par pouce très grande. Le résultat visuel est stupéfiant car il permet d'obtenir une image très précise et cristalline. Cependant si le système d'exploitation et les applications utilisées ne sont pas compatibles HiDPI, les icônes et autres menus affichées à l'écran risquent d'être très petits et rendront la visualisation des informations à l'écran moins confortable.\r\nLes systèmes d'exploitation modernes offrent la possibilité dans leurs réglages d'affichage de se conformer à l'affichage HiDPI est ainsi faire bénéficier à leurs utilisateurs d'une image très haute résolution et un confort d'utilisation optimale. Les réglages compatibles HiDPI jouent essentiellement sur la taille des polices, des icônes, la dimension des menus et des boîtes de dialogue.   ",
+    "title": "HiDPI"
+  },
+  {
+    "status": "1",
+    "description": "Le Raster Image Processor (RIP en anglais) est, dans le monde des industries graphiques, l'outil informatique qui permet de tramer des données afin de les rendre imprimables. Le RIP fait le lien entre des données informatiques et des données exploitables pour l'impression. Le RIP reçoit en entrée une description de page (PostScript, PDF, divers formats propriétaires) ou des données raster, dont les couleurs sont décrites en tons continus, soit en CMJN, en RVB ou en niveaux de gris. Les logiciels RIP en tant que serveurs d'impressions permettent d'optimiser la production d'impression en proposant une gestion des couleurs améliorée et des modules logiciels dits de production (imbrication, découpe, mise à l'échelle, répétition....). Le Logiciel RIP est devenu incontournable dans le domaine de l'impression traditionnelle et numérique, il est un outil indispensable dans une production informatisée des imprimés !",
+    "title": "RIP"
+  },
+  {
+    "status": "1",
+    "description": "La Digigraphie® est le fruit de nombreuses années de recherche du groupe Seiko Epson sur les performances techniques de ses imprimantes et sur la qualité et la résistance de ses encres pigmentaires UltraChrome™.\r\nDigigraphie® est un label technique qui permet de produire ou reproduire une Oeuvre d'art en série limitée.  La Digigraphie® est officiellement lancée le 13 novembre 2003, à l'occasion du centenaire du salon d'Automne.\r\nFace à ces développements, Epson France dépose le nom de Digigraphie® auprès de l'INPI (Institut National de la Propriété Industrielle) et de l'OHIM (Institut de dépôt des marques européennes) en 2003. La marque devient alors européenne. Tous ceux qui respectent les règles d'usage peuvent désormais utiliser ce label.",
+    "title": "Digigraphie"
+  },
+  {
+    "status": "1",
+    "description": "L'espace de couleur DCI-P3 est un utilisé par l'industrie américaine du cinéma dans le cadre de la projection numérique de films. L'objectif de ce standard est de reproduire l'essentiel des couleurs perçues par l'oeil humain.",
+    "title": "DCI-P3"
+  },
+  {
+    "status": "1",
+    "description": "L'interface numérique série SDI est un protocole de transport ou de diffusion de différents formats de vidéo numérique. Le signal peut être transmis sous forme électrique, via un ou plusieurs câbles coaxiaux d'impédance caractéristique 75 Ω muni de connecteurs BNC, ou par fibre optique. Plusieurs normes existent pour s'adapter aux débits grandissant et à l'augmentation des résolutions d'images (HD-SDI =1,485 Gbit\/s, 3G-SDI = 2,970 Gbit\/s, UHD-SDI pour les très hautes résolutions 2K,4K et 8K).",
+    "title": "SDI"
+  },
+  {
+    "status": "1",
+    "description": "La haute définition ou HD désigne une classification d'équipements de télédiffusion et de vidéo numérique ayant une définition d'au moins 720p (1280 par 720 pixels).\r\nVoici une liste des principaux formats d'image HD exploités dans le monde :\r\n<ul class=\"disc\">\r\n<li> 720p  : 1 280 × 720 à 50 et 60 Hz en progressif (environ 0,9 mégapixels pour une image)<\/li>\r\n <li> 1080i : 1 920 × 1 080 à 50 et 60 Hz en entrelacé (environ 2 mégapixels pour une image)<\/li>\r\n <li>1080p : 1 920 × 1 080 en 24 et 30 Hz en progressif (environ 2 mégapixels pour une image)<\/li>\r\n <li>4K2K : 4 096 x 2 160 en progressif (environ 8,8 mégapixels pour une image)<\/li>\r\n<\/ul>\r\n",
+    "title": "HD"
+  },
+  {
+    "status": "1",
+    "description": "La connectique USB-C ou USB de type C a la particularité d'être réversible. C'est à dire qu'il n'est pas nécessaire de se préoccuper de son orientation lors de son branchement. La norme permet de transmettre des données, de la vidéo et du courant. Par exemple, il est possible de transmettre de la vidéo Ultra-HD (4K) d’un ordinateur portable vers un moniteur. Les ordinateurs portables les plus récents sont maintenant partiellement ou exclusivement équipés de cette connectique. Il faut absolument s'assurer de disposer de périphériques compatibles ou d'un adaptateur adéquat. A noter que les derniers ordinateurs portables Apple et certains ultra-portables d'autres marques disposent seulement de connecteurs USB-C.",
+    "title": "USB-C"
+  },
+  {
+    "status": "1",
+    "description": "Rec. 709 est un standard de l'industrie audiovisuelle pour la haute définition (HDTV). L'espace couleur ou gamut du Rec. 709 partage les mêmes primaires de chromaticité et de point neutre que l'espace sRGB (sRVB). En revanche la courbe de transfert (gamma) du Rec. 709 est en pratique de 2,40, l'espace sRGB utilisant en moyenne un gamma de 2.2.",
+    "title": "Rec. 709"
+  },
+  {
+    "status": "1",
+    "description": "EBU (European Broadcast Union) est une organisation internationale créée en 1950, la plus importante association professionnelle de radiodiffuseurs nationaux dans le monde avec 73 membres actifs dans 56 pays d’Europe, d’Afrique du Nord et du Proche-Orient, et 45 membres associés dans 25 pays d’autres régions du monde. En tant qu'association professionnelle, elle apporte conseils et directives techniques permettant une bonne pratique de la radio diffusion en Europe.",
+    "title": "EBU"
+  },
+  {
+    "status": "1",
+    "description": "SMPTE-C est le standard actuel pour la diffusion télévisuelle en Amérique. Le standard NTSC pour les couleurs primaires n'est plus utilisé. Les couleurs primaires maintenant utilisées sont celles préconisées par l'EBU (European Broadcast Union). En ce qui concerne le gamma et la température de couleur, ils sont respectivement de 2.2 et de 6500k.\r\n",
+    "title": "SMPTE-C"
+  },
+  {
+    "status": "1",
+    "description": "DCI (Digital Cinema Initiatives) est une association de professionnels du cinéma qui a pour objectif la préconisation de spécification techniques précises et documentées pour le  DCP (Digital Cinema Playback).",
+    "title": "DCI"
+  },
+  {
+    "status": "1",
+    "description": "Plus communément appelé <strong>calibrage écran<\/strong>, cela consiste à corriger l'écran en terme de rendu couleur, luminosité, contraste et gamma. Le calibrage de l'écran se fait à l'aide d'un calibrateur. La calibration d'un écran est indispensable, même pour un écran haut de gamme, et elle doit être effectuée régulièrement.",
+    "title": "Calibration écran"
+  },
+  {
+    "status": "1",
+    "description": "Datadock est une base de données unique sur la formation professionnelle sous l’angle de la qualité. Elle permet aux financeurs de la formation professionnelle de vérifier la conformité des organismes de formation vis-à-vis des 6 critères qualité définis par la Loi. Après leur enregistrement sur Datadock, les organismes de formation doivent déposer les éléments de preuve liés aux 21 indicateurs définis par les financeurs pour répondre aux 6 critères. Une fois le contrôle de la conformité des pièces réalisé, les organismes de formation deviennent « datadockés » par les financeurs. Chacun de ces derniers peut décider d’intégrer ces organismes de formation dans son catalogue de référence.",
+    "title": "Datadock"
+  }
+]

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright © 410 Gone (contact@410-gone.fr). All rights reserved.
+  ~ See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <funding>
+            <duration>
+                <months>{"_1625578315062_62":{"duration":"12"},"_1625578321811_811":{"duration":"24"},"_1625578323927_927":{"duration":"36"},"_1626438801104_104":{"duration":"48"},"_1626439005564_564":{"duration":"60"}}</months>
+            </duration>
+            <ratios>
+                <mapping>{"_1625578338688_688":{"value_mini":"1500","value_max":"4000","duration_12":"9.048","duration_24":"4.69","duration_36":"3.24","duration_48":"2.517","duration_60":"2.085"},"_1626438855581_581":{"value_mini":"4001","value_max":"7500","duration_12":"9.027","duration_24":"4.668","duration_36":"3.217","duration_48":"2.494","duration_60":"2.061"},"_1626438861175_175":{"value_mini":"7501","value_max":"12000","duration_12":"8.901","duration_24":"4.581","duration_36":"3.142","duration_48":"2.424","duration_60":"1.995"},"_1626438868549_549":{"value_mini":"12001","value_max":"15000","duration_12":"8.881","duration_24":"4.559","duration_36":"3.12","duration_48":"2.402","duration_60":"1.971"},"_1626438874656_656":{"value_mini":"15001","value_max":"30000","duration_12":"8.776","duration_24":"4.495","duration_36":"3.069","duration_48":"2.356","duration_60":"1.93"},"_1626438882525_525":{"value_mini":"30001","value_max":"45000","duration_12":"8.768","duration_24":"4.486","duration_36":"3.06","duration_48":"2.348","duration_60":"1.921"},"_1626438890416_416":{"value_mini":"45001","value_max":"150000","duration_12":"8.756","duration_24":"4.473","duration_36":"3.47","duration_48":"2.334","duration_60":"1.907"}}</mapping>
+            </ratios>
+        </funding>
+    </default>
+</config>

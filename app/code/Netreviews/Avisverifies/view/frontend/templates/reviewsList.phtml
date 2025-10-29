@@ -1,0 +1,159 @@
+<?php
+/* @var $block \Netreviews\Avisverifies\Block\AjaxReviews */
+$reviewsList = $block->getReviewList($block->getData());
+$storeUrl = $block->getStoreUrl();
+$isEnableMedia = $block->isEnableMedia();
+$isEnableHelpfulReviews = $block->isEnableHelpfulReviews();
+$getRichSnippets = $block->getRichSnippets();
+?>
+<?php if ($reviewsList): ?>
+    <?php foreach ($reviewsList as $review): ?>
+        <?php $sign = sha1($block->idWebsite . $review->id_review_product . $block->secretKey); ?>
+        <?php $name = (!empty($review->firstname)) ? $review->firstname . ' ' : 'Anonymous ';
+        $name .= (!empty($review->lastname)) ? $review->lastname[0] . '.' : '';
+        ?>
+        <!-- review -->
+        <?php if ($getRichSnippets == "schema"): ?>
+            <span itemprop="review" itemscope itemtype="https://schema.org/Review">
+                <meta itemprop="name" content="Net Reviews <?= date(__('d/m/Y'), strtotime($review->publish_date)) ?>"/>
+                <meta itemprop="reviewBody" content="<?= $block->escapeHtml($review->review); ?>"/>
+                <span itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <span itemprop="name" content="<?= $block->escapeHtml($name); ?>"></span>
+                </span>
+                <meta itemprop="datePublished" itemtype="https://schema.org/datePublished"
+                      content="<?= date(__('d/m/Y'), strtotime($review->publish_date)); ?>"/>
+                <span itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+                    <meta itemprop="ratingValue" content="<?= $review->rate; ?>"/>
+                </span>
+            </span>
+
+        <?php elseif ($getRichSnippets == "jsonld"): ?>
+            <script type="application/ld+json">
+                {
+                    "@context": "http://schema.org/",
+                    "@type": "Product",
+                    "@id": "<?= $block->escapeHtml($block->productId) ?>",
+                    "name": "<?= $block->escapeHtml($block->productName) ?>",
+                    "review" : {
+                        "@type": "Review",
+                        "reviewRating": {
+                            "@type": "Rating",
+                            "ratingValue": "<?= $review->rate; ?>"
+                        },
+                        "author": {
+                            "@type": "Person",
+                            "name": "<?= __($name); ?>"
+                        },
+                        "datePublished": "<?= date(__('d/m/Y'), strtotime($review->publish_date)); ?>",
+                        "reviewBody": "<?= $review->review; ?>"
+                    }
+                }
+            </script>
+
+        <?php endif; ?>
+        <div class="netreviews_review_part">
+            <p class="netreviews_customer_name">
+                <?php echo __($name); ?>
+                <span>&nbsp;
+                    <?php echo __('published') . "&nbsp;" . date(__('d/m/Y'), strtotime($review->publish_date)); ?>
+                </span>
+                <span style="font-size: 13px !important;">
+                                        <?php echo __("following an order made on") . "&nbsp;" . date(__('d/m/Y'),
+                                                strtotime($review->order_date)); ?>
+                                    </span>
+            </p>
+            <!-- review rate & stars -->
+            <div class="netreviews_review_rate_and_stars">
+                <!-- here -->
+                <div>
+                    <span class="nr-icon nr-star grey"></span><span class="nr-icon nr-star grey"></span><span
+                            class="nr-icon nr-star grey"></span><span class="nr-icon nr-star grey"></span><span
+                            class="nr-icon nr-star grey"></span>
+                </div>
+                <div>
+                    <?php for ($i = 1; $i <= $review->rate; $i++) {
+                        echo '<span class="nr-icon nr-star gold"></span>';
+                    } ?>
+                </div>
+                <div class="netreviews_reviews_rate">
+                    <?php echo $review->rate; ?>/5
+                </div>
+            </div>
+            <p class="netreviews_customer_review">
+                <?php echo $review->review; ?>
+            </p>
+            <!-- Media part -->
+            <?php if ($isEnableMedia == 'yes'): ?>
+                <?php $medias = $review->medias; ?>
+                <?php $data = $block->helperReviewsAPI->ntavMedias($medias); ?>
+                <?php if (isset($data)): ?>
+                    <ul class="netreviews_media_part">
+                        <?php foreach ($data as $id => $value) { ?>
+                            <li>
+                                <a data-type="image"
+                                   data-src="<?php echo $data[$id]['large']; ?>"
+                                   class="netreviews_image_thumb" href="javascript:"
+                                   style="background-image:url(' <?php echo $data[$id]['small']; ?>');">&nbsp;</a>
+                            </li>
+                        <?php }
+                        ?>
+                    </ul>
+                    <div class="netreviews_clear">&nbsp;</div>
+                <?php endif; ?>
+            <?php endif; ?>
+            <?php if (!empty($review->moderation)) :
+                usort($review->moderation, function ($a, $b) {
+                    $t1 = strtotime($a->comment_date);
+                    $t2 = strtotime($b->comment_date);
+                    return $t1 - $t2;
+                }); ?>
+                <?php foreach ($review->moderation as $key => $commentaire) :
+                $auteur = ($commentaire->comment_origin == 1 ? __('Moderator') : ($commentaire->comment_origin == 2 ? $storeUrl : __($name)));
+                $comment_date = explode('T', $commentaire->comment_date);
+                $display_moderation = ($key == 0) ? "display:block" : "display:none"; ?>
+                <div class="netreviews_website_answer" style="<?php echo $display_moderation; ?>">
+                    <p>
+                        <?php echo __('Response from'); ?>
+                        <span class="netreviews_answer_title">
+                                                    <?php echo $auteur; ?><!--&nbsp;-->
+                                                </span>
+                        <?php echo __('the') . ' ' . date(__('d/m/Y'), strtotime($comment_date[0])); ?>
+                        <br>
+                        <?php echo $commentaire->comment; ?>
+                    </p>
+                </div>
+            <?php endforeach; ?>
+                <?php if (count($review->moderation) > 1) : ?>
+                <a class="netreviews_button_comment show" href="javascript:void(0)" style="display:block;">
+                    <div class="nr-icon nr-comment"></div>
+                    <span><?php echo __('Display exchanges'); ?></span>
+                </a>
+                <a class="netreviews_button_comment hide" href="javascript:void(0)" style="display:none;">
+                    <div class="nr-icon nr-comment"></div>
+                    <span><?php echo __('Hide exchanges'); ?></span>
+                </a>
+            <?php endif; ?>
+            <?php endif; ?>
+            <?php if ($isEnableHelpfulReviews == 'yes') : ?>
+                <p class="netreviews_helpful_block">
+                    <?php echo __('Was this review helpful ?'); ?>
+                    <a href="javascript:void(0)"
+                       class="netreviewsVote" data-review-id="<?php echo $review->id_review_product; ?>"
+                       data-vote="1" data-sign="<?php echo $sign; ?>"
+                       id="<?php echo $review->id_review_product; ?>_1">
+                        <?php echo __('Yes'); ?>
+                        <span><?php echo $review->count_helpful_yes; ?></span>
+                    </a>
+                    <a href="javascript:void(0)"
+                       class="netreviewsVote" data-review-id="<?php echo $review->id_review_product; ?>"
+                       data-vote="0" data-sign="<?php echo $sign; ?>"
+                       id="<?php echo $review->id_review_product; ?>_0">
+                        <?php echo __('No'); ?>
+                        <span><?php echo $review->count_helpful_no; ?></span>
+                    </a>
+                </p>
+                <p class="netreviews_helpfulmsg" id="<?php echo $review->id_review_product; ?>_msg"></p>
+            <?php endif; ?>
+        </div>
+    <?php endforeach; ?>
+<?php endif; ?>

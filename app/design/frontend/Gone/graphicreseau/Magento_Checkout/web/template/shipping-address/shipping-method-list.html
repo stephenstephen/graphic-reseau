@@ -1,0 +1,37 @@
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<div id="checkout-shipping-method-load">
+    <!-- 410Gone overload start -->
+    <!-- ko foreach: { data: rates(), as: 'method'} -->
+        <!-- ko if: dangerous_disclaimier = ((method.extension_attributes || {}).custom || {}).is_dangerous --><!-- /ko -->
+    <!-- /ko -->
+    <!-- ko if: dangerous_disclaimier -->
+    <div class="dangerous-disclaimer">
+        <span>NOTE :</span>
+        <span
+            translate="'Some shipping methods are not available because they consider one or few ordered products as dangerous.'"></span>
+    </div>
+    <!-- /ko -->
+    <!-- 410Gone overload end -->
+    <table class="table-checkout-shipping-method">
+        <thead>
+        <tr class="row">
+            <th class="col col-method" translate="'Select Method'"></th>
+            <th class="col col-price" translate="'Price'"></th>
+            <th class="col col-carrier" translate="'Carrier Title'"></th>
+            <!-- begin 410 override -->
+            <th class="col col-delay" translate="'Shipping Date'"></th>
+            <!-- end 410 override -->
+        </tr>
+        </thead>
+        <tbody>
+        <!-- ko foreach: { data: rates(), as: 'method'} -->
+        <!--ko template: { name: element.shippingMethodItemTemplate} --><!-- /ko -->
+        <!-- /ko -->
+        </tbody>
+    </table>
+</div>

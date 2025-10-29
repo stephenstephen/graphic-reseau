@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Lyra Network.
+ * This file is part of Sogecommerce plugin for Magento 2. See COPYING.md for license details.
+ *
+ * @author    Lyra Network (https://www.lyra.com/)
+ * @copyright Lyra Network
+ * @license   https://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="payment">
+            <group id="sogecommerce" translate="comment" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label><![CDATA[Sogecommerce]]></label>
+                <comment><![CDATA[Accept payments by credit cards with Sogecommerce.]]></comment>
+                <attribute type="expanded">0</attribute>
+                <fieldset_css>complex sogecommerce-section</fieldset_css>
+                <frontend_model>Magento\Config\Block\System\Config\Form\Fieldset</frontend_model>
+
+                <include path="Lyranetwork_Sogecommerce::system/general.xml" />
+                <include path="Lyranetwork_Sogecommerce::system/standard.xml" />
+                <include path="Lyranetwork_Sogecommerce::system/multi.xml" />
+                <include path="Lyranetwork_Sogecommerce::system/gift.xml" />
+                <include path="Lyranetwork_Sogecommerce::system/choozeo.xml" />
+                <include path="Lyranetwork_Sogecommerce::system/oney.xml" />
+                <include path="Lyranetwork_Sogecommerce::system/fullcb.xml" />
+                <include path="Lyranetwork_Sogecommerce::system/sepa.xml" />
+                <include path="Lyranetwork_Sogecommerce::system/paypal.xml" />
+                <include path="Lyranetwork_Sogecommerce::system/franfinance.xml" />
+                <include path="Lyranetwork_Sogecommerce::system/other.xml" />
+            </group>
+        </section>
+    </system>
+</config>

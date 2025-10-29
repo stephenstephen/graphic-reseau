@@ -1,0 +1,25 @@
+{
+    "name": "gone/module-cloaking",
+    "description": "",
+    "type": "magento2-module",
+    "license": "proprietary",
+    "authors": [
+        {
+            "email": "thomas@410-gone.fr",
+            "name": "Thomas Taschereau"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "magento/magento-cms": "*",
+        "gone/gone-base": "*"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Gone\\Cloaking\\": ""
+        }
+    }
+}
