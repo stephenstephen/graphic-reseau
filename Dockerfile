@@ -4,10 +4,12 @@ FROM php:7.4-fpm
 RUN apt-get update && apt-get install -y \
     git \
     curl \
+    libcurl4-openssl-dev \
     libpng-dev \
     libonig-dev \
     libxml2-dev \
     libzip-dev \
+    zlib1g-dev \
     libicu-dev \
     libxslt1-dev \
     libfreetype6-dev \
@@ -25,13 +27,9 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg
 # Install PHP extensions required by Magento 2.4.2
 RUN docker-php-ext-install -j$(nproc) \
     bcmath \
-    ctype \
     curl \
     dom \
-    fileinfo \
     gd \
-    hash \
-    iconv \
     intl \
     mbstring \
     pdo_mysql \
@@ -39,10 +37,10 @@ RUN docker-php-ext-install -j$(nproc) \
     soap \
     sockets \
     sodium \
-    tokenizer \
     xmlwriter \
     xsl \
-    zip
+    zip \
+    opcache
 
 # Install Composer 2.x
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer

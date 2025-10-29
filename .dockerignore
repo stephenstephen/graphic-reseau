@@ -1,0 +1,26 @@
+# Git
+.git
+.gitignore
+
+# Docker
+docker-compose.yml
+Dockerfile
+.dockerignore
+
+# IDE
+.idea
+.vscode
+
+# Logs
+*.log
+
+# Cache
+var/cache/*
+var/page_cache/*
+var/session/*
+var/view_preprocessed/*
+generated/*
+
+# Temporary files
+*.tmp
+*.temp
