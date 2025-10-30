@@ -166,6 +166,15 @@
                         }
                     }
 
+                    &.on-order {
+                        color: lighten(@message-error__color, 10%);
+
+                        &:before {
+                            .stock-point-light(lighten(@message-error__color, 15%));
+                            top: 4px;
+                        }
+                    }
+
                     span.gr-fast-shipping {
                         max-width: 430px;
 

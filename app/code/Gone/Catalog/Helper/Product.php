@@ -26,6 +26,8 @@ use Magento\Framework\Message\ManagerInterface;
 use Magento\Framework\Registry;
 use Magento\Framework\View\Asset\Repository;
 use Magento\Store\Model\StoreManagerInterface;
+use Gone\Base\Helper\CoreConfigData;
+use Gone\Shipping\Helper\Date as ShippingDateHelper;
 
 /**
  * Catalog category helper
@@ -38,6 +40,7 @@ class Product extends \Magento\Catalog\Helper\Product
     protected ManagerInterface $_messageManager;
     protected SearchCriteriaBuilder $_searchCriteriaBuilder;
     protected StockRegistryInterface $_stockStatus;
+    protected CoreConfigData $_configHelper;
 
     public function __construct(
         Context                     $context,
@@ -53,7 +56,8 @@ class Product extends \Magento\Catalog\Helper\Product
         StockRegistryInterface      $stockStatus,
         ManagerInterface            $messageManager,
         array                       $reindexPriceIndexerData,
-        array                       $reindexProductCategoryIndexerData
+        array                       $reindexProductCategoryIndexerData,
+        CoreConfigData              $configHelper
     )
     {
         parent::__construct(
@@ -72,6 +76,7 @@ class Product extends \Magento\Catalog\Helper\Product
         $this->_messageManager = $messageManager;
         $this->_searchCriteriaBuilder = $searchCriteriaBuilder;
         $this->_stockStatus = $stockStatus;
+        $this->_configHelper = $configHelper;
     }
 
     /**
@@ -244,11 +249,22 @@ class Product extends \Magento\Catalog\Helper\Product
             ];
         } elseif ($product->isAvailable()) {
             if ($stockQty == 0 || $stockStatus == \Magento\CatalogInventory\Api\Data\StockStatusInterface::STATUS_OUT_OF_STOCK) {
+                $supplyDelay = $product->getSupplyDelays();
+                
+                // Check if supply delay exceeds threshold
+                if ($supplyDelay && $this->_isSupplyDelayExceedingThreshold($supplyDelay)) {
+                    return [
+                        'className' => 'on-order',
+                        'jsonLD' => 'PreOrder',
+                        'label' => __('On Order: Contact us')
+                    ];
+                }
+                
                 return [
                     'className' => 'supplying',
-                    'jsonLD' => $product->getSupplyDelays() ? 'BackOrder' : 'OutOfStock',
-                    'label' => $product->getSupplyDelays() ?
-                        __('Available within %1 day(s)', $product->getSupplyDelays()) :
+                    'jsonLD' => $supplyDelay ? 'BackOrder' : 'OutOfStock',
+                    'label' => $supplyDelay ?
+                        __('Available within %1 day(s)', $supplyDelay) :
                         __('Unknown lead time')
                 ];
             }
@@ -258,11 +274,22 @@ class Product extends \Magento\Catalog\Helper\Product
                 'label' => __('In stock')
             ];
         } else {
+            $supplyDelay = $product->getSupplyDelays();
+            
+            // Check if supply delay exceeds threshold
+            if ($supplyDelay && $this->_isSupplyDelayExceedingThreshold($supplyDelay)) {
+                return [
+                    'className' => 'on-order',
+                    'jsonLD' => 'PreOrder',
+                    'label' => __('On Order: Contact us')
+                ];
+            }
+            
             return [
                 'className' => 'supplying',
                 'jsonLD' => 'BackOrder',
-                'label' => $product->getSupplyDelays() ?
-                    __('Available within %1 day(s)', $product->getSupplyDelays()) :
+                'label' => $supplyDelay ?
+                    __('Available within %1 day(s)', $supplyDelay) :
                     __('Unknown lead time')
             ];
         }
@@ -276,5 +303,24 @@ class Product extends \Magento\Catalog\Helper\Product
     {
         $stockData = $this->_stockStatus->getStockStatus($product->getId());
         return $stockData->getQty();
+    }
+
+    /**
+     * Check if supply delay exceeds the configured threshold
+     * @param int $supplyDelay
+     * @return bool
+     */
+    protected function _isSupplyDelayExceedingThreshold(int $supplyDelay): bool
+    {
+        $threshold = (int)$this->_configHelper->getValueFromCoreConfig(
+            ShippingDateHelper::XML_PATH_MAX_SUPPLY_DELAY_THRESHOLD
+        );
+        
+        // If threshold is not configured or is 0, feature is disabled
+        if (empty($threshold)) {
+            return false;
+        }
+        
+        return $supplyDelay > $threshold;
     }
 }

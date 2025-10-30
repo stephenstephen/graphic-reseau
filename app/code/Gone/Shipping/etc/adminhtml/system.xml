@@ -17,6 +17,11 @@
                     <label>Ship before</label>
                     <comment>only int between 0 and 23 are allowed</comment>
                 </field>
+                <field id="max_supply_delay_threshold" translate="label" sortOrder="20" type="text" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
+                    <label>Max Supply Delay Before "On Order"</label>
+                    <comment>If supply delay exceeds this value (in days), display "On Order: Contact us" instead of "Available within X days". Leave empty to disable this feature.</comment>
+                    <validate>validate-digits</validate>
+                </field>
             </group>
         </section>
     </system>

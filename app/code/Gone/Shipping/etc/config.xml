@@ -9,6 +9,7 @@
         <gr_config>
             <shipping>
                 <max_hour>15</max_hour>
+                <max_supply_delay_threshold>30</max_supply_delay_threshold>
             </shipping>
         </gr_config>
         <carriers>

@@ -159,4 +159,12 @@
             .stock-point-light(lighten(@message-warning__color, 5%));
         }
     }
+
+    &.on-order {
+        color: lighten(@message-error__color, 5%);
+
+        &:before {
+            .stock-point-light(lighten(@message-error__color, 5%));
+        }
+    }
 }

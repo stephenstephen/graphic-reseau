@@ -1,0 +1,5 @@
+"Max Supply Delay Before ""On Order""","Seuil maximum avant affichage ""Sur Commande"""
+"If supply delay exceeds this value (in days), display ""On Order: Contact us"" instead of ""Available within X days"". Leave empty to disable this feature.","Si le délai d'approvisionnement dépasse cette valeur (en jours), afficher ""Sur Commande : Contactez-nous"" au lieu de ""Disponible sous X jours"". Laisser vide pour désactiver cette fonctionnalité."
+"Shipping","Livraison"
+"Ship before","Expédier avant"
+"only int between 0 and 23 are allowed","seuls les entiers entre 0 et 23 sont autorisés"
