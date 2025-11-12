@@ -19,7 +19,7 @@ class Date extends AbstractHelper
 {
 
     public const XML_PATH_MAX_SHIPPING_HOUR = 'gr_config/shipping/max_hour';
-    public const XML_PATH_MAX_SUPPLY_DELAY_THRESHOLD = 'gr_config/shipping/max_supply_delay_threshold';
+    public const XML_PATH_MAX_SUPPLY_DELAY_THRESHOLD = 'cataloginventory/product_availability/max_supply_delay_threshold';
 
     protected TimezoneInterface $_timezone;
     protected StockItemRepository $_stockItemRepository;

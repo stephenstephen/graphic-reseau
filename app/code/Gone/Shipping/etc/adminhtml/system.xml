@@ -7,6 +7,19 @@
   -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <system>
+        <!-- Configuration dans Catalog > Inventory pour Product Availability -->
+        <section id="cataloginventory" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+            <group id="product_availability" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Product Availability</label>
+                <field id="max_supply_delay_threshold" translate="label comment" sortOrder="10" type="text" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Max Supply Delay Before "On Order"</label>
+                    <comment>If supply delay exceeds this value (in days), display "On Order: Contact us" instead of "Available within X days". Leave empty to disable this feature.</comment>
+                    <validate>validate-digits</validate>
+                </field>
+            </group>
+        </section>
+        
+        <!-- Configuration originale de Shipping (sans le threshold) -->
         <section id="gr_config" translate="label" type="text" sortOrder="400" showInDefault="1" showInWebsite="1" showInStore="1">
             <label>Graphic Reseau Config</label>
             <tab>gone_tab</tab>
@@ -16,11 +29,6 @@
                 <field id="max_hour" translate="label" sortOrder="10" type="text" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
                     <label>Ship before</label>
                     <comment>only int between 0 and 23 are allowed</comment>
-                </field>
-                <field id="max_supply_delay_threshold" translate="label" sortOrder="20" type="text" showInDefault="1" showInWebsite="0" showInStore="0" canRestore="1">
-                    <label>Max Supply Delay Before "On Order"</label>
-                    <comment>If supply delay exceeds this value (in days), display "On Order: Contact us" instead of "Available within X days". Leave empty to disable this feature.</comment>
-                    <validate>validate-digits</validate>
                 </field>
             </group>
         </section>
